@@ -39,6 +39,21 @@ body {
 --bg-color:#f0f4f0;
 } 
 
+/* Container all web */
+.container{
+    display: flex;
+    width: 100%;
+    padding-inline: 10px;
+}
+.container_sidebar{
+    flex: 1;
+    padding: 20px;
+}
+.container_content{
+    flex: 7;
+    padding: 20px;
+}
+
 
 /* common button */
 .btn {
