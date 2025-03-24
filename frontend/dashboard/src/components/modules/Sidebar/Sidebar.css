@@ -1,0 +1,71 @@
+.sidebar{
+    display: block;
+    width: 200px;
+    background-color: var(--primary-dark);
+    height: 100vh;
+    padding: 20px;
+}
+.sidebar_header{
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.sidebar_header h2{
+    display: block;
+    font-family: var(---roboto-black);
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: var(--white-color);
+}
+.sidebar_header p{
+    display: block;
+    margin-top: 0.3rem;
+    font-family: var(--roboto-medium);
+    line-height: 1.5;
+    font-size: 0.8rem;
+    color: var(--white-color);
+}
+
+.sidebar nav{
+    display: block; 
+    margin-top: 2rem;
+}
+
+.nav_menu{
+    display: block;
+    text-align: left;
+}
+
+.nav_item{
+    display: block;
+    margin-bottom: 0.4rem;
+    padding: 10px 12px;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: linear background-color 0.3s;
+    &:hover{
+        background-color: rgba(255,255,255,0.1);
+    }
+}
+.nav_item.active{
+    background-color: rgba(255,255,255,0.1);
+}
+
+.nav_link{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    text-decoration: none;
+    gap: 10px;
+    font-family: var(--roboto-medium);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white-color);
+}
+ .nav_link_icon{
+    font-size: 1rem;
+}
+
+
+
