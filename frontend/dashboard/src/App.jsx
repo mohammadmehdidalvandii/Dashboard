@@ -1,6 +1,7 @@
 import { useRoutes } from "react-router-dom"
 import routes from "./routes"
 import Sidebar from "./components/modules/Sidebar/Sidebar";
+import MenuBar from "./components/modules/MenuBar/MenuBar";
 
 function App() {
   const router = useRoutes(routes);
@@ -11,7 +12,8 @@ function App() {
         </div>
         <div className="container_content">
           {router}
-          this is content page
+            this is content page
+           <MenuBar/>
           </div>
     </div>
   )

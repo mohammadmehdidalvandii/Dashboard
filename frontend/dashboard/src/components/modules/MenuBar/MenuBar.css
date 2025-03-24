@@ -1,0 +1,30 @@
+.menuBar{
+    display: none;
+    width: 100%;
+    padding: 5px 8px;
+    background-color:var(--primary-dark);
+    position: fixed;
+    bottom: 0;
+    z-index: 777;
+}
+.menuBar nav{
+    display: block;
+    max-width: 100%;
+}
+.menuBar .nav_menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    max-width: 100% !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menuBar {
+        display: block;
+    }
+    .nav_menu{
+        gap: 0.3rem;
+    }
+}
