@@ -2,6 +2,7 @@ import { useRoutes } from "react-router-dom"
 import routes from "./routes"
 import Sidebar from "./components/modules/Sidebar/Sidebar";
 import MenuBar from "./components/modules/MenuBar/MenuBar";
+import Header from "./components/modules/Header/Header";
 
 function App() {
   const router = useRoutes(routes);
@@ -11,9 +12,9 @@ function App() {
           <Sidebar/>
         </div>
         <div className="container_content">
+          <Header/>
           {router}
-            this is content page
-           <MenuBar/>
+         <MenuBar/>
           </div>
     </div>
   )

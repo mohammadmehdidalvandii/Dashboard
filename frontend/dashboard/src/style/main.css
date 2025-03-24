@@ -51,6 +51,8 @@ body {
 .container_content{
     flex: 7;
     width: 100%;
+    margin: 0 auto;
+    padding: 15px;
 }
 
 
@@ -69,6 +71,16 @@ body {
 
 .btn:hover {
     background: var(--primary-dark);
+}
+
+.bg_shadow{
+    position: fixed;
+    background-color: rgba(0,0,0,0.6);
+    width: 100%;
+    min-height: 100%;
+    left: 0;
+    bottom:0;
+    z-index: 888;
 }
 .form-group {
     margin-bottom: 1.5rem;
