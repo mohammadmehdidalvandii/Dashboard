@@ -82,6 +82,11 @@ body {
     bottom:0;
     z-index: 888;
 }
+
+.rtl{
+    direction: rtl;
+}
+
 .form-group {
     margin-bottom: 1.5rem;
 }

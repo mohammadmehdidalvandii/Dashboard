@@ -51,6 +51,9 @@
     display: block !important;
     font-family: var(--roboto-medium);
 }
+.rtl .profile_name{
+    margin-left: 0.3rem;
+}
 .profile_name span{
     display: block !important;
     margin-right:0.3rem;
@@ -80,6 +83,10 @@
     position: absolute;
     top: 5rem;
     right: 2rem;
+}
+.rtl .profileMenu {
+    right: auto;
+    left: 2rem;
 }
 .profileMenu_users{
     display: block !important;
@@ -111,6 +118,9 @@
     color: var(--primary-dark);
     margin-bottom: 0.5rem;
 }
+.rtl .profileMenu_link{
+    gap: 0.4rem;
+}
 .profileMenu_logout{
     display: flex;
     align-items: center;
@@ -124,6 +134,9 @@
     cursor: pointer;
     border-top: 1px solid var(--text-light);
     padding-top: 1rem;
+}
+.rtl .profileMenu_logout{
+    gap: 0.4rem;
 }
 .profileMenu_logout .text{
     font-size: 1rem;

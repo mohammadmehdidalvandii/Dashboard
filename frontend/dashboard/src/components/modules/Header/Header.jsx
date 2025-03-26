@@ -1,13 +1,15 @@
 import { FaArrowDown, FaUser } from 'react-icons/fa';
 import './Header.css';
-import { AiOutlineGlobal } from "react-icons/ai";
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IoSettingsSharp ,IoExitSharp } from 'react-icons/io5';
+import { useTranslation } from 'react-i18next';
+import BtnChangeLang from '../BtnChangeLang/BtnChangeLang';
 
 
 function Header() {
     const [activeMenu , setActiveMenu] = useState(false);
+    const {t} = useTranslation()
 
     const handlerShowProfileMenu = ()=>{
         setActiveMenu(!activeMenu);
@@ -16,19 +18,14 @@ function Header() {
     const handlerShowBg = ()=>{
         setActiveMenu(false)
     }
+
+
+
   return (
     <section className="header">
         <div>
             {/* Language Switcher */}
-            <button className="btn btn_header">
-                <span className="btn_header_icon">
-                    <AiOutlineGlobal/>
-                </span>
-                <span className="btn_header_text">
-                    English
-                </span>
-            </button>
-            {/* Profiles */}
+            <BtnChangeLang/>
             <div className="profiles">
                 <button onClick={handlerShowProfileMenu}>
                     <span className="profile_icon">
@@ -55,19 +52,19 @@ function Header() {
                         <span className='icon'>
                             <FaUser/>
                         </span>
-                        <span className='text'>Profile</span>
+                        <span className='text'>{t("Profile")}</span>
                     </NavLink>
                     <NavLink to='/Settings' className="profileMenu_link">
                         <span className='icon'>
                             <IoSettingsSharp/>
                         </span>
-                        <span className='text'>Settings</span>
+                        <span className='text'>{t("Settings")}</span>
                     </NavLink>
                     <button className="profileMenu_logout">
                         <span className='icon'>
                             <IoExitSharp />
                         </span>
-                        <span className='text'>Logout</span>
+                        <span className='text'>{t("Logout")}</span>
                     </button>
                 </div>
             </div>
