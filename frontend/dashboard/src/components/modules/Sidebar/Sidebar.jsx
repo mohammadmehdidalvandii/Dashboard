@@ -6,11 +6,14 @@ import { FaComments } from "react-icons/fa6";
 import { IoSettingsSharp } from "react-icons/io5";
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 
 function Sidebar() {
     const [routeMenu , setRouteMenu ] = useState('/');
     const location = useLocation();
+    const {t}= useTranslation();
+
 
     useEffect(()=>{
         const pathName = location.pathname;
@@ -22,8 +25,8 @@ function Sidebar() {
   return (
     <section className="sidebar">
         <div className="sidebar_header">
-            <h2>Admin Panel</h2>
-            <p>E-Commerce Management</p>
+            <h2>{t("Admin Panel")}</h2>
+            <p>{t("E-Commerce Management")}</p>
         </div>
         <nav>
             <ul className="nav_menu">
@@ -32,15 +35,15 @@ function Sidebar() {
                     <span className="nav_link_icon">
                         <MdHome/>
                     </span>
-                        <span>Dashboard</span>
+                        <span>{t("Dashboard")}</span>
                     </NavLink>
                 </li>
-                <li className={`nav_item ${routeMenu === '/Products' ? "active":""}`}>
+                <li className={`nav_item ${routeMenu === '/{t("Products")}' ? "active":""}`}>
                     <NavLink to='/Products' className='nav_link'>
                     <span className="nav_link_icon">
                         <FaBox/>
                     </span>
-                        <span>Products</span>
+                        <span>{t("Products")}</span>
                     </NavLink>
                 </li>
                 <li className={`nav_item ${routeMenu === '/Orders' ? "active":""}`}>
@@ -48,7 +51,7 @@ function Sidebar() {
                     <span className="nav_link_icon">
                         <FaShoppingCart/>
                     </span>
-                        <span>Orders</span>
+                        <span>{t("Orders")}</span>
                     </NavLink>
                 </li>
                 <li className={`nav_item ${routeMenu === '/Customers' ? "active":""}`}>
@@ -56,7 +59,7 @@ function Sidebar() {
                     <span className="nav_link_icon">
                         <FaUsers/>
                     </span>
-                        <span>Customers</span>
+                        <span>{t("Customers")}</span>
                     </NavLink>
                 </li>
                 <li className={`nav_item ${routeMenu === '/Comments' ? "active":""}`}>
@@ -64,7 +67,7 @@ function Sidebar() {
                     <span className="nav_link_icon">
                         <FaComments/>
                     </span>
-                        <span>Comments</span>
+                        <span>{t("Comments")}</span>
                     </NavLink>
                 </li>
                 <li className={`nav_item ${routeMenu === '/Inventory' ? "active":""}`}>
@@ -72,7 +75,7 @@ function Sidebar() {
                     <span className="nav_link_icon">
                         <MdInventory/>
                     </span>
-                        <span>Inventory</span>
+                        <span>{t("Inventory")}</span>
                     </NavLink>
                 </li>
                 <li className={`nav_item ${routeMenu === '/Settings' ? "active":""}`}>
@@ -80,7 +83,7 @@ function Sidebar() {
                     <span className="nav_link_icon">
                         <IoSettingsSharp/>
                     </span>
-                        <span>Settings</span>
+                        <span>{t("Settings")}</span>
                     </NavLink>
                 </li>
             </ul>
