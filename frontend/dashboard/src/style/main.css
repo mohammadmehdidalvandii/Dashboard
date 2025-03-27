@@ -176,6 +176,9 @@ th, td {
     text-align: left;
     padding: 10px;
 }
+.rtl th , .rtl td{
+    text-align: right;
+}
 
 th {
     color: #7f8c8d;

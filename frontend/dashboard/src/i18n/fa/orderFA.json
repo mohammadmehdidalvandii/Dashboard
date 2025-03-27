@@ -1,0 +1,10 @@
+{
+    "Recent Orders":"سفارشات اخیر",
+    "Order ID":"شماره سفارش",
+    "Customer":"نام مشتری",
+    "Product":"محصول",
+    "Amount":"هزنیه",
+    "Status":"Status",
+      "Completed":"تکمیل شد ",
+    "Pending":"در انتظار"
+}

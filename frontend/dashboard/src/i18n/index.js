@@ -6,6 +6,8 @@ import sidebarEN from './en/SidebarEN.json';
 import sidebarFA from './fa/SidebarFA.json'
 import statEN from './en/statEN.json'
 import statFa from './fa/statFA.json'
+import orderEN from './en/orderEN.json'
+import orderFA from './fa/orderFA.json'
 
 i18next
   .use(initReactI18next)
@@ -16,6 +18,7 @@ i18next
           ...headerEN,
           ...sidebarEN,
           ...statEN,
+          ...orderEN,
         }
       },
       fa: {
@@ -23,6 +26,7 @@ i18next
           ...headerFA,
           ...sidebarFA,
           ...statFa,
+          ...orderFA,
         }
       }
     },
