@@ -4,6 +4,8 @@ import headerEN from './en/headerEN.json';
 import headerFA from './fa/headerFA.json';
 import sidebarEN from './en/SidebarEN.json';
 import sidebarFA from './fa/SidebarFA.json'
+import statEN from './en/statEN.json'
+import statFa from './fa/statFA.json'
 
 i18next
   .use(initReactI18next)
@@ -13,12 +15,14 @@ i18next
         translation: {
           ...headerEN,
           ...sidebarEN,
+          ...statEN,
         }
       },
       fa: {
         translation: {
           ...headerFA,
           ...sidebarFA,
+          ...statFa,
         }
       }
     },
