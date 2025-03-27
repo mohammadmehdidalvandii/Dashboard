@@ -4,7 +4,7 @@ import MetaTag from "../../hook/MetaTag/MetaTag"
 function Products() {
   return (
     <>
-      <MetaTag title="Products"/>
+      <MetaTag title="Dashboard  | Products"/>
        this is products page
     </>
   )
