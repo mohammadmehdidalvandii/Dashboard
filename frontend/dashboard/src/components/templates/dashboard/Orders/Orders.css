@@ -1,0 +1,23 @@
+.orders{
+    display: block;
+    margin-block: 2rem;
+}
+.orders_wrapper{
+    display: block;
+}
+.orders_header{
+    display: block;  
+}
+.title_header{
+    display: block;
+    font-family: var(--roboto-black);
+    font-size: 2rem;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+}
+.box{
+    display: block;
+    width: 100%;
+    background-color: var(--white-color);
+    padding: 1.25rem;
+}

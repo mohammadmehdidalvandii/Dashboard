@@ -87,6 +87,22 @@ body {
     direction: rtl;
 }
 
+
+.title_header{
+    display: block;
+    font-family: var(--roboto-black);
+    font-size: 2rem;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+}
+.box{
+    display: block;
+    width: 100%;
+    background-color: var(--white-color);
+    padding: 1.25rem;
+}
+
+
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -149,13 +165,6 @@ body {
     text-align: center;
 }
 
-/* Card Styles */
-.card {
-    background-color:var(--bg-color);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
 
 /* Table Styles */
 table {
@@ -171,6 +180,8 @@ th, td {
 th {
     color: #7f8c8d;
     border-bottom: 2px solid #eee;
+    font-family: var(--roboto-bold);
+    font-size: 1.1rem;
 }
 
 td {
