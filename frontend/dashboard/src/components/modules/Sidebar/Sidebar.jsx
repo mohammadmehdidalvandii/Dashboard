@@ -38,7 +38,7 @@ function Sidebar() {
                         <span>{t("Dashboard")}</span>
                     </NavLink>
                 </li>
-                <li className={`nav_item ${routeMenu === '/{t("Products")}' ? "active":""}`}>
+                <li className={`nav_item ${routeMenu === '/Products' ? "active":""}`}>
                     <NavLink to='/Products' className='nav_link'>
                     <span className="nav_link_icon">
                         <FaBox/>
