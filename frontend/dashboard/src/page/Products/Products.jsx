@@ -1,8 +1,12 @@
+import MetaTag from "../../hook/MetaTag/MetaTag"
 
 
 function Products() {
   return (
-    <div>Products</div>
+    <>
+      <MetaTag title="Products"/>
+       this is products page
+    </>
   )
 }
 
