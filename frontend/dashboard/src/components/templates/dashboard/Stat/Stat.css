@@ -1,0 +1,90 @@
+.stat{
+    display: block;
+    margin-top: 2rem;
+}
+.stat_container{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.stat_card{
+    display: block;
+    width: 100%;
+    padding: 1.25rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+}
+
+
+.stat_card:nth-child(1) span{
+    color: #2ecc71;
+}
+.stat_card:nth-child(1) .stat_value{
+    color: #2ecc71;
+}
+.stat_card:nth-child(2) span{
+    color: #3498db;
+}
+.stat_card:nth-child(2) .stat_value{
+    color: #3498db;
+}
+.stat_card:nth-child(3) span{
+    color: #e74c3c;
+}
+.stat_card:nth-child(3) .stat_value{
+    color: #e74c3c;
+}
+.stat_card:nth-child(4) span{
+    color: #9b59b6;
+}
+.stat_card:nth-child(4) .stat_value{
+    color: #9b59b6;
+}
+
+
+.stat_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.64rem;
+}
+
+.stat_header span {
+    font-size: 1rem;
+}
+
+.stat_header h3{
+    font-family: var(--roboto-bold);
+    font-size: 1.5rem;
+    color: var(--primary-dark);
+}
+
+.stat_value{
+    display: block;
+    margin-top: 0.7rem;
+    font-family: var(--roboto-bold);
+    font-size: 1.8rem;
+}
+.stat_change{
+    display: block;
+    margin-top: 0.5rem;
+    font-family: var(--roboto-bold);
+    font-size: 0.8rem;
+}
+.stat_change span{
+    color: var(--text-light) !important;
+}
+.stat_change.positive{
+    color: var(--success-color);
+}
+.stat_change.negative{
+    color: var(--danger-color);
+}
+
+/* Responsive Stat */
+
+@media (max-width : 768px) {
+    .stat_container{
+      flex-wrap: wrap;
+    }
+}

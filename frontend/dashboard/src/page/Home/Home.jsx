@@ -1,8 +1,10 @@
-import React from 'react'
+import Stat from '../../components/templates/dashboard/Stat/Stat'
 
 function Home() {
   return (
-    <div>Home</div>
+  <>
+  <Stat/>
+  </>
   )
 }
 
