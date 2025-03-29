@@ -83,6 +83,42 @@ body {
     z-index: 888;
 }
 
+
+/* Model */
+.model{
+    display: block;
+    background-color: var(--white-color);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+.bg_model{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+.bg_model.show{
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* rtl */
 .rtl{
     direction: rtl;
 }
@@ -95,38 +131,83 @@ body {
     color: var(--primary-dark);
     margin-bottom: 1rem;
 }
+
 .box{
     display: block;
     width: 100%;
     background-color: var(--white-color);
     padding: 1.25rem;
+    border-radius: 0.5rem;
 }
 
 
-.form-group {
+/* Management styles */
+.management{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.management div{
+    display: block;
+}
+.management h2{
+    display: block;
+    font-family: var(--roboto-black);
+    font-size: 1.5rem;
+    color: var(--primary-dark);
+}
+.management p{
+    display: block;
+    margin-top: 0.5rem;
+    font-family: var(--roboto-light);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+.management button{
+    width: 150px;
+    font-family: var(--roboto-bold);
+    font-size: 1rem;
+}
+.management .icon{
+    margin-right: 0.2rem;
+}
+
+.form_group {
     margin-bottom: 1.5rem;
 }
 
-.form-group label {
+.form_group label {
     display: block;
     margin-bottom: 0.5rem;
     color:var(--text-dark);
-    font-size: 0.9rem;
+    font-family: var(--roboto-bold);
+    font-weight: 700;
+    font-size: 0.8rem;
 }
 
-.input-group {
+.input_group {
     position: relative;
 }
 
-.input-group i {
+.input_group i {
     position: absolute;
     left: 1rem;
     top: 50%;
     transform: translateY(-50%);
     color:var(--text-light);
 }
-
-.form-control {
+.form_input {
+    display: block;
+    margin-top: 0.5rem;
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 0.4rem;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+.form_control {
     width: 100%;
     padding: 0.8rem 1rem 0.8rem 2.5rem;
     border: 1px solid var(--border-color);
@@ -135,11 +216,43 @@ body {
     transition: border-color 0.3s ease;
 }
 
-.form-control:focus {
+.form_control:focus {
     outline: none;
     border-color:var(--primary-color);
 }
 
+/* Button Action  */
+.btn_action {
+    display: flex !important;
+    align-items: center;
+    gap: 1rem ;
+}
+.btn_action button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    border: none;
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    font-family: var(--roboto-light);
+    font-weight: 650;
+    font-size: 1rem;
+    color: var(--white-color);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn_save{
+    background:var(--primary-color);
+    &:hover{
+        background-color: var(--primary-dark);
+    }
+}
+.btn_cancel{
+    background-color: #95a5a6;
+}
 /* Status Colors */
 .status-completed {
     background-color: #e8f5e9;
@@ -222,7 +335,13 @@ td {
     }
 }
 @media (max-width : 576px) {
-    
+    .management{
+        display: block;
+    }
+    .management button{
+        margin-top: 1rem;
+        width: 100%;
+    } 
 }
 @media (max-width : 320px) {
     

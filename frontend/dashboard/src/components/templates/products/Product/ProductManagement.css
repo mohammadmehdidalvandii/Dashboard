@@ -1,0 +1,38 @@
+.product{
+    display: block;
+    margin-top: 2rem;
+}
+
+
+.addProduct_model{
+    display: block;
+    position: absolute;
+    left: 30%;
+    width: 600px;
+    margin-top: 2rem;
+}
+.addProduct_model select{
+    margin-bottom: 1.5rem;
+}
+.addProduct_model textarea{
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Responsive management Product */
+@media (max-width : 992px) {
+    .addProduct_model{
+        width: 420px;
+    }    
+}
+@media (max-width : 768px) {
+    .addProduct_model{
+        left: 20%;
+        width: 320px;
+    }
+}
+@media (max-width : 576px) {
+    .addProduct_model{
+        left: 10%;
+    }
+}

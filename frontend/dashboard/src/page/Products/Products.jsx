@@ -1,11 +1,11 @@
 import MetaTag from "../../hook/MetaTag/MetaTag"
-
+import ProductManagement from "../../components/templates/products/Product/ProductManagement"
 
 function Products() {
   return (
     <>
       <MetaTag title="Dashboard  | Products"/>
-       this is products page
+      <ProductManagement/>
     </>
   )
 }
