@@ -31,7 +31,7 @@ function Sidebar() {
         <nav>
             <ul className="nav_menu">
             <li className={`nav_item ${routeMenu === '/' ? "active":""}`}>
-                    <NavLink to='/Dashboard' className='nav_link'>
+                    <NavLink to='/' className='nav_link'>
                     <span className="nav_link_icon">
                         <MdHome/>
                     </span>
