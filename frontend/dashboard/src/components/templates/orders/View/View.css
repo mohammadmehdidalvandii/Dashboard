@@ -1,0 +1,67 @@
+.view{
+    display: block;
+    margin-block: 2rem;
+}
+.view .btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    width: 150px;
+}
+.view .items{
+    display: flex;
+    gap: 3rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.view .item{
+    display: block;
+}
+.item h4{
+    display: block;
+    font-family: var(--roboto-bold);
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
+.item p{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-family: var(--roboto-light);
+    font-weight: 650;
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+}
+.item p span:first-child{
+    color: var(--text-dark);
+}
+.item p span:last-child{
+    color: var(--text-light);
+}
+.view .address{
+    display: block;
+    margin-top: 2rem;
+}
+
+.view .address h6{
+    display: block;
+    font-family: var(--roboto-bold);
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.6rem;
+}
+.view .address p{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-family: var(--roboto-light);
+    font-weight: 650;
+    font-size: 1rem;
+    color: var(--text-light);
+}
+.title_order{
+    margin-top: 2rem;
+}
