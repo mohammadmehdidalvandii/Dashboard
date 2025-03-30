@@ -37,7 +37,7 @@ function OrderList() {
                             <td><span className="status-badge processing">Processing</span></td>
                             <td>
                                 <div className="btn_action">
-                                <NavLink to='/OrderView/:2' className='link btn_save'>
+                                <NavLink to='/OrdersView' className='link btn_save'>
                                     <FaEye/>
                                 </NavLink>
                                 <button className='btn_setting'>
