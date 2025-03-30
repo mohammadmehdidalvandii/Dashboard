@@ -2,15 +2,17 @@ import { FaEye, FaSearch, FaTimes } from 'react-icons/fa';
 import {IoSettings} from 'react-icons/io5' 
 import './OrderList.css';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 function OrderList() {
+    const { t } = useTranslation();
   return ( 
     <section className="orderList box">
             <div className="orderList_management">
-                <h2 className="title_header">Recent Orders</h2>
+                <h2 className="title_header">{t("Recent Orders")}</h2>
                 <div className="orderList_search">
-                    <input type="text" className="form_input"  placeholder='Search Orders...'/>
+                    <input type="text" className="form_input"  placeholder={t("Search Orders...")}/>
                     <button className='btn'><FaSearch/></button>
                 </div>
             </div>
@@ -18,12 +20,12 @@ function OrderList() {
             <table>
                     <thead>
                         <tr>
-                            <th>Order ID</th>
-                            <th>Customer</th>
-                            <th>Products</th>
-                            <th>Total</th>
-                            <th>Status</th>
-                            <th>Actions</th>
+                            <th>{t("Order ID")}</th>
+                            <th>{t("Customer")}</th>
+                            <th>{t("Products")}</th>
+                            <th>{t("Total")}</th>
+                            <th>{t("Status")}</th>
+                            <th>{t("Actions")}</th>
                         </tr>
                     </thead>
                     <tbody>
