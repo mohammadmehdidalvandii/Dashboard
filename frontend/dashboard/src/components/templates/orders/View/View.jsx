@@ -1,29 +1,31 @@
 import './View.css';
 import {NavLink} from 'react-router-dom'
+import { useTranslation } from 'react-i18next';
 
 function View() {
+  const {t} = useTranslation()
   return (
     <section className="view box">
         <div>
-            <NavLink to='/Orders' className="btn">Back to Orders</NavLink>
-            <h5 className="title_header">Order Details</h5>
+            <NavLink to='/Orders' className="btn">{t("Back to Orders")}</NavLink>
+            <h5 className="title_header">{t("Order Details")}</h5>
             <div className="items">
                 <div className="item">
-                    <h4>Order Information</h4>
+                    <h4>{t("Order Information")}</h4>
                     <p>
-                      <span>Order ID:</span>
+                      <span>{t("Order ID")}:</span>
                       <span>#12345</span>
                     </p>
                     <p>
-                      <span>Date :</span>
+                      <span>{t("Date")} :</span>
                       <span>March 20 , 2024</span>
                     </p>
                     <p>
-                      <span>Status :</span>
+                      <span>{t("Status")} :</span>
                       <span>Completed</span>
                     </p>
                     <p>
-                      <span>Total :</span>
+                      <span>{t("Total")} :</span>
                       <span>$999</span>
                     </p>
                 </div>
@@ -43,20 +45,20 @@ function View() {
                     </p>
                 </div>
             <div className="address">
-                <h6>Shipping Address</h6>
+                <h6>{t("Shipping Address")}</h6>
                 <p>123 Main St, Apt 4B, New York, NY 10001, USA</p>
             </div>
             </div>
         </div>
         <div>
-          <h5 className="title_header title_order">Orders Items</h5>
+          <h5 className="title_header title_order">{t("Orders Items")}</h5>
         <table>
           <thead>
             <tr>
-              <th>Products</th>
-              <th>Quantity</th>
-              <th>Price</th>
-              <th>Total</th>
+              <th>{t("Products")}</th>
+              <th>{t("Quantity")}</th>
+              <th>{t("Price")}</th>
+              <th>{t("Total")}</th>
             </tr>
           </thead>
           <tbody>

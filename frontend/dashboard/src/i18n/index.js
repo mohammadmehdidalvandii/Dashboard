@@ -12,6 +12,8 @@ import productsFA from './fa/productsFA.json'
 import productsEN from './en/productsEN.json' 
 import ordersEN from './en/ordersEN.json'
 import ordersFA from './fa/ordersFA.json'
+import viewEN from './en/viewEN.json'
+import viewFA from './fa/viewFA.json'
 
 i18next
   .use(initReactI18next)
@@ -25,6 +27,7 @@ i18next
           ...orderEN,
           ...productsEN,
           ...ordersEN,
+          ...viewEN,
         }
       },
       fa: {
@@ -35,6 +38,7 @@ i18next
           ...orderFA,
           ...productsFA,
           ...ordersFA,
+          ...viewFA,
         }
       }
     },

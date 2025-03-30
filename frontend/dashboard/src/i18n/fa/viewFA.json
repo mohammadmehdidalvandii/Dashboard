@@ -1,0 +1,18 @@
+{
+    "Back to Orders":"برگشت به سفارشات",
+    "Order Details":"جزئیات سفارش",
+    "Order Information":"مشخصات سفارش ",
+    "Order ID":"شناسه سفارش",
+    "Date":"تاریخ",
+    "Status":"وضعیت",
+    "Total":"جمع هزنیه ها",
+    "Customer Information":"اطلاعات مشتری",
+    "Name ":"نام",
+    "Email":"ایمیل",
+    "Phone ":"تلفن",
+    "Shipping Address":"آدرس حمل و نقل",
+    "Orders Items":"لیست سفارشات",
+    "Products":"محصول",
+    "Quantity":"مقدار",
+    "Price":"قیمت"
+}
