@@ -1,6 +1,7 @@
 import { FaEye, FaSearch, FaTimes } from 'react-icons/fa';
 import {IoSettings} from 'react-icons/io5' 
 import './OrderList.css';
+import { NavLink } from 'react-router-dom';
 
 
 function OrderList() {
@@ -34,9 +35,9 @@ function OrderList() {
                             <td><span className="status-badge processing">Processing</span></td>
                             <td>
                                 <div className="btn_action">
-                                <button className='btn_save'>
+                                <NavLink to='/OrderView/:2' className='btn_save'>
                                     <FaEye/>
-                                </button>
+                                </NavLink>
                                 <button className='btn_setting'>
                                     <IoSettings/>
                                 </button>
