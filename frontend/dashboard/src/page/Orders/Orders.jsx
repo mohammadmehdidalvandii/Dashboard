@@ -1,8 +1,11 @@
+import OrderManagement from "../../components/templates/orders/OrderManagement/OrderManagement"
 
 
 function Orders() {
   return (
-    <div>Orders</div>
+    <>
+    <OrderManagement/>
+    </>
   )
 }
 
