@@ -281,6 +281,12 @@ body {
         background-color: var(--primary-dark);
     }
 }
+.btn_setting{
+    background-color: var(--warning-color);
+    &:hover{
+        background-color: #d68910;
+    }
+}
 /* Status Colors */
 .status-completed {
     background-color: #e8f5e9;

@@ -1,0 +1,20 @@
+.orderList{
+    display: block;
+    margin-bottom: 2rem;
+}
+.orderList_management{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.orderList_search{
+    display: flex;
+    align-items: center;
+}
+.orderList input{
+    width: 200px;
+}
+
+.orderList table{
+    margin-top: 1rem;
+}
