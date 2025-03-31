@@ -3,10 +3,22 @@ import {IoSettings} from 'react-icons/io5'
 import './OrderList.css';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 
 
 function OrderList() {
     const { t } = useTranslation();
+
+    const [processModel , setProcessModel] = useState(false);
+
+    const showModelProcess = ()=>{
+        setProcessModel(true);
+    }
+
+    const removeModelProcess =()=>{
+        setProcessModel(false);
+    }
+
   return ( 
     <section className="orderList box">
             <div className="orderList_management">
@@ -40,7 +52,9 @@ function OrderList() {
                                 <NavLink to='/OrdersView' className='link btn_save'>
                                     <FaEye/>
                                 </NavLink>
-                                <button className='btn_setting'>
+                                <button className='btn_setting'
+                                onClick={showModelProcess}
+                                >
                                     <IoSettings/>
                                 </button>
                                 <button className='btn_delete'>
@@ -51,6 +65,35 @@ function OrderList() {
                         </tr>
                     </tbody>
                 </table>
+                {processModel &&(
+                <div className={processModel ? "bg_model show" : "'bg_model"}>
+                    <div className="processOrder model">
+                        <h5 className="title_header">Process Order</h5>
+                        <form action="" className="processOrder_form">
+                            <div className="form_group">
+                                <label className='form_label'>Update Status</label>
+                                <select className='form_input'>
+                                    <option value="">Select Status</option>
+                                    <option value="processing">Processing</option>
+                                    <option value="shipped">Shipped</option>
+                                    <option value="delivered">Delivered</option>
+                                    <option value="completed">Completed</option>
+                                </select>
+                            </div>
+                            <div className="form_group">
+                                <label className="form_label">Tracking Number</label>
+                                <input type="text" className="form_input" />
+                            </div>
+                            <div className="btn_action">
+                                <button className="btn_cancel"
+                                onClick={removeModelProcess}
+                                >Cancel</button>
+                                <button className="btn_save">Update Order</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                )}
             </div>
     </section>
   )
