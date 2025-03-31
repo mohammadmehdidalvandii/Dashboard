@@ -1,0 +1,9 @@
+.customersManagement{
+    display: block;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.customersManagement .btn{
+    width: 200px;
+}
