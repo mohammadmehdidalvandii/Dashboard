@@ -68,27 +68,27 @@ function OrderList() {
                 {processModel &&(
                 <div className={processModel ? "bg_model show" : "'bg_model"}>
                     <div className="processOrder model">
-                        <h5 className="title_header">Process Order</h5>
+                        <h5 className="title_header">{t("Process Order")}</h5>
                         <form action="" className="processOrder_form">
                             <div className="form_group">
-                                <label className='form_label'>Update Status</label>
+                                <label className='form_label'>{t("Update Status")}</label>
                                 <select className='form_input'>
-                                    <option value="">Select Status</option>
-                                    <option value="processing">Processing</option>
-                                    <option value="shipped">Shipped</option>
-                                    <option value="delivered">Delivered</option>
-                                    <option value="completed">Completed</option>
+                                    <option value="">{t("Select Status")}</option>
+                                    <option value="processing">{t("Processing")}</option>
+                                    <option value="shipped">{t("Shipped")}</option>
+                                    <option value="delivered">{t("Delivered")}</option>
+                                    <option value="completed">{t("Completed")}</option>
                                 </select>
                             </div>
                             <div className="form_group">
-                                <label className="form_label">Tracking Number</label>
+                                <label className="form_label">{t("Tracking Number")}</label>
                                 <input type="text" className="form_input" />
                             </div>
                             <div className="btn_action">
                                 <button className="btn_cancel"
                                 onClick={removeModelProcess}
-                                >Cancel</button>
-                                <button className="btn_save">Update Order</button>
+                                >{t("Cancel")}</button>
+                                <button className="btn_save">{t("Update Order")}</button>
                             </div>
                         </form>
                     </div>
