@@ -18,6 +18,8 @@ import processOrderEN from './en/processOrderEN.json'
 import processOrderFA from './fa/processOrderFA.json'
 import customersManageEN from './en/customersManageEN.json'
 import customersManageFA from './fa/customersManageFA.json'
+import customerChartEN from './en/customerChartEN.json'
+import customerChartFA from './fa/customerChartFA.json'
 
 i18next
   .use(initReactI18next)
@@ -34,6 +36,7 @@ i18next
           ...viewEN,
           ...processOrderEN,
           ...customersManageEN,
+          ...customerChartEN,
         }
       },
       fa: {
@@ -47,6 +50,7 @@ i18next
           ...viewFA,
           ...processOrderFA,
           ...customersManageFA,
+          ...customerChartFA,
         }
       }
     },
