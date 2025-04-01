@@ -365,10 +365,14 @@ td {
 
 /* Responsive  Utilities*/
 
+@media (max-width : 1260px) {
+    .container_content{
+        flex: 5 !important;
+     }
+}
 @media (max-width : 1200px) {
     .container_content{
-        width: 80%;
-        flex: 8;
+        flex: 6;
      }
 }
 @media (max-width : 1100px) {
