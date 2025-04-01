@@ -1,6 +1,7 @@
 
 import ChartBar from '../ChartBar/ChartBar'
 import ChartLine from '../ChartLine/ChartLine'
+import ChartPie from '../ChartPie/ChartPie'
 import './CustomerChart.css'
 
 function CustomerChart() {
@@ -17,6 +18,7 @@ function CustomerChart() {
             </div>
             <div className="item box">
                 <h6>Customer Retention</h6>
+                <ChartPie/>
             </div>
         </div>
     </section>
