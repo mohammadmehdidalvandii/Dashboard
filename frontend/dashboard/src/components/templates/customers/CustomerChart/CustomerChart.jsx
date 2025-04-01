@@ -1,4 +1,5 @@
 
+import ChartLine from '../ChartLine/ChartLine'
 import './CustomerChart.css'
 
 function CustomerChart() {
@@ -7,7 +8,7 @@ function CustomerChart() {
         <div className="customer_container">
             <div className="item box">
                 <h6>Customer Growth</h6>
-
+                <ChartLine/>
             </div>
             <div className="item box">
                 <h6>Average Purchase</h6>
