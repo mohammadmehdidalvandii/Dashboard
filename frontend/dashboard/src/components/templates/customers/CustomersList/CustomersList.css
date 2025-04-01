@@ -1,0 +1,18 @@
+.customersList{
+    display: block;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+}
+.customersList_management{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.customerList_search{
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+.customerList_search input{
+    width: 200px;
+}
