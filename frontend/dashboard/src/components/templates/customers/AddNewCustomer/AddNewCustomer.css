@@ -1,0 +1,40 @@
+.addCustomer{
+    display: block;
+    width: 100%;
+    margin-top: 2rem;
+}
+.addCustomer .btn_back{
+    margin-bottom: 2rem;
+    width: 200px;
+}
+.addCustomer_form{
+    display: block;
+    width: 100%;
+}
+
+.form_wrapper{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+}
+.addCustomer .from_group{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+
+/* Responsive  */
+@media (max-width : 768px) {
+ .addCustomer{
+    margin-bottom: 4rem;
+ }
+}
+@media (max-width : 576px) {
+    .form_wrapper{
+        flex-direction: column;
+    }
+}
+@media (max-width : 320px) {
+    
+}
