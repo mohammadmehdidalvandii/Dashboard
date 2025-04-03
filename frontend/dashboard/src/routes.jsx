@@ -4,6 +4,7 @@ import Orders from "./page/Orders/Orders";
 import OrderView from "./page/OrderView/OrderView";
 import Customers from "./page/Customers/Customers";
 import AddCustomer from "./page/AddCustomer/AddCustomer";
+import CustomerDetails from "./page/CustomerDetails/CustomerDetails";
 
 const routes = [
     {path:"/" , element:<Home/>},
@@ -12,6 +13,7 @@ const routes = [
     {path:"/OrdersView" , element:<OrderView/>},
     {path:"/Customers" , element:<Customers/>},
     {path:"/AddCustomer" , element:<AddCustomer/>},
+    {path:"/CustomerDetails" , element:<CustomerDetails/>},
 ]
 
 export default routes

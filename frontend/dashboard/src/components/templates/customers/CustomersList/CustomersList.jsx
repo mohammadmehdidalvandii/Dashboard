@@ -34,7 +34,7 @@ function CustomersList() {
                         <td>$2.499</td>
                         <td>
                             <div className="btn_action">
-                               <NavLink to='' className='link btn_save '><FaEye/></NavLink>
+                               <NavLink to='/CustomerDetails' className='link btn_save '><FaEye/></NavLink>
                                 <NavLink to='' className="link btn_setting"><FaEdit/></NavLink>
                                 <button className="btn_delete"><MdDelete/></button>
                             </div>
