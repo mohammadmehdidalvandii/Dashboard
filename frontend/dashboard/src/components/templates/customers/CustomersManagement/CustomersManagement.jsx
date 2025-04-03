@@ -1,6 +1,7 @@
 import { FaPlus } from 'react-icons/fa';
 import './CustomersManagement.css';
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 function CustomersManagement() {
     const {t} = useTranslation();
@@ -12,12 +13,12 @@ function CustomersManagement() {
                     <h2>{t("Customers Management")}</h2>
                     <p>{t("View and manage customers")}</p>
                 </div>
-                <button className="btn">
+                <NavLink to='/AddCustomer' className="btn link">
                                 <span className="icon">
                                     <FaPlus/>
                                 </span>
                                 <span className="text">{t("Add New Customer")}</span>
-                                </button>
+                                </NavLink>
             </div>
         </div>
    </section>

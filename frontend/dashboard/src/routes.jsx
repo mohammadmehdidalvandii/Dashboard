@@ -3,6 +3,7 @@ import Products from "./page/Products/Products";
 import Orders from "./page/Orders/Orders";
 import OrderView from "./page/OrderView/OrderView";
 import Customers from "./page/Customers/Customers";
+import AddCustomer from "./page/AddCustomer/AddCustomer";
 
 const routes = [
     {path:"/" , element:<Home/>},
@@ -10,6 +11,7 @@ const routes = [
     {path:"/Orders" , element:<Orders/>},
     {path:"/OrdersView" , element:<OrderView/>},
     {path:"/Customers" , element:<Customers/>},
+    {path:"/AddCustomer" , element:<AddCustomer/>},
 ]
 
 export default routes
