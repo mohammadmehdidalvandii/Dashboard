@@ -1,0 +1,33 @@
+.customerEdit{
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+.customerEdit .btn_back{
+    width: 200px;
+    margin-bottom: 2rem;
+}
+.customerEdit_form{
+    display: block;
+}
+.customerEdit_form .form_group{
+    display: block;
+    width: 100% !important;
+}
+.customerEdit_wrapper{
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+}
+/* Responsive */
+@media (max-width : 768px) {
+    .customerEdit_wrapper{
+        flex-direction: column;
+    }
+}
+@media (max-width : 576px) {
+
+}
+@media (max-width : 320px) {
+    
+}
