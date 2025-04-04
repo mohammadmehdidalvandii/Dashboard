@@ -35,7 +35,7 @@ function CustomersList() {
                         <td>
                             <div className="btn_action">
                                <NavLink to='/CustomerDetails' className='link btn_save '><FaEye/></NavLink>
-                                <NavLink to='' className="link btn_setting"><FaEdit/></NavLink>
+                                <NavLink to='/EditCustomer' className="link btn_setting"><FaEdit/></NavLink>
                                 <button className="btn_delete"><MdDelete/></button>
                             </div>
                         </td>
