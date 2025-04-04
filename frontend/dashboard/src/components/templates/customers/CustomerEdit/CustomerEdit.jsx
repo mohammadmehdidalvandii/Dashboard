@@ -34,7 +34,7 @@ function CustomerEdit() {
                             <option value="">{t("Bronze")}</option>
                             <option value="">{t("Silver")}</option>
                             <option value="">{t("Gold")}</option>
-                            <option value="">{t("PLatinum")}</option>
+                            <option value="">{t("Platinum")}</option>
                         </select>
                     </div>
                     <div className="form_group">
