@@ -2,6 +2,10 @@
     display: block;
     margin-top: 2rem;
 }
+.detailsCustomer .btn_back{
+    width: 200px;
+    margin-bottom: 2rem;
+}
 
 .detailsCustomer .items{
     display: flex;

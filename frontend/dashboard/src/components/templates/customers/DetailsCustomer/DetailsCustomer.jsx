@@ -1,9 +1,11 @@
 import './DetailsCustomer.css';
+import {NavLink} from 'react-router-dom'
 
 function DetailsCustomer() {
   return (
     <section className="detailsCustomer box">
         <div>
+          <NavLink to='/Customers' className='btn link btn_back'>Back To Customers</NavLink>
           <h2 className="title_header">Customer Details</h2>
           <div className="items">
             <ul className="item">
