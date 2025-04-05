@@ -1,0 +1,33 @@
+.inventoryList{
+    display: block;
+    width: 100%;
+    margin: 2rem 0 4rem 0;
+}
+.inventoryList_management{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.inventoryList_search{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.inventoryList_search input{
+    width: 200px;
+}
+.inventory_Status{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    border-radius:0.4rem;
+}
+
+/* Responsive  */
+@media (max-width : 576px) {
+    .inventoryList_management{
+        flex-direction: column;
+    }
+}

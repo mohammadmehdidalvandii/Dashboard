@@ -1,3 +1,4 @@
+import InventoryList from '../../components/templates/inventory/InventoryList/InventoryList'
 import InventoryManagement from '../../components/templates/inventory/InventoryManagement/InventoryManagement'
 import MetaTag from '../../hook/MetaTag/MetaTag'
 
@@ -6,6 +7,7 @@ function Inventory() {
     <>
     <MetaTag title='Dashboard | Inventory' />
     <InventoryManagement/>
+    <InventoryList/>
     </>
   )
 }
