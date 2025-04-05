@@ -78,7 +78,7 @@
     line-height: 1.5;
 }
 .item button{
-    width: 130px;
+    width: 100px !important;
 }
 
 /* Responsive */
