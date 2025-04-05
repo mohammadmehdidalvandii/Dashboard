@@ -6,6 +6,7 @@ import Customers from "./page/Customers/Customers";
 import AddCustomer from "./page/AddCustomer/AddCustomer";
 import CustomerDetails from "./page/CustomerDetails/CustomerDetails";
 import EditCustomer from "./page/EditCustomer/EditCustomer";
+import Comments from "./page/Comments/Comments";
 
 const routes = [
     {path:"/" , element:<Home/>},
@@ -16,6 +17,7 @@ const routes = [
     {path:"/AddCustomer" , element:<AddCustomer/>},
     {path:"/CustomerDetails" , element:<CustomerDetails/>},
     {path:"/EditCustomer" , element:<EditCustomer/>},
+    {path:"/Comments" , element:<Comments/>},
 ]
 
 export default routes
