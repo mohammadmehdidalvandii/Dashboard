@@ -11,5 +11,10 @@
     "Status":"وضعیت",
     "Actions":"عملیات",
     "Update":"به روزرسانی",
-    "Remove":"حذف"
+    "Remove":"حذف",
+    "Back to Inventory":"برگشت به انبار",
+    "Add New Stock":"افزودن مورد جدید",
+    "Product Name":"نام محصول",
+    "Quantity":"مقدار",
+    "Save":"ذخیره"
 }

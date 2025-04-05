@@ -11,5 +11,10 @@
     "Status":"Status",
     "Actions":"Actions",
     "Update":"Update",
-    "Remove":"Remove"
+    "Remove":"Remove",
+    "Back to Inventory":"Back To Inventory",
+    "Add New Stock":"Add New Stock",
+    "Product Name":"Product Name",
+    "Quantity":"Quantity",
+    "Save":"Save"
 }
