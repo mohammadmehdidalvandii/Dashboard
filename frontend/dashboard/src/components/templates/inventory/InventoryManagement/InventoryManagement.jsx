@@ -1,6 +1,7 @@
 import { FaPlus } from 'react-icons/fa6';
 import  './InventoryManagement.css';
 import {useTranslation} from 'react-i18next'
+import { NavLink } from 'react-router-dom';
 
 
 function InventoryManagement() {
@@ -14,10 +15,10 @@ function InventoryManagement() {
                     <p>{t("Track and manage inventory")}</p>
                 </div>
                 <div>
-                    <button className="btn">
+                    <NavLink to='/AddStock' className="btn link">
                         <span className="icon"><FaPlus/></span>
                         <span className="text">{t("Add Stock")}</span>
-                    </button>
+                    </NavLink>
                 </div>
             </div>
         </div>
