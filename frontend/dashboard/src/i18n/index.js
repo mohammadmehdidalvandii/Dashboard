@@ -22,6 +22,8 @@ import customerChartEN from './en/customerChartEN.json'
 import customerChartFA from './fa/customerChartFA.json'
 import customerListEN from './en/customerListEN.json'
 import customerListFA from './fa/customerListFA.json'
+import commentEN from './en/commentEN.json'
+import commentFA from './fa/commentFA.json'
 
 i18next
   .use(initReactI18next)
@@ -40,6 +42,7 @@ i18next
           ...customersManageEN,
           ...customerChartEN,
           ...customerListEN,
+          ...commentEN,
         }
       },
       fa: {
@@ -55,6 +58,7 @@ i18next
           ...customersManageFA,
           ...customerChartFA,
           ...customerListFA,
+          ...commentFA,
         }
       }
     },
