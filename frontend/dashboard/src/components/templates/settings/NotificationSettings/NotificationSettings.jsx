@@ -1,18 +1,20 @@
-import './NotificationSettings.css'
+import './NotificationSettings.css';
+import {useTranslation} from 'react-i18next'
 
 function NotificationSettings() {
+  const {t} =useTranslation()
   return (
     <section className="notificationSettings box">
         <div>
-            <h2 className="title_header">Notification Settings</h2>
-            <h5>Email Notifications</h5>
-            <p>Receive notifications via email</p>
+            <h2 className="title_header">{t("Notification Settings")}</h2>
+            <h5>{t("Email Notifications")}</h5>
+            <p>{t("Receive notifications via email")}</p>
             <form action="#">
             <div className="form_group">
-                <label >Email</label>
+                <label >{t("Email")}</label>
                 <input type="text"className='form_input' />
             </div>
-            <button className="btn">Save Email</button>
+            <button className="btn">{t("Save Email")}</button>
             </form>
         </div>
     </section>

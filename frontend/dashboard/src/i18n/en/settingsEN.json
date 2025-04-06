@@ -1,5 +1,10 @@
 {
     "Settings":"Settings",
     "Manage your preferences":"Manage your preferences",
-    "Go To Profile":"Go To Profile"
+    "Go To Profile":"Go To Profile",
+    "Notification Settings":"Notification Settings",
+    "Email Notifications":"Email Notifications",
+    "Receive notifications via email":"Receive notifications via email",
+    "Email":"Email",
+    "Save Email":"Save Email"
 }

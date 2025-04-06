@@ -1,5 +1,10 @@
 {
     "Settings":"تنظیمات",
     "Manage your preferences":"سیستم خود را مدیریت کنید",
-    "Go To Profile":"رفتن به پروفایل"
+    "Go To Profile":"رفتن به پروفایل",
+    "Notification Settings":"تنظیمات اطلاع رسانی",
+    "Email Notifications":"اعلان ایمیل ها",
+    "Receive notifications via email":"اعلان ها را از طریق ایمیل دریافت کنید",
+    "Email":"ایمیل",
+    "Save Email":"ذخیره ایمیل"
 }
