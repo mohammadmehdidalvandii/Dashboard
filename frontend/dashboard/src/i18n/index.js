@@ -26,6 +26,8 @@ import commentEN from './en/commentEN.json'
 import commentFA from './fa/commentFA.json'
 import InventoryEN from './en/inventoryEN.json'
 import InventoryFA from './fa/inventoryFA.json'
+import settingsEN from './en/settingsEN.json'
+import settingsFA from './fa/settingsFA.json'
 
 i18next
   .use(initReactI18next)
@@ -46,6 +48,7 @@ i18next
           ...customerListEN,
           ...commentEN,
           ...InventoryEN,
+          ...settingsEN,
         }
       },
       fa: {
@@ -62,7 +65,8 @@ i18next
           ...customerChartFA,
           ...customerListFA,
           ...commentFA,
-          ...InventoryFA
+          ...InventoryFA,
+          ...settingsFA,
         }
       }
     },
