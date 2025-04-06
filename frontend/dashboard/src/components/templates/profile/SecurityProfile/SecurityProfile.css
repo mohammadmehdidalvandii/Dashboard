@@ -1,0 +1,9 @@
+.securityProfile{
+    display: block;
+    width: 100%;
+    margin: 2rem 0 4rem 0;
+}
+.securityProfile form{
+    display: block;
+    margin-top: 2rem;
+}
