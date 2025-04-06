@@ -16,5 +16,10 @@
     "Add New Stock":"افزودن مورد جدید",
     "Product Name":"نام محصول",
     "Quantity":"مقدار",
-    "Save":"ذخیره"
+    "Save":"ذخیره",
+    "Update Stock":"به روزرسانی انبار",
+    "Current Stock":"مقدار در انبار",
+    "Add/Remove Stock":"کم و زیاد کردن انبار",
+    "New Stock Level":"تعداد جدید در انبار",
+    "Note":"یادداشت"
 }

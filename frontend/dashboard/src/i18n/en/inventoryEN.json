@@ -16,5 +16,10 @@
     "Add New Stock":"Add New Stock",
     "Product Name":"Product Name",
     "Quantity":"Quantity",
-    "Save":"Save"
+    "Save":"Save",
+    "Update Stock":"Update Stock",
+    "Current Stock":"Current Stock",
+    "Add/Remove Stock":"Add/Remove Stock",
+    "New Stock Level":"New Stock Level",
+    "Note":"Note"
 }
