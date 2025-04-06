@@ -36,7 +36,7 @@ function InventoryList() {
                     <td className='inventory_Status status-completed'>In Stock</td>
                     <td>
                         <div className="btn_action">
-                            <NavLink to='' className="btn_save link">{t("Update")}</NavLink>
+                            <NavLink to='/InventoryUpdate' className="btn_save link">{t("Update")}</NavLink>
                             <button className="btn_delete">{t("Remove")}</button>
                         </div>
                     </td>

@@ -9,6 +9,7 @@ import EditCustomer from "./page/EditCustomer/EditCustomer";
 import Comments from "./page/Comments/Comments";
 import Inventory from "./page/Inventory/Inventory";
 import AddStock from "./page/AddStock/AddStock";
+import InventoryUpdate from "./page/InventoryUpdate/InventoryUpdate";
 
 const routes = [
     {path:"/" , element:<Home/>},
@@ -22,6 +23,7 @@ const routes = [
     {path:"/Comments" , element:<Comments/>},
     {path:"/Inventory" , element:<Inventory/>},
     {path:"/AddStock" , element:<AddStock/>},
+    {path:"/InventoryUpdate" , element:<InventoryUpdate/>},
 ]
 
 export default routes
