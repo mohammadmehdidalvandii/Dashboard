@@ -1,0 +1,25 @@
+.notificationSettings{
+    display: block;
+    width: 100%;
+    margin-bottom: 4rem;
+}
+.notificationSettings h5{
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    font-family: var(--roboto-bold);
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: var(--primary-dark);
+}
+.notificationSettings p{
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+.notificationSettings form{
+    margin-top: 1rem;
+}

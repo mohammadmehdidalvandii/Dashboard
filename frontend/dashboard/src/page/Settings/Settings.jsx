@@ -1,3 +1,4 @@
+import NotificationSettings from '../../components/templates/settings/NotificationSettings/NotificationSettings'
 import SettingsManagement from '../../components/templates/settings/SettingsManagement/SettingsManagement'
 import MetaTag from '../../hook/MetaTag/MetaTag'
 
@@ -6,6 +7,7 @@ function Setting() {
     <>
      <MetaTag title='Dashboard | Settings' />
      <SettingsManagement/>
+     <NotificationSettings/>
     </>
   )
 }
