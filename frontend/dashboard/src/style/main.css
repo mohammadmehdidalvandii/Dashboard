@@ -202,17 +202,6 @@ body {
     font-size: 0.8rem;
 }
 
-.input_group {
-    position: relative;
-}
-
-.input_group i {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color:var(--text-light);
-}
 .form_input {
     display: block;
     margin-top: 0.5rem;

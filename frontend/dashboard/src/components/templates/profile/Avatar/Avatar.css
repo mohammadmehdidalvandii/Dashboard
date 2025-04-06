@@ -1,0 +1,63 @@
+.avatar{
+    display: block;
+    width: 100%;
+    margin-top: 2rem;
+}
+.avatar div:first-child{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.avatar img{
+    display: block;
+    width: 150px;
+    height: 150px;
+    background-color: var(--primary-dark);
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+}
+
+.avatar h5{
+    display: block;
+    width: 100%;
+    font-family: var(--roboto-black);
+    font-size: 2rem;
+    color: var(--primary-dark);
+}
+.avatar p{
+    display: block;
+    width: 100%;
+    margin-block: 0.4rem    ;
+    font-weight: 700;
+    font-size: 1.2em;
+    color: var(--text-light);
+}
+
+.avatar span{
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--success-color);
+}
+.avatar_form{
+    display: block;
+    margin-top: 2rem;
+}
+.avatar_form_wrapper{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+}
+.avatar_form_wrapper .form_group{
+    display: block !important;
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width : 576px) {
+.avatar_form_wrapper{
+    flex-direction: column;
+}
+}
