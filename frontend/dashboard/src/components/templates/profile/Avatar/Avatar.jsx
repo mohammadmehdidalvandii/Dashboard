@@ -1,7 +1,8 @@
 import './Avatar.css';
-import {FaUser } from 'react-icons/fa'
+import {useTranslation} from 'react-i18next'
 
 function Avatar() {
+    const {t} = useTranslation()
   return (
     <section className="avatar box">
         <div>
@@ -15,29 +16,29 @@ function Avatar() {
         <form action="#" className="avatar_form">
             <div className="avatar_form_wrapper">
                 <div className="form_group">
-                    <label htmlFor="">First Name</label>
+                    <label htmlFor="">{t("First Name")}</label>
                         <input type="text" className='form_input'/>
                 </div>
                 <div className="form_group">
-                    <label htmlFor="">Last Name</label>
+                    <label htmlFor="">{t("Last Name")}</label>
                         <input type="text" className='form_input'/>
                 </div>
             </div>
             <div className="avatar_form_wrapper">
                 <div className="form_group">
-                    <label htmlFor="">Email</label>
+                    <label htmlFor="">{t("Email")}</label>
                         <input type="text" className='form_input'/>
                 </div>
                 <div className="form_group">
-                    <label htmlFor="">Phone</label>
+                    <label htmlFor="">{t("Phone")}</label>
                         <input type="text" className='form_input'/>
                 </div>
             </div>
             <div className="form_group">
-                    <label htmlFor="">Bio</label>
+                    <label htmlFor="">{t("Bio")}</label>
                         <textarea rows={4} type="text" className='form_input' />
                 </div>
-                <button className="btn">Save Change</button>
+                <button className="btn">{t("Save Change")}</button>
         </form>
     </section>
   )

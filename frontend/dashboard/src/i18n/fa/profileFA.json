@@ -1,0 +1,16 @@
+{
+    "First Name":"نام",
+    "Last Name":"نام خانوادگی",
+    "Email":"ایمیل",
+    "Phone":"تلفن",
+    "Bio":"بیو",
+    "Save Change":"ذخیره تغییرات",
+    "Security Settings":"تنظیمات امنیتی",
+    "Current Password":"رمزعبور قبلی",
+    "New Password":"رمزعبور جدید",
+    "Confirm New Password":"تایید رمزعبور جدید",
+    "Enter current password":"وارد کردن رمز عبور قبلی",
+    "Enter new password":"واردکردن رمزعبور جدید",
+    "Confirm new password":" تایید رمزعبور جدید",
+    "Update Password":"ذخیره رمزعبور"
+}
