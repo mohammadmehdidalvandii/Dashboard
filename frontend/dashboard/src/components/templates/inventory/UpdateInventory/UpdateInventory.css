@@ -1,0 +1,13 @@
+.inventoryUpdate{
+    display: block;
+    width: 100%;
+    margin: 2rem 0 4rem 0; 
+}
+.inventoryUpdate .btn_back{
+    width: 170px;
+    margin-bottom: 1rem;
+}
+.inventoryUpdate_form{
+    display: block;
+    width: 100%;
+}
