@@ -413,6 +413,11 @@ td {
 
 /* Responsive  Utilities*/
 
+@media (max-width : 1360px) {
+    .container_content{
+        flex: 5;
+     }
+}
 @media (max-width : 1260px) {
     .container_content{
         flex: 4;
