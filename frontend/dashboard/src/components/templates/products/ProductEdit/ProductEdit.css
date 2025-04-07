@@ -1,0 +1,9 @@
+.productEdit{
+    display: block;
+    width: 100%;
+    margin: 2rem 0 4rem 0;
+}
+.productEdit .btn_back{
+    width: 160px;
+    margin-bottom: 1rem;
+}
