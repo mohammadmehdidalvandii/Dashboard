@@ -19,15 +19,20 @@
     font-size: 1.8rem;
     color: var(--white-color);
 }
+.rtl .sidebar_header h2{
+    font-family: var(--dana-black);
+}
 .sidebar_header p{
     display: block;
-    margin-top: 0.3rem;
+    margin-top: 0.5rem;
     font-family: var(--roboto-medium);
     line-height: 1.5;
     font-size: 0.8rem;
     color: var(--white-color);
 }
-
+.rtl .sidebar_header p{
+    font-family: var(--dana-medium);
+}
 .sidebar nav{
     display: block; 
     margin-top: 2rem;
@@ -63,6 +68,9 @@
     font-size: 1rem;
     font-weight: 700;
     color: var(--white-color);
+}
+.rtl .nav_link{
+    font-family: var(--dana-medium);
 }
  .nav_link_icon{
     font-size: 1rem;

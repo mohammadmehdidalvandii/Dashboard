@@ -12,6 +12,9 @@
     font-size: 1.4rem;
     color: var(--primary-dark);
 }
+.rtl .notificationSettings h5{
+    font-family: var(--dana-bold);
+}
 .notificationSettings p{
     display: block;
     width: 100%;

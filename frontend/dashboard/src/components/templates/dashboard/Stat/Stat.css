@@ -58,18 +58,26 @@
     font-size: 1.5rem;
     color: var(--primary-dark);
 }
-
+.rtl .stat_header h3{
+    font-family: var(--dana-bold);
+}
 .stat_value{
     display: block;
     margin-top: 0.7rem;
     font-family: var(--roboto-bold);
     font-size: 1.8rem;
 }
+.rtl .stat_value{
+    font-family: var(--dana-bold);
+}
 .stat_change{
     display: block;
     margin-top: 0.5rem;
     font-family: var(--roboto-bold);
     font-size: 0.8rem;
+}
+.rtl .stat_change{
+    font-family: var(--dana-bold);
 }
 .stat_change span{
     color: var(--text-light) !important;

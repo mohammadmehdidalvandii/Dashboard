@@ -53,6 +53,7 @@
 }
 .rtl .profile_name{
     margin-left: 0.3rem;
+    font-family: var(--dana-medium);
 }
 .profile_name span{
     display: block !important;
@@ -93,6 +94,9 @@
     font-family: var(--roboto-medium);
     padding-bottom: 1rem;
 }
+.rtl .profileMenu_users{
+    font-family: var(--dana-medium);
+}
 .profileMenu_users span{
     display: block !important;
     font-size: 0.9rem;
@@ -120,6 +124,7 @@
 }
 .rtl .profileMenu_link{
     gap: 0.4rem;
+    font-family: var(--dana-bold);
 }
 .profileMenu_logout{
     display: flex;
@@ -137,6 +142,7 @@
 }
 .rtl .profileMenu_logout{
     gap: 0.4rem;
+    font-family: var(--dana-bold);
 }
 .profileMenu_logout .text{
     font-size: 1rem;

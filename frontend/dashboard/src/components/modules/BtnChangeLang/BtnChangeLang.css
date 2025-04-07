@@ -9,6 +9,9 @@
     font-size: 1.1rem;
     font-weight: 800;
 }
+.rtl .btn_change{
+    font-family: var(--dana-medium);
+}
 option{
     cursor: pointer !important;
 }

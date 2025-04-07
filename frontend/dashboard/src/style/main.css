@@ -34,11 +34,19 @@ body {
     font-family: var(--roboto-light);
     position: relative;
 }
+.rtl body{
+  font-family: var(--dana-medium);
+  font-weight: 700;
+  font-size: 1rem;
+}
 /* Root */
 :root{
 --roboto-light: 'Roboto-Light';
 --roboto-bold: 'Roboto-Bold';
 --roboto-black: 'Roboto-Black';
+--dana-black :"danaBlack";
+--dana-bold:"danaBold";
+--dana-medium:"danaMedium";
 
 --primary-color: #2A6154;
 --primary-dark: #1B4D3E;
@@ -80,7 +88,9 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
+.rtl .btn{
+    font-family: var(--dana-medium);
+}
 .btn:hover {
     background: var(--primary-dark);
 }
@@ -159,6 +169,10 @@ body {
     color: var(--primary-dark);
     margin-bottom: 1rem;
 }
+.rtl .title_header{
+    font-family: var(--dana-black);
+    font-size: 2rem;
+}
 
 .box{
     display: block;
@@ -184,6 +198,9 @@ body {
     font-size: 1.5rem;
     color: var(--primary-dark);
 }
+.rtl .management h2{
+    font-family: var(--dana-black);
+}
 .management p{
     display: block;
     margin-top: 0.5rem;
@@ -192,10 +209,20 @@ body {
     font-weight: 700;
     color: var(--text-light);
 }
+.rtl .management p{
+    font-family: var(--dana-medium);
+}
 .management button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     width: 150px;
     font-family: var(--roboto-bold);
     font-size: 1rem;
+}
+.rtl .management button{
+    font-family: var(--dana-bold);
 }
 .management .icon{
     margin-right: 0.2rem;
@@ -213,6 +240,9 @@ body {
     font-weight: 700;
     font-size: 0.8rem;
 }
+.rtl .form_group label{
+    font-family: var(--dana-bold);
+}
 
 .form_input {
     display: block;
@@ -221,7 +251,8 @@ body {
     padding: 10px 12px;
     border: 1px solid #ddd;
     border-radius: 0.4rem;
-    font-size: 14px;
+    font-size: 0.9rem;
+    font-weight: 700;
     transition: border-color 0.3s;
 }
 .form_control {
@@ -236,6 +267,11 @@ body {
 .form_control:focus {
     outline: none;
     border-color:var(--primary-color);
+}
+.rtl option{
+    font-family: var(--dana-medium);
+    font-size: 0.9rem;
+    font-weight: 700;
 }
 
 /* Button Action  */
@@ -260,6 +296,9 @@ body {
     transition: background-color 0.3s ease;
     cursor: pointer;
 }
+.rtl .btn_action button{
+    font-family: var(--dana-medium);
+}
 .link{
     display: flex;
     align-items: center;
@@ -276,6 +315,10 @@ body {
     color: var(--white-color);
     transition: background-color 0.3s ease;
     cursor: pointer;
+}
+.rtl .link{
+    font-family: var(--dana-medium);
+    font-size: 0.9rem;
 }
 .btn_save{
     background:var(--primary-color);
@@ -353,6 +396,9 @@ th {
     border-bottom: 2px solid #eee;
     font-family: var(--roboto-bold);
     font-size: 1.1rem;
+}
+.rtl th{
+    font-family: var(--dana-bold);
 }
 
 td {
