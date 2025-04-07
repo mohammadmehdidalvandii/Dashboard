@@ -1,6 +1,7 @@
 import Home from "./page/Home/Home";
 import Products from "./page/Products/Products";
 import AddProduct from "./page/AddProduct/AddProduct";
+import EditProduct from "./page/EditProduct/EditProduct";
 import Orders from "./page/Orders/Orders";
 import OrderView from "./page/OrderView/OrderView";
 import Customers from "./page/Customers/Customers";
@@ -18,6 +19,7 @@ const routes = [
     {path:"/" , element:<Home/>},
     {path:"/Products" , element:<Products/>},
     {path:"/AddProduct" , element:<AddProduct/>},
+    {path:"/EditProduct" , element:<EditProduct/>},
     {path:"/Orders" , element:<Orders/>},
     {path:"/OrdersView" , element:<OrderView/>},
     {path:"/Customers" , element:<Customers/>},
