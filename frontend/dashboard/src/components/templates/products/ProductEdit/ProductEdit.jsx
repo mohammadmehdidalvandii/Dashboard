@@ -7,7 +7,7 @@ function ProductEdit() {
   return (
     <section className="productEdit box">
         <div>
-            <NavLink to='/Products' className='btn link btn_back'>Back to Products</NavLink>
+            <NavLink to='/Products' className='btn link btn_back'>{t("Back to Products")}</NavLink>
             <h2 className="title_header">{t("Edit Product")}</h2>
             <form action="#" className="productEdit_form">
             <div className="form_group">
@@ -36,7 +36,7 @@ function ProductEdit() {
                     <input type="text" className="form_input" />
                 </div>
                 <div className="form_group">
-                    <label >{t("Image")}</label>
+                    <label >{t("Current Image")}</label>
                     <input type="file"  className='form_input'/>
                 </div>
                 <button className="btn">{t("Save Product")}</button>
