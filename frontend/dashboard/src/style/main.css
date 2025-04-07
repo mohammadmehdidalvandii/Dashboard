@@ -397,9 +397,10 @@ td {
 }
 @media (max-width : 576px) {
     .management{
-        display: block;
+        flex-direction: column;
+        text-align: center;
     }
-    .management button{
+    .management .btn{
         margin-top: 1rem;
         width: 100%;
     } 
