@@ -404,6 +404,9 @@ td {
         margin-top: 1rem;
         width: 100%;
     } 
+    .btn_action button{
+        width: 100px;
+    }
 }
 @media (max-width : 320px) {
     
