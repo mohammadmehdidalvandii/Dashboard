@@ -14,6 +14,18 @@
     font-family: 'Roboto-Black';
     src: url('../assets/font/Roboto-Black.ttf') format('truetype');
 }
+@font-face {
+    font-family: "danaMedium";
+    src: url('../assets/font/Dana-Medium.woff') format("truetype");
+}
+@font-face {
+    font-family: "danaBold";
+    src: url('../assets/font/Dana-Bold.woff') format('truetype');
+}
+@font-face {
+    font-family: "danaBlack";
+    src: url('../assets/font/Dana-Black.woff') format("truetype");
+}
 
 /* body  */
 body {
