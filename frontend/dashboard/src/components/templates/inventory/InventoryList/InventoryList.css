@@ -26,6 +26,11 @@
 }
 
 /* Responsive  */
+@media (max-width : 768px) {
+    .inventoryList{
+       overflow-x: auto;
+    }
+}
 @media (max-width : 576px) {
     .inventoryList_management{
         flex-direction: column;
