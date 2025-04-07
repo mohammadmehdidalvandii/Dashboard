@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import './ProductAdd.css'
 import {useTranslation} from 'react-i18next'
 
@@ -6,6 +7,7 @@ function ProductAdd() {
   return (
     <section className="addProduct box">
         <div>
+             <NavLink to='/Products' className='btn link btn_back'>{t("Back to Products")}</NavLink>
             <h2 className="title_header">{t("Add Product")}</h2>
             <form action="#" className="addProduct_form">
                 <div className="form_group">
