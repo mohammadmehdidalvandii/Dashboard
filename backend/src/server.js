@@ -4,6 +4,7 @@ const app = express();
 const dotenv = require("dotenv");
 const cors = require('cors');
 const helmet = require('helmet');
+const loggerMiddleware = require('./middleware/loggerMiddleware');
 dotenv.config()
 
 
@@ -18,7 +19,9 @@ app.use(helmet())
 // connect to database
 connectToDB();
 
+// Middleware Logger 
 
+app.use(loggerMiddleware)
 
 
 app.get('/', (req, res) => {
