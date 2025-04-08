@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const cors = require('cors');
 const helmet = require('helmet');
 const loggerMiddleware = require('./middleware/loggerMiddleware');
+const notFoundMiddleware = require('./middleware/notFoundMiddleware');
 dotenv.config()
 
 
@@ -27,6 +28,11 @@ app.use(loggerMiddleware)
 app.get('/', (req, res) => {
     res.send("hello dashboard");
 });
+
+
+// 404 Not Found Middleware 
+app.use(notFoundMiddleware)
+
 
 // Start server
 const PORT = process.env.PORT || 3000;
