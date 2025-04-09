@@ -24,10 +24,8 @@ connectToDB();
 
 app.use(loggerMiddleware)
 
-
-app.get('/', (req, res) => {
-    res.send("hello dashboard");
-});
+// Router 
+app.use('/auth' , require('./routes/auth/registerRoute'))
 
 
 // 404 Not Found Middleware 
