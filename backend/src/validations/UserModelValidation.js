@@ -3,11 +3,9 @@ const joi = require("joi");
 const userModelValidation = joi.object({
     firstName: joi.string()
         .min(3)
-        .allow('')
         .default("admin"),
     lastName: joi.string()
         .min(10)
-        .allow('')
         .default("admin"),
     username: joi.string()
         .min(5)

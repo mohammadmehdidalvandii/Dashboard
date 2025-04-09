@@ -6,8 +6,11 @@ const cors = require('cors');
 const helmet = require('helmet');
 const loggerMiddleware = require('./middleware/loggerMiddleware');
 const notFoundMiddleware = require('./middleware/notFoundMiddleware');
+const path = require('path');
 dotenv.config()
 
+// Serve static files from the 'public' directory
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
 // Paras data json
 app.use(express.json());

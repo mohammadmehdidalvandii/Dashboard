@@ -3,6 +3,12 @@ const router = express.Router();
 const userController = require("../../controllers/UserController");
 const {hashedPassword} = require('../../utils/auth')
 
+
+router.get('/users' ,async (req ,res)=>{
+    const users = await userController.getAllUsers();
+    res.status(200).json(users)
+})
+
 router.post ('/register' , async(req ,res)=>{
     try{
         const {username ,  email , phone , password} = req.body;
@@ -16,6 +22,9 @@ router.post ('/register' , async(req ,res)=>{
         } else{
             const passwordHash = await hashedPassword(password);
             const user = await userController.createUser({
+                firstName:"",
+                lastName:"",
+                image:"http://localhost:3000/images/default-image.png",
                 username, 
                 email, 
                 phone, 
