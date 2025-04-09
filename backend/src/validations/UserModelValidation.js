@@ -3,10 +3,12 @@ const joi = require("joi");
 const userModelValidation = joi.object({
     firstName: joi.string()
         .min(3)
-        .required(),
+        .allow('')
+        .default("admin"),
     lastName: joi.string()
         .min(10)
-        .required(),
+        .allow('')
+        .default("admin"),
     username: joi.string()
         .min(5)
         .required()
@@ -30,6 +32,6 @@ const userModelValidation = joi.object({
         .default(Date.now),
     updatedAt: joi.date()
         .default(Date.now)
-});
+})
 
 module.exports = userModelValidation

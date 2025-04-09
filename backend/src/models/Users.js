@@ -11,12 +11,16 @@ const Schema = new mongoose.Schema({
     role: String,
     password: String,
     refreshToken: String,
-    timestamp:String,
+    timestamp: String,
 });
 
+Schema.pre('save', (next)=>{
+    const { error } = userModelValidation.validate(this.schema);
 
- userModelValidation(Schema) ;
+    if (error) return next(error);
+    next();
+});
 
-const model = mongoose.models.Users || mongoose.model("Users" , Schema);
+const model = mongoose.models.Users || mongoose.model("Users", Schema);
 
-module.exports = model
+module.exports = model;
