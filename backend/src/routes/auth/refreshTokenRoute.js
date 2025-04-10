@@ -2,23 +2,23 @@ const express = require('express');
 const router = express.Router();
 const userController = require("../../controllers/UserController");
 const {generateAccessToken, generateRefreshToken, verifyRefreshToken} = require('../../utils/auth');
-const { message } = require('../../validations/UserModelValidation');
+const { statusCodes } = require("../../constants/constants")
 
 router.post("/refresh-token", async (req , res)=>{
     try{
         const {refreshToken} = req.body;
     if(!refreshToken){
-        return res.status(400).json({message: "Refresh token is required"});
+        return res.status(statusCodes.BAD_REQUEST).json({message: "Refresh token is required"});
     }
 
     const decoded = verifyRefreshToken(refreshToken);
     if(!decoded){
-        return res.status(401).json({message: "Invalid refresh token"});
+        return res.status(statusCodes.UNAUTHORIZED).json({message: "Invalid refresh token"});
     }
 
     const user  = await userController.getUserExist(decoded.email);
     if(!user || user.refreshToken !== refreshToken){
-        return res.status(401).json({message:"Invalid Refresh Token and user"})
+        return res.status(statusCodes.UNAUTHORIZED).json({message:"Invalid Refresh Token and user"})
     };
 
     const newAccessToken = generateAccessToken({email:decoded.email});
@@ -27,7 +27,7 @@ router.post("/refresh-token", async (req , res)=>{
     await userController.loginUser({email:decoded.email ,refreshToken:newRefreshToken});
 
 
-    res.status(200)
+    res.status(statusCodes.OK)
     .cookie("token" , newAccessToken , {
         httpOnly:true,
         maxAge: 10 * 24 * 60 * 60 *1000,
@@ -40,7 +40,7 @@ router.post("/refresh-token", async (req , res)=>{
     }
     catch(error){
         console.log("Error Refresh token =>" , error);
-        res.status(500).json({message:"Internal Server Error Refresh-token" , error:error.message})
+        res.status(statusCodes.INTERNAL_SERVER_ERROR).json({message:"Internal Server Error Refresh-token" , error:error.message})
     }
 })
 

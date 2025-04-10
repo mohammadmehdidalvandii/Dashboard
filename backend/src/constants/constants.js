@@ -9,7 +9,7 @@ const statusCodes = {
     UNAUTHORIZED: 401,
     FORBIDDEN: 403,
     NOT_FOUND: 404,
-
+    UNPROCESSABLE:422,
     // Server error codes
     INTERNAL_SERVER_ERROR: 500,
     BAD_GATEWAY: 502,
