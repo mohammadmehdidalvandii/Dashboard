@@ -27,9 +27,10 @@ connectToDB();
 
 app.use(loggerMiddleware)
 
-// Router 
+// Router Users
 app.use('/auth' , require('./routes/auth/registerRoute'))
 app.use('/auth', require('./routes/auth/loginRoute'))
+app.use('/auth' , require('./routes/auth/refreshTokenRoute'))
 
 
 // 404 Not Found Middleware 
