@@ -20,9 +20,6 @@
     width: 200px;
 }
 
-@media (max-width : 768px) {
-
-}
 @media (max-width : 576px) {
  .customersList_management{
     flex-direction: column;
