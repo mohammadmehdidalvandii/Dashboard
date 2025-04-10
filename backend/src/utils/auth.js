@@ -1,8 +1,6 @@
 const {sign , verify} = require("jsonwebtoken");
 const {hash ,compare} = require("bcryptjs");
 
-const access_token_exp = "1h";
-const refresh_token_exp = "15d";
 
 
 // Created AccessToken
@@ -12,7 +10,7 @@ const generateAccessToken = (data)=>{
         throw new Error("Access token secret is not defined in environment variables")
     };
     try{
-        const token = sign(data , securityCodeAccess , {expiresIn:access_token_exp})
+        const token = sign(data , securityCodeAccess , {expiresIn:"1h"})
         return token
     } catch(error){
         throw new Error(`Invalid access token = ${error.message}`)
@@ -41,7 +39,7 @@ const generateRefreshToken = (data)=>{
         throw new Error("Refresh token secret is not defined in environment variables")
     };
     try{
-        const token = sign(data ,securityCodeRefresh , {expiresIn:refresh_token_exp})
+        const token = sign(data ,securityCodeRefresh , {expiresIn:"10d"})
         return token
     } catch(error){
         throw new Error(`Invalid refresh token = ${error.message}`)

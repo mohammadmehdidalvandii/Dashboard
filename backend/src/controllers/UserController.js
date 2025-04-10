@@ -9,3 +9,11 @@ exports.getUserExist = async (email)=>{
     const users = await userModel.findOne({email:email});
     return users
 }
+
+exports.loginUser = async ({email , refreshToken})=>{
+    const user = await userModel.findOneAndUpdate(
+        {email:email},
+        {$set:{refreshToken}}
+    );
+    return user;
+}

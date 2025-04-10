@@ -29,6 +29,7 @@ app.use(loggerMiddleware)
 
 // Router 
 app.use('/auth' , require('./routes/auth/registerRoute'))
+app.use('/auth', require('./routes/auth/loginRoute'))
 
 
 // 404 Not Found Middleware 
