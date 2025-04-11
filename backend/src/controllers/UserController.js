@@ -17,3 +17,8 @@ exports.loginUser = async ({email , refreshToken})=>{
     );
     return user;
 }
+
+exports.updateUserPassword = async({email , password})=>{
+    const user = userModel.updateOne({email:email},{$set:{password:password}});
+    return user;
+}
