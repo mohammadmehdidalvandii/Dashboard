@@ -3,7 +3,7 @@ const router = express.Router();
 const userController = require("../../controllers/UserController");
 const {hashedPassword} = require('../../utils/auth')
 const { statusCodes } = require("../../constants/constants");
-const {registerValidation} = require("../../validations/RegisterValidation");
+const registerValidation = require("../../validations/RegisterValidation");
 
 
 

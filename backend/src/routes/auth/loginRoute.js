@@ -3,7 +3,7 @@ const router = express.Router();
 const userController = require('../../controllers/UserController');
 const {verifyPassword , generateAccessToken , generateRefreshToken} = require('../../utils/auth');
 const { statusCodes } = require("../../constants/constants");
-const {loginValidation, message} = require("../../validations/LoginValidation");
+const loginValidation = require("../../validations/LoginValidation");
 
 router.post("/login", async (req , res)=>{
     try{
