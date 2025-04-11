@@ -2,21 +2,22 @@ const express = require("express");
 const router = express.Router();
 const userController = require("../../controllers/UserController");
 const {hashedPassword} = require('../../utils/auth')
-const { statusCodes } = require("../../constants/constants")
+const { statusCodes } = require("../../constants/constants");
+const {registerValidation} = require("../../validations/RegisterValidation");
 
 
-router.get('/users' ,async (req ,res)=>{
-    const users = await userController.getAllUsers();
-    res.status(statusCodes.ok).json(users)
-})
 
 router.post ('/register' , async(req ,res)=>{
     try{
-        const {username ,  email , phone , password} = req.body;
-        if(!username || !email || !phone || !password){
-            return res.status(statusCodes.BAD_REQUEST).json({message : "Please fill all the fields"});
-        };
+        // Validate the request body
+        const { error } = registerValidation.validate(req.body);
+        if (error) {
+            return res.status(statusCodes.BAD_REQUEST).json({
+                message: "Validation Error", error
+            });
+        }
 
+        const {username ,  email , phone , password} = req.body;
         const existUser = await userController.getUserExist(email);
         if(existUser){
              return res.status(statusCodes.BAD_REQUEST).json({message:"User email is Exist"})
@@ -34,7 +35,6 @@ router.post ('/register' , async(req ,res)=>{
             });
             res.status(statusCodes.CREATED).json(user)
         }
-
 
     } catch(error){
         console.log("error Register =>" , error.message)
