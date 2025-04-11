@@ -2,10 +2,19 @@ const express = require("express");
 const router = express.Router();
 const userController = require('../../controllers/UserController');
 const {verifyPassword , generateAccessToken , generateRefreshToken} = require('../../utils/auth');
-const { statusCodes } = require("../../constants/constants")
+const { statusCodes } = require("../../constants/constants");
+const {loginValidation, message} = require("../../validations/LoginValidation");
 
 router.post("/login", async (req , res)=>{
     try{
+        // validate the request body
+        const {error} = loginValidation.validate(req.body);
+        if(error){
+            return res.status(statusCodes.BAD_REQUEST).json({
+                message:"Validation Error " , error
+            });
+        }
+
         const {email , password} = req.body;
         if(!email || !password){
             return res.status(statusCodes.BAD_REQUEST).json({message : "Email and password are required"});
