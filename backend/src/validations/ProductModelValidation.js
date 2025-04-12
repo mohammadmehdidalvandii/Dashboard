@@ -8,7 +8,7 @@ const productModelValidation = joi.object({
     category:joi.string().required(),
     stock:joi.string().required(),
     sku:joi.string().required(),
-    status:joi.boolean().required(),
+    status:joi.string().required(),
     createdAt:joi.date().required(),
     updatedAt:joi.date().required()
 }) 
