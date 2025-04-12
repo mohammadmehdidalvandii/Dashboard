@@ -3,10 +3,18 @@ const router = express.Router();
 const productController = require('../../controllers/ProductController');
 const {statusCodes} = require("../../constants/constants");
 const upload = require('../../config/multer');
+const addProductValidation = require('../../validations/addProductValidation');
 
 
 router.post('/add-product', upload.single('image')  , async(req , res)=>{
     try{
+        const {error} = addProductValidation.validate(req.body);
+        
+        if(error){
+            return res.status(statusCodes.BAD_REQUEST)
+            .json({message:"Error request body fields" ,error:error.message})
+        }
+
         const {name, description, price, category, stock} = req.body;
 
         const image = req.file ? `public/uploads/${req.file.filename}`: null;
