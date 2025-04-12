@@ -37,9 +37,9 @@ app.use('/auth', require('./routes/auth/loginRoute'))
 app.use('/auth' , require('./routes/auth/refreshTokenRoute'))
 app.use('/auth' , require('./routes/auth/changePasswordRoute'))
 // Router Products
-app.use('/product' , require('./routes/product/addProductRoute'))
 app.use('/product' , require('./routes/product/updateProductRoute'))
-
+app.use('/product' , require('./routes/product/addProductRoute'))
+app.use('/product' , require('./routes/product/getProductRoute'))
 
 // 404 Not Found Middleware 
 app.use(notFoundMiddleware)
