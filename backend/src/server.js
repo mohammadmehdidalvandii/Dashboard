@@ -12,6 +12,8 @@ dotenv.config()
 
 // Serve static files from the 'public' directory
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
+app.use('/uploads' , express.static(path.join(__dirname, 'public/uploads')))
+
 
 // Paras data json
 app.use(express.json());
@@ -34,6 +36,8 @@ app.use('/auth' , require('./routes/auth/registerRoute'))
 app.use('/auth', require('./routes/auth/loginRoute'))
 app.use('/auth' , require('./routes/auth/refreshTokenRoute'))
 app.use('/auth' , require('./routes/auth/changePasswordRoute'))
+// Router Products
+app.use('/product' , require('./routes/product/addProductRoute'))
 
 
 // 404 Not Found Middleware 
