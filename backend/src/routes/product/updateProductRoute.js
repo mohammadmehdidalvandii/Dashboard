@@ -5,7 +5,7 @@ const {statusCodes} = require("../../constants/constants");
 const upload = require('../../config/multer');
 
 
-router.put('/:id', upload.single('image'), async (req, res) => {
+router.put('/update-product/:id', upload.single('image'), async (req, res) => {
     try {
         const {name, description, price, category, stock, status} = req.body;
         const id = req.params.id;
