@@ -13,7 +13,7 @@ router.post('/add-customer' , async (req , res)=>{
             .json({message:"Error request body fields" ,error:error.message})
         }
 
-        const {firstName , lastName , email , phone , street , city , state , zipCode , country , membership , note} = req.body
+        const {firstName , lastName , email , phone , street , city , state , zipCode , country , membership , note , name} = req.body
         if(!firstName || !lastName || !email || !phone || !street || !city || !state || !zipCode || !country || !membership){
            return res.status(statusCodes.BAD_REQUEST)
            .json({message:"All Fields are required"}) 
@@ -22,6 +22,7 @@ router.post('/add-customer' , async (req , res)=>{
         await customerController.createCustomer({
             firstName,
             lastName,
+            name:firstName+lastName,
             email,
             phone,
             street,

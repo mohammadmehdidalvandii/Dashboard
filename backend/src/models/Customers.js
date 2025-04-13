@@ -4,6 +4,7 @@ const customersModelValidation = require('../validations/CustomersModelValidatio
 const schema = new mongoose.Schema({
     firstName:String,
     lastName:String,
+    name:String,
     email:String,
     phone:String,
     address:{
