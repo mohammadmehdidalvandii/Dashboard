@@ -44,6 +44,7 @@ exports.updateCustomer = async (id , data)=>{
         country,
         membership,
         note, 
+        createdAt:new Date(),
         updatedAt: new Date(),
         },
         {new:true}

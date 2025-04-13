@@ -21,15 +21,13 @@ const schema = new mongoose.Schema({
 })
 
 schema.pre("save" , function(next){
-    const  {error} = customersModelValidation.validate(this.schema);
+    const  {error} = customersModelValidation.validate(this.Schema);
     if(error){
         return next(new Error(error.details[0].message));
     }
     next();
 });
 
-
-
-const model = mongoose.models.Customers || mongoose.model("Customers" , schema);
+const model = mongoose.models.Customers || mongoose.model("Customers", schema);
 
 module.exports = model
