@@ -33,3 +33,8 @@ exports.updateProduct = async (id , data) => {
     );
     return product;
 }
+
+exports.deleteProductById = async (id)=>{
+    const product = await ProductsModel.findOneAndDelete({_id:id});
+    return product
+}

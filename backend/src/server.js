@@ -40,6 +40,7 @@ app.use('/auth' , require('./routes/auth/changePasswordRoute'))
 app.use('/product' , require('./routes/product/updateProductRoute'))
 app.use('/product' , require('./routes/product/addProductRoute'))
 app.use('/product' , require('./routes/product/getProductRoute'))
+app.use('/product' , require('./routes/product/deleteProductRoute'))
 
 // 404 Not Found Middleware 
 app.use(notFoundMiddleware)
