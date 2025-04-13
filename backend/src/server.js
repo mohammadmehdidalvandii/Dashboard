@@ -43,6 +43,7 @@ app.use('/product' , require('./routes/product/getProductRoute'))
 app.use('/product' , require('./routes/product/deleteProductRoute'))
 // Router customers 
 app.use('/customers' , require('./routes/customers/addCustomerRoute'))
+app.use('/customers' , require('./routes/customers/getCustomerRoute'))
 
 // 404 Not Found Middleware 
 app.use(notFoundMiddleware)

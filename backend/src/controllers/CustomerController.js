@@ -5,8 +5,8 @@ exports.getAllCustomer = async ()=>{
     return customer
 };
 
-exports.getCustomerByUsername = async (firstName)=>{
-    const customer = await customerModel.findOne({firstName});
+exports.getCustomerByUsername = async (name)=>{
+    const customer = await customerModel.findOne({name});
     return customer
 };
 
