@@ -45,6 +45,7 @@ app.use('/product' , require('./routes/product/deleteProductRoute'))
 app.use('/customers' , require('./routes/customers/addCustomerRoute'))
 app.use('/customers' , require('./routes/customers/getCustomerRoute'))
 app.use('/customers' , require('./routes/customers/updateCustomerRoute'));
+app.use('/customers' , require('./routes/customers/deleteCustomerRoute'))
 
 // 404 Not Found Middleware 
 app.use(notFoundMiddleware)
