@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 require('./Customers')
+require('./Products')
 
 const ordersModelValidation = require('../validations/OrdersModelValidation')
 
@@ -10,10 +11,10 @@ const schema = new mongoose.Schema({
     },
 
     items:[{
-        productID:String,
-        quantity:String,
-        price:String,
-        total:String
+        productID:{
+            type: mongoose.Types.ObjectId,
+            ref:"Products"
+        }
     }],
     status:String,
     totalAmount:String,
