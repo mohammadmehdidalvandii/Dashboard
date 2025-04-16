@@ -10,7 +10,7 @@ const schema = new mongoose.Schema({
         ref:"Customers"
     },
 
-    items:[{
+    products:[{
         productID:{
             type: mongoose.Types.ObjectId,
             ref:"Products"
@@ -18,10 +18,7 @@ const schema = new mongoose.Schema({
     }],
     status:String,
     totalAmount:String,
-    shippingAddress:{
-        type:mongoose.Types.ObjectId,
-        ref:"Customers"
-    },
+    shippingAddress: String,
     createdAt:Date,
     updatedAt:Date
 })

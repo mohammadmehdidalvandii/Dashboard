@@ -8,7 +8,7 @@ const productModel = require('../../models/Products');
 router.post('/add-orders' , async (req , res)=>{
     try{
         const {customerID , productID , status , totalAmount , shippingAddress} = req.body;
-        if(!customerID || !productID || !status || !totalAmount || !shippingAddress){
+        if(!customerID || !productID || !status || !totalAmount){
             return res.status(statusCodes.BAD_REQUEST)
             .json({
                 message : "Please fill all the fields"
@@ -16,6 +16,7 @@ router.post('/add-orders' , async (req , res)=>{
         };
 
         const existCustomer = await customerModel.findOne({_id:customerID});
+        console.log("existCustomer" , existCustomer)
         if(!existCustomer){
             return res.status(statusCodes.NOT_FOUND)
             .json({
@@ -23,6 +24,7 @@ router.post('/add-orders' , async (req , res)=>{
             })
         };
         const existProduct = await productModel.findOne({_id:productID});
+        console.log("existProduct" , existProduct)
         if(!existProduct){
             return res.status(statusCodes.NOT_FOUND)
             .json({
@@ -34,7 +36,7 @@ router.post('/add-orders' , async (req , res)=>{
          productID:existProduct._id,
          status,
          totalAmount,
-         shippingAddress:existCustomer.address,
+         shippingAddress :existCustomer.address,
         })
         res.status(statusCodes.CREATED)
         .json({
