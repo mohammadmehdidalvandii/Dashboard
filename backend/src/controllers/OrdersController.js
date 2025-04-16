@@ -31,6 +31,18 @@ exports.createOrder = async (data)=>{
     return newOrder;
 }
 
+exports.updateOrderById = async (id , data)=>{
+    const {status} = data ;
+    const order = await OrdersModel.findOneAndUpdate(
+        {_id:id},
+        {
+            status
+        },
+        {new:true}
+    );
+    return order ;
+}
+
 exports.deleteOrderById = async(id)=>{
     const order = await OrdersModel.findOneAndDelete({_id:id});
     return order;
