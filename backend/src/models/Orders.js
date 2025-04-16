@@ -17,8 +17,7 @@ const schema = new mongoose.Schema({
         }
     }],
     status:String,
-    totalAmount:String,
-    shippingAddress: String,
+    shippingAddress: Array,
     createdAt:Date,
     updatedAt:Date
 })

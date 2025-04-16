@@ -7,8 +7,8 @@ const productModel = require('../../models/Products');
 
 router.post('/add-orders' , async (req , res)=>{
     try{
-        const {customerID , productID , status , totalAmount , shippingAddress} = req.body;
-        if(!customerID || !productID || !status || !totalAmount){
+        const {customerID , productID , products , status  , shippingAddress} = req.body;
+        if(!customerID || !productID || !status ){
             return res.status(statusCodes.BAD_REQUEST)
             .json({
                 message : "Please fill all the fields"
@@ -33,9 +33,10 @@ router.post('/add-orders' , async (req , res)=>{
         };
         const newOrder = await ordersController.createOrder({
          customerID:existCustomer._id,
-         productID:existProduct._id,
+        products:{
+            productID:existProduct.id
+        },
          status,
-         totalAmount,
          shippingAddress :existCustomer.address,
         })
         res.status(statusCodes.CREATED)
