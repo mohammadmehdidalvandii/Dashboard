@@ -25,12 +25,14 @@ router.post('/add-customer' , async (req , res)=>{
             name:firstName+lastName,
             email,
             phone,
-            street,
-            state,
-            city,
-            zipCode,
-            country ,
-            membership ,
+            address: {
+                street,
+                city,
+                state,
+                zipCode,
+                country
+            },
+            membership,
             note:note || "Add text to note",
             createdAt:new Date(),
         });

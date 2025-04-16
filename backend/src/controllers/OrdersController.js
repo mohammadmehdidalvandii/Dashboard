@@ -12,15 +12,15 @@ exports.getOrderById = async (id)=>{
 
 exports.createOrder = async (data)=>{
     const {
-    customerID,
-    productID,
-    status,
-    totalAmount,
-    shippingAddress,
+        customerID,
+        products,
+        status,
+        totalAmount,
+        shippingAddress,
     } = data;
     const newOrder = await OrdersModel.create({
         customerID,
-        productID,
+        products,
         status,
         totalAmount,
         shippingAddress,
