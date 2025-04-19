@@ -39,11 +39,13 @@ router.post('/add-orders' , async (req , res)=>{
          status,
          shippingAddress :existCustomer.address,
         })
-        res.status(statusCodes.CREATED)
-        .json({
-            message:"Create new Order",
-            data:newOrder
-        })
+        if(newOrder){
+            res.status(statusCodes.CREATED)
+            .json({
+                message:"Create new Order",
+                data:newOrder
+            })
+        }
 
     }
     catch(error){
