@@ -36,6 +36,7 @@ app.use('/auth' , require('./routes/auth/registerRoute'))
 app.use('/auth', require('./routes/auth/loginRoute'))
 app.use('/auth' , require('./routes/auth/refreshTokenRoute'))
 app.use('/auth' , require('./routes/auth/changePasswordRoute'))
+app.use('/auth' , require('./routes/auth/meRoute'))
 // Router Products
 app.use('/product' , require('./routes/product/updateProductRoute'))
 app.use('/product' , require('./routes/product/addProductRoute'))
