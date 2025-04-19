@@ -31,7 +31,8 @@ router.post ('/register' , async(req ,res)=>{
                 email, 
                 phone, 
                 role:"ADMIN",
-                password:passwordHash
+                password:passwordHash,
+                createdAt:new Date()
             });
             res.status(statusCodes.CREATED).json(user)
         }

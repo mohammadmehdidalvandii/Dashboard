@@ -12,6 +12,8 @@ const Schema = new mongoose.Schema({
     password: String,
     refreshToken: String,
     timestamp: String,
+    createdAt:Date,
+    updatedAt:Date,
 });
 
 Schema.pre('save', (next)=>{

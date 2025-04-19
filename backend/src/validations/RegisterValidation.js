@@ -18,6 +18,8 @@ const registerValidation = joi.object({
     .min(8)
     .pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$'))
     .required(), 
+    createdAt:joi.date(),
+    updatedAt:joi.date(),
 })
 
 module.exports = registerValidation
