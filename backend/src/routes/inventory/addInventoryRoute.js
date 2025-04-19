@@ -25,7 +25,7 @@ router.post("/add-inventory" , async (req , res)=>{
             status,
             sku: crypto.randomUUID()
         })
-        res.status(statusCodes.OK)
+        res.status(statusCodes.CREATED)
         .json({
             message:"Created new inventory successfully",
             data:newInventory,

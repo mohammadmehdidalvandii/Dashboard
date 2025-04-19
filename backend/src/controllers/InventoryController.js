@@ -23,8 +23,15 @@ exports.createInventory = async (data)=>{
     return newInventory;
 }
 
-exports.updateInventory = async (id)=>{
-    const inventory = await inventoryModel.findOneAndUpdate({_id:id})
+exports.updateInventory = async (id , data)=>{
+    const {productID, quantity, category, status} = data;
+    const inventory = await inventoryModel.findOneAndUpdate({_id:id},{
+        productID,
+        quantity,
+        category,
+        status,
+        updatedAt:new Date()
+    } ,{new:true})
     return inventory
 };
 

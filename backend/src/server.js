@@ -55,6 +55,7 @@ app.use('/orders' , require('./routes/orders/updateOrdersRoute'))
 app.use('/inventory' , require('./routes/inventory/addInventoryRoute'));
 app.use('/inventory' , require('./routes/inventory/getInventoryRoute'))
 app.use('/inventory' , require('./routes/inventory/deleteInventoryRoute'))
+app.use('/inventory' , require('./routes/inventory/updateInventoryRoute'))
 
 
 // 404 Not Found Middleware 
