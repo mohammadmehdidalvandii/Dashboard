@@ -17,7 +17,7 @@ router.post('/add-product', upload.single('image')  , async(req , res)=>{
 
         const {name, description, price, category, stock} = req.body;
 
-        const image = req.file ? `public/uploads/${req.file.filename}`: null;
+        const image = req.file ? `uploads/${req.file.filename}`: null;
 
         if(!image){
             return res.status(statusCodes.BAD_REQUEST)
@@ -29,7 +29,7 @@ router.post('/add-product', upload.single('image')  , async(req , res)=>{
             .json({message:"All fields are required"})
         };
 
-        await productController.createProduct({
+       const newProduct =  await productController.createProduct({
             name,
             description,
             price,
@@ -37,12 +37,13 @@ router.post('/add-product', upload.single('image')  , async(req , res)=>{
             stock,
             sku: "DS-" + crypto.randomUUID(),
             status: "active",
-            image: image || ["http://localhost:3000/images/default-image.png"],
+            image: `http://localhost:3000/${image}`,
             createdAt: new Date(),
-            updatedAt: new Date(),
         })
-        res.status(statusCodes.CREATED)
-        .json({message:"Product created successfully"})
+        if(newProduct){
+            res.status(statusCodes.CREATED)
+            .json({message:"Product created successfully" , data:newProduct})
+        }
         
     }
     catch(error){
