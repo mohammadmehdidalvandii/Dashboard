@@ -5,13 +5,14 @@ const {statusCodes} = require('../../constants/constants');
 
 router.delete('/delete-customer/:id', async (req , res)=>{
     try{
-        const customerID = req.params.id;
-        if(!customerID){
+        // const customerID = req.params.id;
+        const {id} = req.params;
+        if(!id){
             return res.status(statusCodes.NOT_FOUND),json({
                 message:"Customer id id required"
             })
         };
-        const deleteCustomer = await customerController.deleteCustomerById(customerID);
+        const deleteCustomer = await customerController.deleteCustomerById(id);
         if(!deleteCustomer){
             return res.status(statusCodes.BAD_REQUEST)
             .json({message:"Delete Product failed"})
