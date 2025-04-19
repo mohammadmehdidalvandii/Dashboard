@@ -11,11 +11,13 @@ router.post('/delete-order/:id' , async (req , res)=>{
             .json("is not found ID");
         };
 
-        await ordersController.deleteOrderById(id)
-        res.status(statusCodes.OK)
-        .json({
-            message:"Delete Order Successfully",
-        })
+      const deleteOrder = await ordersController.deleteOrderById(id)
+      if(deleteOrder){
+          res.status(statusCodes.OK)
+          .json({
+              message:"Delete Order Successfully",
+          })
+      }
     }
     catch(error){
         res.status(statusCodes.INTERNAL_SERVER_ERROR)
