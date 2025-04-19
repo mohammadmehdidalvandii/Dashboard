@@ -29,10 +29,11 @@ router.put('/edit-customer/:id', async (req, res) => {
             updatedAt: new Date(),
         };
 
-        await customerController.updateCustomer(id, customerData);
-
-        res.status(statusCodes.OK)
+        const update =  await customerController.updateCustomer(id, customerData);
+        if(update){
+            res.status(statusCodes.OK)
             .json({ message: "Update data Customers successfully" });
+        }
     } catch (error) {
         res.status(statusCodes.INTERNAL_SERVER_ERROR)
             .json({
