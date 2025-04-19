@@ -11,11 +11,13 @@ router.delete('/delete-inventory/:id', async (req , res)=>{
             .json({message: 'id is not found'});
         }
         const deleteInventory = await inventoryController.deleteInventory(id);
-        res.status(statusCodes.OK)
-        .json({
-            message:"Delete Inventory Successfully",
-            data:deleteInventory
-        })
+        if(deleteInventory){
+            res.status(statusCodes.OK)
+            .json({
+                message:"Delete Inventory Successfully",
+                data:deleteInventory
+            })
+        }
     }
     catch(error){
         res.status(statusCodes.OK)
