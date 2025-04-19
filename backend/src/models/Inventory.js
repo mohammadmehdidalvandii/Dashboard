@@ -23,6 +23,6 @@ schema.pre("save" , function(next){
 })
 
 
-const model = mongoose.models.Product || mongoose.model("Product" ,schema);
+const model = mongoose.models.Inventory || mongoose.model("Inventory" ,schema);
 
 module.exports = model

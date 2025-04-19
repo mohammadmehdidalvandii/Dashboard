@@ -51,6 +51,8 @@ app.use('/orders' , require('./routes/orders/addOrdersRoute'))
 app.use('/orders' , require('./routes/orders/getAllOrdersRoute'))
 app.use('/orders' , require('./routes/orders/deleteOrdersRoute'))
 app.use('/orders' , require('./routes/orders/updateOrdersRoute'))
+// Router inventory
+app.use('/inventory' , require('./routes/inventory/addInventoryRoute'));
 
 
 // 404 Not Found Middleware 
