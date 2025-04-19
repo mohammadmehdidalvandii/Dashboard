@@ -19,7 +19,7 @@ router.post('/add-customer' , async (req , res)=>{
            .json({message:"All Fields are required"}) 
         };
         
-        await customerController.createCustomer({
+       const createCustomer =  await customerController.createCustomer({
             firstName,
             lastName,
             name:firstName+lastName,
@@ -36,8 +36,10 @@ router.post('/add-customer' , async (req , res)=>{
             note:note || "Add text to note",
             createdAt:new Date(),
         });
-        res.status(statusCodes.CREATED)
-        .json({message:"Created new customer successfully"})
+        if(createCustomer){
+            res.status(statusCodes.CREATED)
+            .json({message:"Created new customer successfully"})
+        }
     }
     catch(error){
         console.log(error);
