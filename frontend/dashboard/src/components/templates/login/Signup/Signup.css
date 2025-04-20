@@ -1,0 +1,32 @@
+.signup{
+    display: block;
+    width: 100%;
+}
+.signup_wrapper{
+    display: block;
+    width: 400px !important;
+    margin: 6rem auto 0 auto;
+}
+.signup_header{
+    display: block;
+    text-align: center;
+}
+.signup_header p{
+    display: block;
+    font-family: var(--roboto-bold);
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+.rtl .signup_header p{
+    font-family: var(--dana-bold);
+}
+.form_group{
+    display: block;
+    margin-top: 2rem;
+}
+/* Responsive code */
+@media (max-width : 576px) {
+    .signup_wrapper{
+        width: 350px !important;
+    }
+}
