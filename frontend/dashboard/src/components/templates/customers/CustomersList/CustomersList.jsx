@@ -12,7 +12,7 @@ function CustomersList() {
             <div className="customersList_management">
                 <h2 className="title_header">{t("Customer List")}</h2>
                 <div className="customerList_search">
-                    <input type="text" className="form_input"  placeholder={t("Search Customer")}/>
+                    <input type="text" className="form_input"  placeholder={t("Search Customers")}/>
                     <button className="btn"><FaSearch/></button>
               </div> 
            </div>
@@ -23,7 +23,7 @@ function CustomersList() {
                         <th>{t("Name")}</th>
                         <th>{t("Items")}</th>
                         <th>{t("Total")}</th>
-                        <th>{t("Status")}</th>
+                        <th>{t("Action")}</th>
                     </tr>
                 </thead>
                 <tbody>

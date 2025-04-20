@@ -363,9 +363,13 @@ body {
 }
 
 .status-badge {
-    padding: 5px 10px;
+    display: block;
+    text-align: center;
+    width:80px;
+    padding: 5px;
     border-radius: 15px;
     font-size: 12px;
+    line-height: 2;
 }
 
 /* Error Message */
@@ -381,6 +385,7 @@ body {
 table {
     width: 100%;
     border-collapse: collapse;
+    user-select: none;
 }
 
 th, td {
@@ -437,6 +442,9 @@ td {
     .container_content{
         margin-left: 2rem;
     }
+    .rtl .container_content{
+        margin-left: 0;
+    }
 }
 @media (max-width : 768px) {
     .container_sidebar{
@@ -444,7 +452,7 @@ td {
     }
     .container_content{
        flex: 1;
-       margin-left: 0;
+       margin-left: 0 ;
     }
 
     .grid-container {

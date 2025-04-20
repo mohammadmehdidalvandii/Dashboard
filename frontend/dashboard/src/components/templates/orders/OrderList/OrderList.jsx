@@ -46,7 +46,7 @@ function OrderList() {
                             <td>John Doe</td>
                             <td>Product A, Product B</td>
                             <td>$999.99</td>
-                            <td><span className="status-badge processing">Processing</span></td>
+                            <td><span className="status-badge status-pending ">Processing</span></td>
                             <td>
                                 <div className="btn_action">
                                 <NavLink to='/OrdersView' className='link btn_save'>
