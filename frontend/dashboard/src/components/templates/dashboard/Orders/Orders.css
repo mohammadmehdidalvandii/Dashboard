@@ -1,6 +1,8 @@
 .orders{
     display: block;
     margin-block: 2rem;
+    margin-bottom: 4rem;
+    overflow: auto;
 }
 .orders_wrapper{
     display: block;
