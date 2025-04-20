@@ -14,6 +14,7 @@ import AddStock from "./page/AddStock/AddStock";
 import InventoryUpdate from "./page/InventoryUpdate/InventoryUpdate";
 import Settings from "./page/Settings/Settings";
 import Profile from "./page/Profile/Profile";
+import Login from "./page/Login/Login";
 
 const routes = [
     {path:"/" , element:<Home/>},
@@ -32,6 +33,7 @@ const routes = [
     {path:"/InventoryUpdate" , element:<InventoryUpdate/>},
     {path:"/Settings" , element:<Settings/>},
     {path:"/Profile" , element:<Profile/>},
+    {path:"/Login" , element:<Login/>},
 ]
 
 export default routes
