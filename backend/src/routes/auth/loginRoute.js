@@ -43,7 +43,6 @@ router.post("/login", async (req , res)=>{
         .json({
             message : "Login Successfully",
         })
-
     } 
     catch(error){
         console.log("Error => " , error);
