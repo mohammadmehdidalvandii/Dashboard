@@ -25,9 +25,6 @@ router.post("/login", async (req , res)=>{
             return res.status(statusCodes.BAD_REQUEST).json({message:"User already exist"});
         };
 
-        if(existUser !== email){
-            return res.status(statusCodes.UNPROCESSABLE).json({message : "Invalid password Or Email"});
-        }
 
         const isCorrectPassword = await verifyPassword(password , existUser.password);
         if(!isCorrectPassword){
