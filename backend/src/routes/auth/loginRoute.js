@@ -37,7 +37,7 @@ router.post("/login", async (req , res)=>{
         res.status(statusCodes.OK)
         .cookie("token" ,accessToken ,{
             httpOnly:true,
-            maxAge: 7 * 24 * 60 * 60 * 1000,
+            maxAge: 365 * 24 * 7 * 24 * 60 * 60 * 1000,
             path:"/"
         })
         .json({
