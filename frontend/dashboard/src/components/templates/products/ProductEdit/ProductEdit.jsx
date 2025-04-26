@@ -1,9 +1,50 @@
 import './ProductEdit.css'
 import {useTranslation} from 'react-i18next'
-import {NavLink} from 'react-router-dom'
+import {NavLink, useParams} from 'react-router-dom'
+import useProductStore from '../../../../zustand/useProductStore';
+import { useEffect, useState } from 'react';
+import { apiRequest } from '../../../../services/axios/config';
 
 function ProductEdit() {
-    const {t} = useTranslation()
+    const {t} = useTranslation();
+    const {editProduct} = useProductStore();
+    const [product , setProduct]= useState()
+    const [name, setName] = useState(product?.name)
+    const [category, setCategory] = useState(product?.category);
+    const [price, setPrice] = useState(product?.price);
+    const [stock, setStock] = useState(product?.stock);
+    const [description, setDescription] = useState(product?.description);
+    const [image, setImage] = useState(product?.image);
+
+
+    const {id} = useParams()
+
+       useEffect(()=>{
+            const fetchData = async ()=>{
+                const res = await apiRequest(`/product/details-product/${id}`)
+                if(res.status === 200){
+                    setProduct(res.data.data)
+                }
+            };
+            fetchData()
+       },[])
+
+    const handlerEditProduct =  (e)=>{
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("category", category);
+        formData.append("price", price);
+        formData.append("stock", stock);
+        formData.append("description", description);
+        if (image) {
+            formData.append("image", image);
+        }
+
+        editProduct(id , formData)
+    }
+
   return (
     <section className="productEdit box">
         <div>
@@ -12,34 +53,53 @@ function ProductEdit() {
             <form action="#" className="productEdit_form">
             <div className="form_group">
                     <label >{t("Product Name")}</label>
-                    <input type="text" className="form_input" />
+                    <input type="text" className="form_input" 
+                    value={name}
+                    placeholder={product?.name}
+                    onChange={(event)=>setName(event.target.value)}
+                    />
                 </div>
-                <div className="form_group">
+                <div  className="form_group">
                     <label>{t("Category")}</label>
-                    <select className='form_input'>
-                        <option value="">{t("Select Category")}</option>
-                        <option value="">{t("Electronics")}</option>
-                        <option value="">{t("Clothing")}</option>
-                        <option value="">{t("Books")}</option>
+                    <select defaultValue={category} className='form_input'>
+                        <option value="category">{product?.category}</option>
+                        <option value="Electronics">{t("Electronics")}</option>
+                        <option value="Clothing">{t("Clothing")}</option>
+                        <option value="Books">{t("Books")}</option>
                     </select>
                 </div>
                 <div className="form_group">
                     <label>{t("Price")}</label>
-                    <input type="text" className="form_input" />
+                    <input type="text" className="form_input" 
+                    placeholder={product?.price}
+                    value={price}
+                    onChange={(event)=>setPrice(event?.price)}
+                    />
                 </div>
                 <div className="form_group">
                     <label >{t("Stock")}</label>
-                    <input type="text" className="form_input" />
+                    <input type="text" className="form_input" 
+                    placeholder={product?.stock}
+                    value={stock}
+                    onChange={(event)=>setStock(event.target.value)}
+                    />
                 </div>
                 <div className="form_group">
                     <label>{t("Description")}</label>
-                    <input type="text" className="form_input" />
+                    <input type="text" className="form_input"
+                    placeholder={product?.description}
+                    value={description}
+                    onChange={(event)=>setDescription(event.target.value)}
+                    />
                 </div>
                 <div className="form_group">
                     <label >{t("Current Image")}</label>
-                    <input type="file"  className='form_input'/>
+                    <input type="file"  className='form_input'
+                    placeholder={product?.image}
+                    onChange={(event)=>setImage(event.target.files[0])}
+                    />
                 </div>
-                <button className="btn">{t("Save Product")}</button>
+                <button className="btn" onClick={handlerEditProduct}>{t("Save Product")}</button>
             </form>
         </div>
     </section>
