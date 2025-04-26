@@ -1,12 +1,14 @@
 import { FaSearch } from 'react-icons/fa';
 import './ProductList.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {NavLink} from 'react-router-dom'
+import { apiRequest } from '../../../../services/axios/config';
 
 
 function ProductList() {
     const { t } = useTranslation();
+    const [products , setProducts] = useState();
 
     const [modelDelete , SetModelDelete] = useState(false);
 
@@ -17,6 +19,15 @@ function ProductList() {
         SetModelDelete(false)
     }
 
+    useEffect( ()=>{
+        const fetchData = async()=>{
+            const res = await apiRequest.get('/product');
+            if(res.status === 200){
+                setProducts(res.data.data)
+            }
+        };
+        fetchData()
+    },[products])
 
 
 
@@ -44,26 +55,33 @@ function ProductList() {
                     </tr>
                 </thead>
                 <tbody>
-                <tr>
-                            <td>
-                                <img src="path/to/product1.jpg" alt="Product 1" />
-                            </td>
-                            <td>iPhone 13 Pro</td>
-                            <td>Electronics</td>
-                            <td>$999</td>
-                            <td>50</td>
-                            <td><span className="status-badge in-stock">{t("In Stock")}</span></td>
-                            <td>
-                                <div className="btn_action">
-                                <NavLink to='/EditProduct' className="btn_edit link"  >
-                                       {t("Edit")}
-                                    </NavLink>
-                                <button className="btn_delete" onClick={handlerShowModelDelete} >
-                                   {t("Delete")}
-                                </button>
-                                </div>
-                            </td>
-                        </tr>
+                {products?.length > 0 ?(
+                    products.map((product)=>(
+                        <tr key={product._id}>
+                        <td>
+                            <img src={product.image} alt="Product 1" />
+                        </td>
+                        <td>{product.name}</td>
+                        <td>{product.category}</td>
+                        <td> ${product.price}</td>
+                        <td>{product.stock}</td>
+                        <td><span className="status-badge in-stock">{product.status}</span></td>
+                        <td>
+                            <div className="btn_action">
+                            <NavLink to={`/EditProduct/${product._id}`} className="btn_edit link"  >
+                                   {t("Edit")}
+                                </NavLink>
+                            <button className="btn_delete" onClick={handlerShowModelDelete} >
+                               {t("Delete")}
+                            </button>
+                            </div>
+                        </td>
+                    </tr>
+                    ))
+                ) : (
+                    <span>The product is not available</span>
+                )}
+               
                 </tbody>
             </table>
     
