@@ -1,6 +1,6 @@
 import { FaArrowDown, FaUser } from 'react-icons/fa';
 import './Header.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IoSettingsSharp ,IoExitSharp } from 'react-icons/io5';
 import { useTranslation } from 'react-i18next';
@@ -9,9 +9,14 @@ import useAuthStore from '../../../zustand/useAuthStore';
 
 
 function Header() {
-    const {logout} = useAuthStore()
+    const {logout , getUserInfo , userInfo} = useAuthStore()
     const [activeMenu , setActiveMenu] = useState(false);
     const {t} = useTranslation()
+
+    useEffect(()=>{
+        getUserInfo()
+    },[])
+
 
     const handlerShowProfileMenu = ()=>{
         setActiveMenu(!activeMenu);
@@ -37,10 +42,10 @@ function Header() {
                         <FaArrowDown/>
                     </span>
                     <div className="profile_name">
-                        <span>John Doe</span>
-                        <span>Super Admin</span>
+                        <span>{userInfo?.username}</span>
+                        <span>{userInfo?.role}</span>
                     </div>
-                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=1B4D3E&color=fff" alt="avatar"  />
+                    <img src={userInfo?.image} alt="avatar"  />
                 </button>
             </div>
             {/* Show Model Profile */}
@@ -49,8 +54,8 @@ function Header() {
                          <div className="bg_shadow " onClick={handlerShowBg}>
             <div className="profileMenu">
                 <div className="profileMenu_users">
-                    <span>John Doe</span>
-                    <span>JohnDoe@gmail.com</span>
+                    <span>{userInfo?.username}</span>
+                    <span>{userInfo?.email}</span>
                 </div>
                 <div className="profileMenu_items">
                     <NavLink to='/Profile' className="profileMenu_link">

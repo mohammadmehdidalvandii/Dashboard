@@ -5,6 +5,7 @@ import swal from 'sweetalert';
 const useAuthStore = create((set)=>({
     user:null,
     isAuthenticated:false,
+    userInfo:null,
     login: async (email, password)=>{
         try{
             const res = await apiRequest.post('/auth/login',{
@@ -51,6 +52,16 @@ const useAuthStore = create((set)=>({
             })
         } catch(error){
             console.log("logout Error =>" , error)
+        }
+    },
+    getUserInfo:async ()=>{
+        try{
+            const res = await apiRequest.get('/auth/me');
+            if(res.status === 200){
+               set({userInfo:res.data.data})
+            }
+        }catch(error){
+            console.log("get User Info Error =>", error)
         }
     }
 }))
