@@ -5,9 +5,11 @@ import { NavLink } from 'react-router-dom';
 import { IoSettingsSharp ,IoExitSharp } from 'react-icons/io5';
 import { useTranslation } from 'react-i18next';
 import BtnChangeLang from '../BtnChangeLang/BtnChangeLang';
+import useAuthStore from '../../../zustand/useAuthStore';
 
 
 function Header() {
+    const {logout} = useAuthStore()
     const [activeMenu , setActiveMenu] = useState(false);
     const {t} = useTranslation()
 
@@ -19,6 +21,9 @@ function Header() {
         setActiveMenu(false)
     }
 
+    const handlerLogout = ()=>{
+        logout()
+    }
 
 
   return (
@@ -60,7 +65,7 @@ function Header() {
                         </span>
                         <span className='text'>{t("Settings")}</span>
                     </NavLink>
-                    <button className="profileMenu_logout">
+                    <button className="profileMenu_logout" onClick={handlerLogout}>
                         <span className='icon'>
                             <IoExitSharp />
                         </span>

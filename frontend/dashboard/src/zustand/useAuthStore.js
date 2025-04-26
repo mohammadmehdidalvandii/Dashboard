@@ -28,6 +28,30 @@ const useAuthStore = create((set)=>({
         } catch(error){
             console.error('Login error:', error);
         }
+    },
+    logout:()=>{
+        try{
+            swal({
+                title:"Are you sure you want to leave?",
+                icon:"warning",
+                buttons:["no","yes"]
+            }).then(async (result)=>{
+                if(result){
+                    const res = await apiRequest.post('/auth/logout')
+                    if(res.status === 200){
+                        swal({
+                            title:"Logout Is success",
+                            icon:"success",
+                            buttons:"done"
+                        }).then(()=>{
+                            window.location.reload()
+                        })
+                    }
+                }
+            })
+        } catch(error){
+            console.log("logout Error =>" , error)
+        }
     }
 }))
 
