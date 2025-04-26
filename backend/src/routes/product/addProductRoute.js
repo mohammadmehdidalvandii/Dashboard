@@ -36,7 +36,7 @@ router.post('/add-product', upload.single('image')  , async(req , res)=>{
             category,
             stock,
             sku: "DS-" + crypto.randomUUID(),
-            status: "active",
+            status: "In Stock",
             image: `http://localhost:3000/${image}`,
             createdAt: new Date(),
         })
