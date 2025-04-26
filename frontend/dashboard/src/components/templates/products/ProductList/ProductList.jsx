@@ -27,7 +27,7 @@ function ProductList() {
             }
         };
         fetchData()
-    },[products])
+    },[])
 
 
 
