@@ -5,7 +5,6 @@ import swal from 'sweetalert';
 const useCustomerStore = create((set)=>({
     customers:[],
     addCustomer: async (firstName , lastName , email , phone , street , city , state , zipCode , country , membership , note)=>{
-        console.log("customer add", firstName ,lastName ,email ,phone ,street ,city ,zipCode ,country ,membership ,note)
         try{
             const res = await apiRequest.post('/customers/add-customer',{
                 firstName,

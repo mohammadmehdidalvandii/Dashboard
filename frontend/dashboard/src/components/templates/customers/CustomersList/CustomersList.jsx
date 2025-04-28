@@ -3,10 +3,25 @@ import { MdDelete } from "react-icons/md";
 import './CustomersList.css'
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
+import {apiRequest} from '../../../../services/axios/config'
 
 
 function CustomersList() {
-    const {t} =useTranslation()
+    const {t} =useTranslation();
+    const [customers , setCustomers]= useState();
+
+
+    useEffect(()=>{
+        const fetchData = async ()=>{
+            const res = await apiRequest.get('/customers');
+            if(res.status === 200){
+                setCustomers(res.data.data)
+            }
+        };
+        fetchData()
+    },[])
+
   return (
     <section className="customersList box">
             <div className="customersList_management">
@@ -21,25 +36,32 @@ function CustomersList() {
                     <tr>
                         <th>{t("Order ID")}</th>
                         <th>{t("Name")}</th>
-                        <th>{t("Items")}</th>
-                        <th>{t("Total")}</th>
+                        <th>{t("Email")}</th>
+                        <th>{t("Membership")}</th>
                         <th>{t("Action")}</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>#c0001</td>
-                        <td>John Doe</td>
-                        <td>15</td>
-                        <td>$2.499</td>
-                        <td>
-                            <div className="btn_action">
-                               <NavLink to='/CustomerDetails' className='link btn_save '><FaEye/></NavLink>
-                                <NavLink to='/EditCustomer' className="link btn_setting"><FaEdit/></NavLink>
-                                <button className="btn_delete"><MdDelete/></button>
-                            </div>
-                        </td>
-                    </tr>
+                    {customers?.length > 0 ? (
+                        customers.map((customer)=>(
+                            <tr key={customer._id}>
+                            <td>#{customer?._id}</td>
+                            <td>{customer?.name}</td>
+                            <td>{customer?.email}</td>
+                            <td>{customer?.membership}</td>
+                            <td>
+                                <div className="btn_action">
+                                   <NavLink to={`/CustomerDetails/${customer._id}`} className='link btn_save '><FaEye/></NavLink>
+                                    <NavLink to={`/EditCustomer/${customer._id}`} className="link btn_setting"><FaEdit/></NavLink>
+                                    <button className="btn_delete"><MdDelete/></button>
+                                </div>
+                            </td>
+                        </tr>
+                        ))
+                    ) : (
+                        <span>The Customer is not available</span>
+                    )}
+                   
                 </tbody>
            </table>
     </section>
