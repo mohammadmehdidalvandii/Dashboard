@@ -7,9 +7,11 @@ const useProductStore = create((set)=>({
     products:[],
     addProduct: async (formData)=>{
         try{
-            const res = await apiRequest.post('/product/add-product',formData)
-            if(res.status === 200){
-                set((state)=>({products:[...state.products , formData]}));
+            const res = await apiRequest.post('/product/add-product',formData,{
+                headers:{"Content-Type":"multipart/form-data"}
+            })
+            if(res.status === 201){
+                set((state)=>({products:[...state.products , res.data]}));
                 swal({
                     title:"New product added successfully.",
                     icon:'success',
@@ -19,7 +21,13 @@ const useProductStore = create((set)=>({
                 })
             }
         }catch(error){
-            console.log("AddProduct error",error)
+            swal({
+                title: "Error adding product",
+                text: error.response?.data?.message || "Something went wrong",
+                icon: "error",
+                buttons: "ok"
+            });
+            console.error("AddProduct error", error);
         }
     },
     editProduct:async (id , formData)=>{
@@ -32,7 +40,7 @@ const useProductStore = create((set)=>({
             if(res.status === 200){
                 set((state)=>(
                     {
-                        products:state.products.map((product)=> product._id === id ? {...product , ...formData}:product)
+                        products:state.products.map((product)=> product._id === id ? {...product , ...res.data}:product)
                     }
                 ));
                 swal({

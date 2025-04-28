@@ -8,22 +8,30 @@ import { apiRequest } from '../../../../services/axios/config';
 function ProductEdit() {
     const {t} = useTranslation();
     const {editProduct} = useProductStore();
-    const [product , setProduct]= useState()
-    const [name, setName] = useState(product?.name)
+    const [product , setProduct]= useState();
+    console.log("product" , product?.name)
+    const [name, setName] = useState()
     const [category, setCategory] = useState(product?.category);
     const [price, setPrice] = useState(product?.price);
     const [stock, setStock] = useState(product?.stock);
     const [description, setDescription] = useState(product?.description);
     const [image, setImage] = useState(product?.image);
+    console.log("edit=>" , name , category , price ,stock ,description)
 
-
-    const {id} = useParams()
+    const {id} = useParams();
+    console.log("id=>" ,id)
 
        useEffect(()=>{
             const fetchData = async ()=>{
                 const res = await apiRequest(`/product/details-product/${id}`)
                 if(res.status === 200){
-                    setProduct(res.data.data)
+                    setProduct(res.data?.data);
+                    setName(res.data.data.name)
+                    setCategory(res.data.data.category)
+                    setPrice(res.data.data.price)
+                    setStock(res.data.data.stock)
+                    setDescription(res.data.data.description)
+                    setImage(res.data.data.image)
                 }
             };
             fetchData()
@@ -54,14 +62,15 @@ function ProductEdit() {
             <div className="form_group">
                     <label >{t("Product Name")}</label>
                     <input type="text" className="form_input" 
-                    value={name}
                     placeholder={product?.name}
                     onChange={(event)=>setName(event.target.value)}
                     />
                 </div>
                 <div  className="form_group">
                     <label>{t("Category")}</label>
-                    <select defaultValue={category} className='form_input'>
+                    <select defaultValue={category} className='form_input'
+                    onChange={(event)=>setCategory(event.target.value)}
+                    >
                         <option value="category">{product?.category}</option>
                         <option value="Electronics">{t("Electronics")}</option>
                         <option value="Clothing">{t("Clothing")}</option>

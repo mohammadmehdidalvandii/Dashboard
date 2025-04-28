@@ -2,18 +2,18 @@ import { NavLink } from 'react-router-dom';
 import './ProductAdd.css'
 import {useTranslation} from 'react-i18next'
 import { useState } from 'react';
+import useProductStore from '../../../../zustand/useProductStore';
 
 function ProductAdd() {
+    const {addProduct} = useProductStore()
     const {t} =  useTranslation();
     const [name , setName] = useState("")
-    const [category , setCategory] = useState("");
+    const [category , setCategory] = useState("1");
     const [price , setPrice] = useState("");
     const [stock , setStock] = useState("");
     const [description , setDescription] = useState("");
     const [image , setImage] = useState("");
 
-    console.log("product" , name ,category ,price ,stock ,description ,image)
-    
     const handlerAddProduct = (e)=>{
         e.preventDefault();
 
@@ -24,9 +24,11 @@ function ProductAdd() {
         formData.append("price", price);
         formData.append("stock", stock);
         formData.append("description", description);
-        formData.append("image", image);
+        if (image) {
+            formData.append("image", image);
+        }
 
-
+        addProduct(formData)
 
     }
 
@@ -46,7 +48,7 @@ function ProductAdd() {
                 <div className="form_group">
                     <label>{t("Category")}</label>
                     <select defaultValue={category} className='form_input'
-                        onChange={(event)=> setCategory(event.value)}
+                        onChange={(event)=> setCategory(event.target.value)}
                     >
                         <option value="1">{t("Select Category")}</option>
                         <option value="Electronics">{t("Electronics")}</option>

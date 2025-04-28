@@ -18,7 +18,7 @@ router.put('/update-product/:id', upload.single('image'), async (req, res) => {
             price,
             category,
             stock,
-            status: status || 'active'
+            status: status
         }
 
         if(req.file){
