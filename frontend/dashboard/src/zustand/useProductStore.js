@@ -56,7 +56,29 @@ const useProductStore = create((set)=>({
             console.log("Edit Product error" ,error)
         }
     },
-    deleteProduct:async()=>{}
+    deleteProduct:(id)=>{
+        swal({
+            title:"Are you sure you want to delete the product?",
+            icon:"error",
+            buttons:["no","yes"]
+        }).then(async (result)=>{
+            if(result){
+                const res = await apiRequest.delete(`/product/delete-Product/${id}`);
+                if(res.status === 200){
+                    set((state)=>({
+                        products:state.products.filter((product)=>product._id !== id)
+                    }));
+                swal({
+                    title:"delete product successfully",
+                    icon:"success",
+                    buttons:"ok"
+                }).then(()=>{
+                    window.location.reload()
+                })
+                }
+            }
+        })
+    }
 }));
 
 export default useProductStore

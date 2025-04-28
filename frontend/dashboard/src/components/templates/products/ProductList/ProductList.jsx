@@ -4,20 +4,14 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {NavLink} from 'react-router-dom'
 import { apiRequest } from '../../../../services/axios/config';
+import useProductStore from '../../../../zustand/useProductStore';
 
 
 function ProductList() {
     const { t } = useTranslation();
+    const {deleteProduct}  = useProductStore()
     const [products , setProducts] = useState();
 
-    const [modelDelete , SetModelDelete] = useState(false);
-
-    const handlerShowModelDelete = ()=>{
-        SetModelDelete(true)
-    }
-    const handlerShowExit =()=>{
-        SetModelDelete(false)
-    }
 
     useEffect( ()=>{
         const fetchData = async()=>{
@@ -28,6 +22,11 @@ function ProductList() {
         };
         fetchData()
     },[])
+
+    const handlerDeleteProduct = (productID)=>{
+        console.log("id=>" , productID);
+        deleteProduct(productID)
+    }
 
 
 
@@ -71,7 +70,7 @@ function ProductList() {
                             <NavLink to={`/EditProduct/${product._id}`} className="btn_edit link"  >
                                    {t("Edit")}
                                 </NavLink>
-                            <button className="btn_delete" onClick={handlerShowModelDelete} >
+                            <button className="btn_delete" onClick={()=>handlerDeleteProduct(product._id)} >
                                {t("Delete")}
                             </button>
                             </div>
@@ -85,18 +84,6 @@ function ProductList() {
                 </tbody>
             </table>
     
-            {modelDelete && (
-            <div className={modelDelete ? "bg_model show":"bg_model"}>
-                 <div className="model delete_model">
-        <h6 className="title_header">{t("Delete Product")}</h6>
-        <p>{t("Are you sure you want to delete this product? This action cannot be undone.")}</p>
-        <div className="btn_action">
-            <button className="btn_delete" >{t("Delete")}</button>
-            <button className="btn_cancel" onClick={handlerShowExit}>{t("Cancel")}</button>
-        </div>
-    </div>
-            </div>
-            )}
     </section>
   )
 }
