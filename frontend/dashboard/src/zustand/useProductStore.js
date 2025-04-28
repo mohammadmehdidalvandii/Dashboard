@@ -5,20 +5,11 @@ import swal from 'sweetalert';
 
 const useProductStore = create((set)=>({
     products:[],
-    addProduct: async (name , description , price , category , image , stock )=>{
+    addProduct: async (formData)=>{
         try{
-            const res = await apiRequest.post('/product/add-product',{
-                name,
-                description,
-                price,
-                category,
-                image,
-                stock,
-                status,
-            })
+            const res = await apiRequest.post('/product/add-product',formData)
             if(res.status === 200){
-                const newProduct = [name , description , price , category , image , stock , status];
-                set((state)=>({products:[...state.products , newProduct]}));
+                set((state)=>({products:[...state.products , formData]}));
                 swal({
                     title:"New product added successfully.",
                     icon:'success',

@@ -1,7 +1,7 @@
 const ProductsModel = require("../models/Products");
 
 exports.getAllProduct  = async ()=>{
-    const product = await ProductsModel.find();
+    const product = await ProductsModel.find().sort({createdAt:-1});
     return product;
 }
 
