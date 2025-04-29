@@ -63,6 +63,29 @@ const useCustomerStore = create((set)=>({
         } catch(error){
             console.log("Error update customer =>", error)
         }
+    },
+    deleteCustomer: (id)=>{
+        swal({
+            title:"Are you sure you want to delete the Customer ?",
+            icon:"error",
+            buttons:["no","yes"]
+        }).then(async (result)=>{
+            if(result){
+                const res = await apiRequest.delete(`/customers/delete-customer/${id}`);
+                if(res.status === 200){
+                    set((state)=>({
+                        customers:state.customers.filter((customer)=>customer._id !== id)
+                    }));
+                    swal({
+                        title:"Delete Customer success",
+                        icon:"success",
+                        buttons:"Ok",
+                    }).then(()=>{
+                        window.location.reload()
+                    })
+                }
+            }
+        })
     }
 }));
 

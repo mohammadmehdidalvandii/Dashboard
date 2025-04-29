@@ -5,10 +5,12 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import {apiRequest} from '../../../../services/axios/config'
+import useCustomerStore from '../../../../zustand/useCustomerStore';
 
 
 function CustomersList() {
     const {t} =useTranslation();
+    const {deleteCustomer} = useCustomerStore()
     const [customers , setCustomers]= useState();
 
 
@@ -20,7 +22,12 @@ function CustomersList() {
             }
         };
         fetchData()
-    },[])
+    },[]);
+
+
+    const handlerDeleteCustomer = (customerID)=>{
+        deleteCustomer(customerID)
+    }
 
   return (
     <section className="customersList box">
@@ -53,7 +60,7 @@ function CustomersList() {
                                 <div className="btn_action">
                                    <NavLink to={`/CustomerDetails/${customer._id}`} className='link btn_save '><FaEye/></NavLink>
                                     <NavLink to={`/EditCustomer/${customer._id}`} className="link btn_setting"><FaEdit/></NavLink>
-                                    <button className="btn_delete"><MdDelete/></button>
+                                    <button className="btn_delete" onClick={()=>handlerDeleteCustomer(customer._id)}><MdDelete/></button>
                                 </div>
                             </td>
                         </tr>

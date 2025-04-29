@@ -1,7 +1,7 @@
 const customerModel = require('../models/Customers');
 
 exports.getAllCustomer = async ()=>{
-    const customer = await customerModel.find();
+    const customer = await customerModel.find().sort({createdAt:-1});
     return customer
 };
 
