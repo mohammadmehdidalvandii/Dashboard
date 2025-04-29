@@ -1,43 +1,65 @@
+import { useEffect, useState } from 'react';
+import useAuthStore from '../../../../zustand/useAuthStore';
 import './Avatar.css';
 import {useTranslation} from 'react-i18next'
 
 function Avatar() {
     const {t} = useTranslation()
+    const { getUserInfo , userInfo} = useAuthStore();
+    const [firstName , setFirstName] = useState();
+    const [lastName , setLastName] = useState();
+    const [email , setEmail] = useState();
+    const [phone , setPhone] = useState();
+
+     useEffect(()=>{
+            getUserInfo()
+        },[])
+
+
+
   return (
     <section className="avatar box">
         <div>
             <img src="" alt="" />
             <div>
-                <h5>John Doe</h5>
-                <p>john.doe@example.com</p>
-                <span>Super Admin</span>
+                <h5>{userInfo?.username}</h5>
+                <p>{userInfo?.email}</p>
+                <span>{userInfo?.role}</span>
             </div>
         </div>
         <form action="#" className="avatar_form">
             <div className="avatar_form_wrapper">
                 <div className="form_group">
                     <label htmlFor="">{t("First Name")}</label>
-                        <input type="text" className='form_input'/>
+                        <input type="text" className='form_input'
+                            placeholder={userInfo?.firstName || "-"}
+                        />
                 </div>
                 <div className="form_group">
                     <label htmlFor="">{t("Last Name")}</label>
-                        <input type="text" className='form_input'/>
+                        <input type="text" className='form_input'
+                        placeholder={userInfo?.lastName || "-"}
+                        />
                 </div>
             </div>
             <div className="avatar_form_wrapper">
                 <div className="form_group">
                     <label htmlFor="">{t("Email")}</label>
-                        <input type="text" className='form_input'/>
+                        <input type="text" className='form_input'
+                        placeholder={userInfo?.email}
+                        />
                 </div>
                 <div className="form_group">
                     <label htmlFor="">{t("Phone")}</label>
-                        <input type="text" className='form_input'/>
+                        <input type="text" className='form_input'
+                            placeholder={userInfo?.phone}
+                        />
                 </div>
             </div>
-            <div className="form_group">
+            {/* <div className="form_group">
                     <label htmlFor="">{t("Bio")}</label>
                         <textarea rows={4} type="text" className='form_input' />
-                </div>
+                </div> */}
                 <button className="btn">{t("Save Change")}</button>
         </form>
     </section>
