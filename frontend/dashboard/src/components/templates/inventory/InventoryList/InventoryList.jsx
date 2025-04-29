@@ -2,10 +2,24 @@ import { FaSearch } from 'react-icons/fa'
 import './InventoryList.css'
 import {NavLink } from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
+import { useEffect, useState } from 'react';
+import {apiRequest} from '../../../../services/axios/config'
 
 
 function InventoryList() {
-    const {t} = useTranslation()
+    const {t} = useTranslation();
+    const [inventories , setInventories] = useState();
+
+    useEffect(()=>{
+        const fetchData = async ()=>{
+            const res = await apiRequest.get('/inventory');
+            if(res.status === 200){
+               setInventories(res.data.data)
+            }
+        };
+        fetchData()
+    },[])
+
   return (
    <section className="inventoryList box">
         <div className="inventoryList_management">
@@ -28,19 +42,26 @@ function InventoryList() {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>SKU001</td>
-                    <td>iphone 13 pro</td>
-                    <td>Electronics</td>
-                    <td>50</td>
-                    <td className='inventory_Status status-completed'>In Stock</td>
-                    <td>
-                        <div className="btn_action">
-                            <NavLink to='/InventoryUpdate' className="btn_save link">{t("Update")}</NavLink>
-                            <button className="btn_delete">{t("Remove")}</button>
-                        </div>
-                    </td>
-                </tr>
+                {inventories?.length > 0 ? (
+                    inventories.map((inventor)=>(
+                        <tr key={inventor._id}>
+                        <td>{inventor.sku}</td>
+                        <td>{inventor.productID.name}</td>
+                        <td>{inventor.category}</td>
+                        <td>{inventor.productID.stock}</td>
+                        <td className='inventory_Status status-completed'>{inventor.status}</td>
+                        <td>
+                            <div className="btn_action">
+                                <NavLink to={`/InventoryUpdate/${inventor._id}`} className="btn_save link">{t("Update")}</NavLink>
+                                <button className="btn_delete">{t("Remove")}</button>
+                            </div>
+                        </td>
+                    </tr>
+                    ))
+                 ): (
+                    <span>The inventory is not available</span>
+                 )}
+              
             </tbody>
         </table>
         </div>

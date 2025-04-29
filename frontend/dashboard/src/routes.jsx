@@ -30,7 +30,7 @@ const routes = [
     {path:"/Comments" , element:<Comments/>},
     {path:"/Inventory" , element:<Inventory/>},
     {path:"/AddStock" , element:<AddStock/>},
-    {path:"/InventoryUpdate" , element:<InventoryUpdate/>},
+    {path:"/InventoryUpdate/:id" , element:<InventoryUpdate/>},
     {path:"/Settings" , element:<Settings/>},
     {path:"/Profile" , element:<Profile/>},
     {path:"/Login" , element:<Login/>},
