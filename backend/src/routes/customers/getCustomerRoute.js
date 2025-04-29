@@ -19,6 +19,33 @@ router.get('/' , async(req , res)=>{
     catch(error){
         res.status(statusCodes.INTERNAL_SERVER_ERROR).json({message : "Internal Server Error" , error:error.message})
     }
+});
+
+router.get('/details-customer/:id', async (req , res)=>{
+    try{
+        const id = req.params.id;
+        console.log("id" , id)
+        if(!id){
+            return res.status(statusCodes.BAD_REQUEST)
+                .json({message: "ID is required"});
+        };
+        const customer = await customerController.getCustomerById(id);
+        if(!customer){
+            return res.status(statusCodes.NOT_FOUND)
+            .json({message: "customer not found"});
+        };
+    
+        return res.status(statusCodes.OK)
+                    .json({
+                        data: customer,
+                        message: "Get Customer successfully"
+                    });
+    }
+     catch(error){
+        return res.status(statusCodes.INTERNAL_SERVER_ERROR)
+            .json({message: "Error getting Customer by id", error: error.message});
+     }
+
 })
 
 module.exports = router

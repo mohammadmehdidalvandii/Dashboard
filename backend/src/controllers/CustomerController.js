@@ -10,6 +10,11 @@ exports.getCustomerByUsername = async (name)=>{
     return customer
 };
 
+exports.getCustomerById = async (id)=>{
+    const customer = await customerModel.findOne({_id: id});
+    return customer
+}
+
 exports.createCustomer = async (data)=>{
     const customer = await customerModel.create(data);
     return customer
