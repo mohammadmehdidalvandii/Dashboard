@@ -24,7 +24,6 @@ router.get('/' , async(req , res)=>{
 router.get('/details-customer/:id', async (req , res)=>{
     try{
         const id = req.params.id;
-        console.log("id" , id)
         if(!id){
             return res.status(statusCodes.BAD_REQUEST)
                 .json({message: "ID is required"});

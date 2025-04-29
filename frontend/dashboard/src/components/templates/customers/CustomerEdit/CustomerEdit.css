@@ -9,10 +9,24 @@
 }
 .customerEdit_form{
     display: block;
+    width: 100%;
 }
+
 .customerEdit_form .form_group{
     display: block;
     width: 100% !important;
+}
+.form_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5rem;
+}
+.form_wrapper .from_group{
+    display: block; 
+    width: 100%;
+    margin-bottom: 1rem;
 }
 .customerEdit_wrapper{
     display: flex;
@@ -26,7 +40,9 @@
     }
 }
 @media (max-width : 576px) {
-
+    .form_wrapper{
+        flex-direction: column;
+    }
 }
 @media (max-width : 320px) {
     
