@@ -1,7 +1,7 @@
 const inventoryModel = require('../models/Inventory');
 
 exports.getAllInventory = async ()=>{
-    const inventory = await inventoryModel.find().populate("productID");
+    const inventory = await inventoryModel.find().populate("productID").sort({createdAt:-1});
     return inventory;
 };
 
@@ -9,6 +9,11 @@ exports.getInventoryByName = async (name)=>{
     const inventory = await inventoryModel.find({name:name}).populate("productID");
     return inventory;
 };
+
+exports.getInventoryById = async (id)=>{
+    const inventory = await inventoryModel.findOne({_id:id}).populate("productID");
+    return inventory
+}
 
 exports.createInventory = async (data)=>{
    const {productID, quantity, category, status, sku} =data;
