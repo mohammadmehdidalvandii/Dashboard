@@ -43,7 +43,7 @@ function InventoryList() {
                     <th>SKU</th>
                     <th>{t("Product")}</th>
                     <th>{t("Category")}</th>
-                    <th>{t("In Stock")}</th>
+                    <th>{t("Quantity")}</th>
                     <th>{t("Status")}</th>
                     <th>{t("Actions")}</th>
                 </tr>
@@ -54,8 +54,8 @@ function InventoryList() {
                         <tr key={inventor._id}>
                         <td>{inventor.sku}</td>
                         <td>{inventor.productID.name}</td>
+                        <td>{inventor.quantity}</td>
                         <td>{inventor.category}</td>
-                        <td>{inventor.productID.stock}</td>
                         <td className='inventory_Status status-completed'>{inventor.status}</td>
                         <td>
                             <div className="btn_action">
