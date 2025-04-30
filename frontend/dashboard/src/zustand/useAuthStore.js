@@ -15,6 +15,7 @@ const useAuthStore = create((set)=>({
                 withCredentials:true
             });
             
+
             if(res.status === 200){
                 const data = res.data;
                 set({user:data.user, isAuthenticated:true});
@@ -26,7 +27,15 @@ const useAuthStore = create((set)=>({
                     window.location.replace('/')
                 })
             }
+            
         } catch(error){
+            if(error.status === 422){
+                swal({
+                    title:"Email or Password is not valid",
+                    icon:"error",
+                    buttons:"try"
+                })
+            }
             console.error('Login error:', error);
         }
     },
