@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import useAuthStore from '../../../../zustand/useAuthStore';
 import './Avatar.css';
 import {useTranslation} from 'react-i18next'
+import showAlert from '../../../../utils/showAlert'
 
 function Avatar() {
     const {t} = useTranslation()
@@ -15,7 +16,10 @@ function Avatar() {
             getUserInfo()
         },[])
 
-
+        const handlerChangeAvatar = (e)=>{
+            e.preventDefault()
+            showAlert("This feature is not enabled","warning","ok")
+        }
 
   return (
     <section className="avatar box">
@@ -60,7 +64,7 @@ function Avatar() {
                     <label htmlFor="">{t("Bio")}</label>
                         <textarea rows={4} type="text" className='form_input' />
                 </div> */}
-                <button className="btn">{t("Save Change")}</button>
+                <button className="btn" onClick={handlerChangeAvatar}>{t("Save Change")}</button>
         </form>
     </section>
   )
