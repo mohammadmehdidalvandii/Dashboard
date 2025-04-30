@@ -6,18 +6,23 @@ import Header from "./components/modules/Header/Header";
 import { HelmetProvider } from 'react-helmet-async';
 import { useEffect, useState } from "react";
 import { apiRequest } from "./services/axios/config";
+import useAuthStore from "./zustand/useAuthStore";
 
 function App() {
   const router = useRoutes(routes);  
+  const {updateRefreshToken} = useAuthStore()
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
-
+  
+  
   useEffect(() => {
+ 
     const authUser = async () => {
       try {
         const response = await apiRequest.get('/auth/me');  
         if (response.status === 200) {
           setIsAuthenticated(true);
+          updateRefreshToken(response.data.data.refreshToken)
         }
       } catch (error) {
         console.error("Authentication error:", error.response?.data || error.message);

@@ -63,6 +63,20 @@ const useAuthStore = create((set)=>({
         }catch(error){
             console.log("get User Info Error =>", error)
         }
+    },
+    updateRefreshToken:  (refreshToken)=>{
+        try{
+            setInterval(async()=>{
+                const res = await apiRequest.post('/auth/refresh-token',{
+                    refreshToken
+                });
+                if(res.status === 200){
+                    console.log("Update Token successfully")
+                }
+            }, 55 * 50 * 1000);
+        } catch(error){
+            console.log("Error update RefreshToken")
+        }
     }
 }))
 
