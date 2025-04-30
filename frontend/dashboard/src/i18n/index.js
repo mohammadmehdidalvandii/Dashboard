@@ -30,6 +30,8 @@ import settingsEN from './en/settingsEN.json'
 import settingsFA from './fa/settingsFA.json'
 import profileEN from './en/profileEN.json'
 import profileFA from './fa/profileFA.json'
+import swalEN from './en/swalEN.json'
+import swalFA from './fa/swalFA.json'
 
 i18next
   .use(initReactI18next)
@@ -52,6 +54,7 @@ i18next
           ...InventoryEN,
           ...settingsEN,
           ...profileEN,
+          ...swalEN
         }
       },
       fa: {
@@ -71,6 +74,7 @@ i18next
           ...InventoryFA,
           ...settingsFA,
           ...profileFA,
+          ...swalFA
         }
       }
     },

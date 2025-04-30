@@ -1,6 +1,7 @@
 import {create} from 'zustand';
 import { apiRequest } from '../services/axios/config';
 import swal from 'sweetalert';
+import i18next from 'i18next';
 
 const useInventoryStore = create((set)=>({
     inventors:[],
@@ -15,9 +16,9 @@ const useInventoryStore = create((set)=>({
             if(res.status === 201){
                 set((state)=>({inventors:[...state.inventors , res.data.data]}))
                 swal({
-                    title:"Created new inventory success",
+                    title:i18next.t('Created new inventory success'),
                     icon:"success",
-                    buttons:"Ok"
+                    buttons:i18next.t('Ok')
                 }).then(()=>{
                     window.location.reload()
                 })
@@ -40,9 +41,9 @@ const useInventoryStore = create((set)=>({
                     inventors:state.inventors.map((inventor)=> inventor._id !== id ? {...inventor , ...res.data.data} : inventor)
                 }))
                 swal({
-                    title:"update inventory success",
+                    title:i18next.t('Update inventory success'),
                     icon:"success",
-                    buttons:"Ok"
+                    buttons:i18next.t('Ok')
                 }).then(()=>{
                     window.location.reload()
                 })
@@ -54,9 +55,9 @@ const useInventoryStore = create((set)=>({
     deleteInventory: (id)=>{
         try{
             swal({
-                title:"Are you sure you want to delete the inventory?",
+                title:i18next.t('Are you sure you want to delete the inventory ?'),
                 icon:"error",
-                buttons:["no","yes"]
+                buttons:[i18next.t('no'), i18next.t('yes')]
             }).then(async (result)=>{
                 if(result){
                     const res = await apiRequest.delete(`/inventory/delete-inventory/${id}`);
@@ -65,9 +66,9 @@ const useInventoryStore = create((set)=>({
                             inventors:state.inventors.filter((inventor)=>inventor._id !== id)
                         }));
                         swal({
-                            title:"Delete Inventory success",
+                            title:i18next.t('Delete inventory success'),
                             icon:"success",
-                            buttons:"Ok"
+                            buttons:i18next.t('Ok')
                         }).then(()=>{
                             window.location.reload()
                         })

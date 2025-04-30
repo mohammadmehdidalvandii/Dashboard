@@ -1,0 +1,23 @@
+{
+    "Login successful":"Login Successful",
+    "Go to dashboard":"Go to dashboard",
+    "Email or Password is not valid":"Email or Password is not valid",
+    "Are you sure you want to leave?":"Are you sure you want to leave?",
+    "yes":"yes",
+    "no":"no",
+    "try": "try",
+    "done": "done",
+    "Ok":"Ok",
+    "Created new customer success":"Created new customer success",
+    "Update Customer success":"Update Customer success",
+    "Are you sure you want to delete the Customer ?":"Are you sure you want to delete the Customer ?",
+    "Delete customer success":"Delete customer success",
+    "Created new inventory success":"Created new inventory success",
+    "Update inventory success":"Update inventory success",
+    "Are you sure you want to delete the inventory ?":"Are you sure you want to delete the inventory ?",
+    "Delete inventory success":"Delete inventory success",
+    "New product added successfully":"New product added successfully",
+    "Product updated successfully":"Product updated successfully",
+    "Are you sure you want to delete the product ?":"Are you sure you want to delete the product ?",
+    "Delete product successfully":"Delete product successfully"
+}

@@ -1,6 +1,7 @@
 import {create} from 'zustand';
 import { apiRequest } from '../services/axios/config';
 import swal from 'sweetalert';
+import i18next from 'i18next';
 
 
 const useProductStore = create((set)=>({
@@ -13,20 +14,14 @@ const useProductStore = create((set)=>({
             if(res.status === 201){
                 set((state)=>({products:[...state.products , res.data]}));
                 swal({
-                    title:"New product added successfully.",
+                    title:i18next.t('New product added successfully'),
                     icon:'success',
-                    buttons:"ok"
+                    buttons:i18next.t('Ok')
                 }).then(()=>{
                     window.location.reload()
                 })
             }
         }catch(error){
-            swal({
-                title: "Error adding product",
-                text: error.response?.data?.message || "Something went wrong",
-                icon: "error",
-                buttons: "ok"
-            });
             console.error("AddProduct error", error);
         }
     },
@@ -44,9 +39,9 @@ const useProductStore = create((set)=>({
                     }
                 ));
                 swal({
-                    title:"Product updated successfully",
+                    title:i18next.t('Product updated successfully'),
                     icon:"success",
-                    buttons:"ok"
+                    buttons:i18next.t('Ok')
                 }).then(()=>{
                     window.location.reload()
                 })
@@ -57,9 +52,9 @@ const useProductStore = create((set)=>({
     },
     deleteProduct:(id)=>{
         swal({
-            title:"Are you sure you want to delete the product?",
+            title:i18next.t('Are you sure you want to delete the product ?'),
             icon:"error",
-            buttons:["no","yes"]
+            buttons:[i18next.t('no'), i18next.t('yes')]
         }).then(async (result)=>{
             if(result){
                 const res = await apiRequest.delete(`/product/delete-Product/${id}`);
@@ -68,9 +63,9 @@ const useProductStore = create((set)=>({
                         products:state.products.filter((product)=>product._id !== id)
                     }));
                 swal({
-                    title:"delete product successfully",
+                    title:i18next.t('Delete product successfully'),
                     icon:"success",
-                    buttons:"ok"
+                    buttons:i18next.t('Ok')
                 }).then(()=>{
                     window.location.reload()
                 })

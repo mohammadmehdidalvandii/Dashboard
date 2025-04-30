@@ -1,6 +1,7 @@
 import {create} from 'zustand';
 import { apiRequest } from '../services/axios/config';
 import swal from 'sweetalert';
+import i18next from 'i18next'
 
 const useCustomerStore = create((set)=>({
     customers:[],
@@ -22,9 +23,9 @@ const useCustomerStore = create((set)=>({
             if(res.status === 201){
                 set((state)=>({customers:[...state.customers , res.data]}));
                 swal({
-                    title:"Created new Customer success",
+                    title:i18next.t('Created new Customer success'),
                     icon:"success",
-                    buttons:"ok"
+                    buttons:i18next.t('Ok')
                 }).then(()=>{
                     window.location.reload()
                 })
@@ -53,9 +54,9 @@ const useCustomerStore = create((set)=>({
                     customers:state.customers.map((customer)=> customer._id === id ? {...customer , ...res.data}:customer)
                 }))
                 swal({
-                    title:"Edit Customer success",
+                    title:i18next.t('Update Customer success'),
                     icon:"success",
-                    buttons:"Ok",
+                    buttons:i18next.t('Ok'),
                 }).then(()=>{
                     window.location.reload()
                 })
@@ -66,9 +67,9 @@ const useCustomerStore = create((set)=>({
     },
     deleteCustomer: (id)=>{
         swal({
-            title:"Are you sure you want to delete the Customer ?",
+            title:i18next.t('Are you sure you want to delete the Customer ?'),
             icon:"error",
-            buttons:["no","yes"]
+            buttons:[i18next.t('no'), i18next.t('yes')]
         }).then(async (result)=>{
             if(result){
                 const res = await apiRequest.delete(`/customers/delete-customer/${id}`);
@@ -77,9 +78,9 @@ const useCustomerStore = create((set)=>({
                         customers:state.customers.filter((customer)=>customer._id !== id)
                     }));
                     swal({
-                        title:"Delete Customer success",
+                        title:i18next.t('Delete customer success'),
                         icon:"success",
-                        buttons:"Ok",
+                        buttons:i18next.t('Ok')
                     }).then(()=>{
                         window.location.reload()
                     })

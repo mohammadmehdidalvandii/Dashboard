@@ -1,0 +1,23 @@
+{
+    "Login successful":"با موفقیت وارد شدید",
+    "Go to dashboard":"بروید به پنل کاربری",
+    "Email or Password is not valid":"مقدار ایمیل یا رمزعبور نامعتبر است",
+    "Are you sure you want to leave?":"آیا از خروج اطمینان دارید ؟",
+    "yes":"بله",
+    "no":"نه",
+    "try": "دوباره تلاش کنید",
+    "done": "انجام شد",
+    "Ok":"Ok",
+    "Created new customer success":"یک مشتری جدید اضافه شد ",
+    "Update Customer success":"به روزرسانی مشتری با موفقیت بود",
+    "Are you sure you want to delete the Customer ?":"آیا از حذف مشتری اطمینان دارید ؟",
+    "Delete customer success":"مشتری با موفقیت حذف شد",
+    "Created new inventory success":"یک موجودی جدید ساخت شد",
+    "Update inventory success":"موجودی انبار به روزرسانی شد",
+    "Are you sure you want to delete the inventory ?":"آیا از حذف موجودی در انبار اطمینان دارید ؟",
+    "Delete inventory success":"موجودی در انبار با موفقیت حذف شد",
+    "New product added successfully":"یک محصول جدید با موفقیت اضافه شد",
+    "Product updated successfully":"محصول مورد نظر با موفقیت به روزرسانی شد",
+    "Are you sure you want to delete the product ?":"آیا از حذف محصول اطمینان دارید ؟",
+    "Delete product successfully":"محصول مورد نظر حذف شد "
+}

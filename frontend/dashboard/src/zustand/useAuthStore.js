@@ -1,6 +1,7 @@
 import {create} from 'zustand';
 import { apiRequest } from '../services/axios/config';
 import swal from 'sweetalert';
+import i18next from 'i18next'
 
 const useAuthStore = create((set)=>({
     user:null,
@@ -20,9 +21,9 @@ const useAuthStore = create((set)=>({
                 const data = res.data;
                 set({user:data.user, isAuthenticated:true});
                 swal({
-                    title:"Login Successful",
+                    title: i18next.t('Login successful'),
                     icon:'success',
-                    buttons:"Go to Dashboard"
+                    buttons: i18next.t('Go to dashboard')
                 }).then(()=>{
                     window.location.replace('/')
                 })
@@ -31,7 +32,7 @@ const useAuthStore = create((set)=>({
         } catch(error){
             if(error.status === 422){
                 swal({
-                    title:"Email or Password is not valid",
+                    title: i18next.t('Email or Password is not valid'),
                     icon:"error",
                     buttons:"try"
                 })
@@ -42,9 +43,9 @@ const useAuthStore = create((set)=>({
     logout:()=>{
         try{
             swal({
-                title:"Are you sure you want to leave?",
+                title: i18next.t('Are you sure you want to leave?'),
                 icon:"warning",
-                buttons:["no","yes"]
+                buttons:[i18next.t('no'), i18next.t('yes')]
             }).then(async (result)=>{
                 if(result){
                     const res = await apiRequest.post('/auth/logout')
