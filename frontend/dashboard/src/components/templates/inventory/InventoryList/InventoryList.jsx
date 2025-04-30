@@ -4,10 +4,12 @@ import {NavLink } from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
 import { useEffect, useState } from 'react';
 import {apiRequest} from '../../../../services/axios/config'
+import useInventoryStore from '../../../../zustand/useInventoryStore';
 
 
 function InventoryList() {
     const {t} = useTranslation();
+    const {deleteInventory} = useInventoryStore()
     const [inventories , setInventories] = useState();
 
     useEffect(()=>{
@@ -18,7 +20,12 @@ function InventoryList() {
             }
         };
         fetchData()
-    },[])
+    },[]);
+
+
+    const handlerDeleteInventory = (inventoryId)=>{
+        deleteInventory(inventoryId)
+    }
 
   return (
    <section className="inventoryList box">
@@ -53,7 +60,7 @@ function InventoryList() {
                         <td>
                             <div className="btn_action">
                                 <NavLink to={`/InventoryUpdate/${inventor._id}`} className="btn_save link">{t("Update")}</NavLink>
-                                <button className="btn_delete">{t("Remove")}</button>
+                                <button className="btn_delete" onClick={()=>handlerDeleteInventory(inventor._id)}>{t("Remove")}</button>
                             </div>
                         </td>
                     </tr>

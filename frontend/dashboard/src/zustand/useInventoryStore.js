@@ -26,6 +26,30 @@ const useInventoryStore = create((set)=>({
         catch(error){
             console.log("Error addInventory =>",error)
         }
+    },
+    deleteInventory: (id)=>{
+        try{
+            swal({
+                title:"Are you sure you want to delete the inventory?",
+                icon:"error",
+                buttons:["no","yes"]
+            }).then(async (result)=>{
+                if(result){
+                    const res = await apiRequest.delete(`/inventory/delete-inventory/${id}`);
+                    if(res.status === 200){
+                        swal({
+                            title:"Delete Inventory success",
+                            icon:"success",
+                            buttons:"Ok"
+                        }).then(()=>{
+                            window.location.reload()
+                        })
+                    }
+                }
+            })
+        }catch(error){
+            console.log("Error delete Inventory" ,error)
+        }
     }
 }));
 
