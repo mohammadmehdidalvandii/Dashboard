@@ -39,6 +39,7 @@ router.get('/me', async (req, res) => {
             email: user.email,
             phone: user.phone,
             role: user.role,
+            refreshToken: user.refreshToken,
             createdAt: user.createdAt,
             __v: user.__v
         };
