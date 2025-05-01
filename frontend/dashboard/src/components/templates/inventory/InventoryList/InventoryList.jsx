@@ -1,4 +1,3 @@
-import { FaSearch } from 'react-icons/fa'
 import './InventoryList.css'
 import {NavLink } from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
@@ -10,7 +9,8 @@ import useInventoryStore from '../../../../zustand/useInventoryStore';
 function InventoryList() {
     const {t} = useTranslation();
     const {deleteInventory} = useInventoryStore()
-    const [inventories , setInventories] = useState();
+    const [inventories , setInventories] = useState([]);
+    const [searchTerm ,setSearchTerm] = useState('')
 
     useEffect(()=>{
         const fetchData = async ()=>{
@@ -27,13 +27,20 @@ function InventoryList() {
         deleteInventory(inventoryId)
     }
 
+    // search inventory
+    const filterInventory = inventories.filter((inventor)=>
+        inventor.productID.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+
   return (
    <section className="inventoryList box">
         <div className="inventoryList_management">
             <h2 className="title_header">{t("Stock Levels")}</h2>
             <div className="inventoryList_search">
-                <input type="text" className="form_input"  placeholder={t("Search Inventory")}/>
-                <button className="btn"><FaSearch/></button>
+                <input type="text" className="form_input"  placeholder={t("Search Inventory")}
+                value={searchTerm}
+                onChange={(event)=>setSearchTerm(event.target.value)}
+                />
             </div>
         </div>
         <div>
@@ -49,8 +56,8 @@ function InventoryList() {
                 </tr>
             </thead>
             <tbody>
-                {inventories?.length > 0 ? (
-                    inventories.map((inventor)=>(
+                {filterInventory?.length > 0 ? (
+                    filterInventory.map((inventor)=>(
                         <tr key={inventor._id}>
                         <td>{inventor.sku}</td>
                         <td>{inventor.productID.name}</td>
