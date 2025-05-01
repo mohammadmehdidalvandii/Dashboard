@@ -1,9 +1,27 @@
 import './DetailsCustomer.css';
-import {NavLink} from 'react-router-dom'
+import {NavLink, useParams} from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useEffect, useState } from 'react';
+import {apiRequest} from '../../../../services/axios/config'
 
 function DetailsCustomer() {
   const {t} = useTranslation();
+  const [customer , setCustomer] = useState();
+  const {id} = useParams();
+
+  console.log("customer =>" ,customer)
+
+  useEffect(()=>{
+    const fetchData = async ()=>{
+      const res = await apiRequest.get(`/customers/details-customer/${id}`);
+      if(res.status === 200){
+        setCustomer( res.data.data)
+      }
+    };
+    fetchData()
+  },[])
+
+  console.log("id=>" , id)
   return (
     <section className="detailsCustomer box">
         <div>
@@ -16,23 +34,23 @@ function DetailsCustomer() {
               </li>
               <li>
                 <span>{t("Customer ID")}:</span>
-                <span>C001</span>
+                <span>{customer?._id}</span>
               </li>
               <li>
                 <span>{t("Name")}:</span>
-                <span>John Doe</span>
+                <span>{customer?.name}</span>
               </li>
               <li>
                 <span>{t("Email")}:</span>
-                <span> john@example.com</span>
+                <span>{customer?.email}</span>
               </li>
               <li>
                 <span>{t("Phone")}:</span>
-                <span>+1 234 567 890</span>
+                <span>{customer?.phone}</span>
               </li>
               <li>
                 <span>{t("Membership")}:</span>
-                <span>gold</span>
+                <span>{customer?.membership}</span>
               </li>
             </ul>
             <ul className="item">
