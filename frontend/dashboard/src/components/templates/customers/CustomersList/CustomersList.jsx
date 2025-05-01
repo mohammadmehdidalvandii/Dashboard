@@ -1,4 +1,4 @@
-import { FaEdit, FaEye, FaSearch } from 'react-icons/fa'
+import { FaEdit, FaEye } from 'react-icons/fa'
 import { MdDelete } from "react-icons/md";
 import './CustomersList.css'
 import { NavLink } from 'react-router-dom';
@@ -11,7 +11,8 @@ import useCustomerStore from '../../../../zustand/useCustomerStore';
 function CustomersList() {
     const {t} =useTranslation();
     const {deleteCustomer} = useCustomerStore()
-    const [customers , setCustomers]= useState();
+    const [customers , setCustomers]= useState([]);
+    const [searchTerm , setSearchTerm] = useState('')
 
 
     useEffect(()=>{
@@ -29,13 +30,23 @@ function CustomersList() {
         deleteCustomer(customerID)
     }
 
+    // Search customers
+    const filterCustomers = customers.filter((customer)=>
+        customer.firstName.toLowerCase().includes(searchTerm.toLowerCase())||
+        customer.lastName.toLowerCase().includes(searchTerm.toLowerCase())||
+        customer.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+
+
   return (
     <section className="customersList box">
             <div className="customersList_management">
                 <h2 className="title_header">{t("Customer List")}</h2>
                 <div className="customerList_search">
-                    <input type="text" className="form_input"  placeholder={t("Search Customers")}/>
-                    <button className="btn"><FaSearch/></button>
+                    <input type="text" className="form_input"  placeholder={t("Search Customers")}
+                        value={searchTerm}
+                        onChange={(event)=>setSearchTerm(event.target.value)}
+                    />
               </div> 
            </div>
            <table>
@@ -49,8 +60,8 @@ function CustomersList() {
                     </tr>
                 </thead>
                 <tbody>
-                    {customers?.length > 0 ? (
-                        customers.map((customer)=>(
+                    {filterCustomers?.length > 0 ? (
+                        filterCustomers.map((customer)=>(
                             <tr key={customer._id}>
                             <td>#{customer?._id}</td>
                             <td>{customer?.name}</td>
