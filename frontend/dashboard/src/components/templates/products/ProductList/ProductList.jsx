@@ -84,7 +84,7 @@ function ProductList() {
                     </tr>
                     ))
                 ) : (
-                    <span>The product is not available</span>
+                    <span className='error_table'>The product is not available</span>
                 )}
                
                 </tbody>

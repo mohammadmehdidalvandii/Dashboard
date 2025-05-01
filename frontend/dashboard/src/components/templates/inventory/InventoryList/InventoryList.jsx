@@ -73,7 +73,7 @@ function InventoryList() {
                     </tr>
                     ))
                  ): (
-                    <span>The inventory is not available</span>
+                    <span className='error_table'>The inventory is not available</span>
                  )}
               
             </tbody>

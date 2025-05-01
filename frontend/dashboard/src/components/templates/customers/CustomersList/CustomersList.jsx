@@ -77,7 +77,7 @@ function CustomersList() {
                         </tr>
                         ))
                     ) : (
-                        <span>The Customer is not available</span>
+                        <span className='error_table'>The Customer is not available</span>
                     )}
                    
                 </tbody>

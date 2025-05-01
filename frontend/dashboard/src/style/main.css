@@ -417,6 +417,17 @@ td {
     border-bottom: 1px solid #eee;
 }
 
+.error_table{
+   display: block;
+   margin-top: 0.5rem;
+   font-family: var(--roboto-bold);
+   font-size: 1.5rem;
+   color: #e74c3c;
+}
+.rtl .error_table{
+    font-family: var(--dana-bold);
+}
+
 /* sweet alert styles */
 .swal-title{
     font-family: var(--roboto-bold);
