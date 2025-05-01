@@ -392,6 +392,13 @@ th, td {
     text-align: left;
     padding: 10px;
 }
+td img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 100%;
+}
 .rtl th , .rtl td{
     text-align: right;
 }

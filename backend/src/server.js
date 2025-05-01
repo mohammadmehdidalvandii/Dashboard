@@ -11,8 +11,8 @@ const cookieParser = require('cookie-parser')
 dotenv.config()
 
 // Serve static files from the 'public' directory
-app.use('/images', express.static(path.join(__dirname, 'public/images')));
-app.use('/uploads' , express.static(path.join(__dirname, 'public/uploads')))
+app.use('/images', express.static(path.join(__dirname, '../public/images')));
+app.use('/uploads' , express.static(path.join(__dirname, '../public/uploads')))
 
 
 // Paras data json
