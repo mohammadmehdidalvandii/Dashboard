@@ -5,7 +5,9 @@ const { statusCodes } = require("../../constants/constants")
 router.post("/logout", (req ,res)=>{
     try{
         res.clearCookie("token",{
-            httpOnly: true,
+            httpOnly:true,
+            secure:true,
+            sameSite:'none',
             path:"/"
         });
         res.status(statusCodes.OK).json({message: "Logged out successfully"});

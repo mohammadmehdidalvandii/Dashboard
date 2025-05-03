@@ -26,7 +26,7 @@ router.post ('/register' , async(req ,res)=>{
             const user = await userController.createUser({
                 firstName:"",
                 lastName:"",
-                image:"http://localhost:3000/images/default-image.png",
+                image:"https://dashboard-admin-api.chbk.app/images/default-image.png",
                 username, 
                 email, 
                 phone, 

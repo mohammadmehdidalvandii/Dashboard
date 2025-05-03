@@ -37,7 +37,7 @@ router.post('/add-product', upload.single('image')  , async(req , res)=>{
             stock,
             sku: "DS-" + crypto.randomUUID(),
             status: "In Stock",
-            image: `http://localhost:3000/${image}`,
+            image: `https://dashboard-admin-api.chbk.app/${image}`,
             createdAt: new Date(),
         })
         if(newProduct){

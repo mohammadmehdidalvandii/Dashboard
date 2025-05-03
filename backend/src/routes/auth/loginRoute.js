@@ -38,6 +38,8 @@ router.post("/login", async (req , res)=>{
         res.status(statusCodes.OK)
         .cookie("token" ,accessToken ,{
             httpOnly:true,
+            secure:true,
+            sameSite:'none',
             maxAge: 365 * 24 * 7 * 24 * 60 * 60 * 1000,
             path:"/"
         })
