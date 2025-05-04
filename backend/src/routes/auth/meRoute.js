@@ -7,7 +7,6 @@ const { verifyAccessToken } = require('../../utils/auth');
 router.get('/me', async (req, res) => {
     try {
         const token = req.cookies.token;
-        console.log("token ", token);
         
         if (!token) {
             return res.status(statusCodes.BAD_REQUEST)
