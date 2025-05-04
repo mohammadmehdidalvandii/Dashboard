@@ -58,11 +58,11 @@ function InventoryList() {
             <tbody>
                 {filterInventory?.length > 0 ? (
                     filterInventory.map((inventor)=>(
-                        <tr key={inventor._id}>
-                        <td>{inventor.sku}</td>
-                        <td>{inventor.productID.name}</td>
-                        <td>{inventor.quantity}</td>
-                        <td>{inventor.category}</td>
+                        <tr key={inventor?._id}>
+                        <td>{inventor?.sku}</td>
+                        <td>{inventor?.productID?.name}</td>
+                        <td>{inventor?.quantity}</td>
+                        <td>{inventor?.category}</td>
                         <td className='inventory_Status status-completed'>{inventor.status}</td>
                         <td>
                             <div className="btn_action">
