@@ -7,7 +7,7 @@
     "no":"نه",
     "try": "دوباره تلاش کنید",
     "done": "انجام شد",
-    "Ok":"Ok",
+    "Ok":"باشه",
     "Created new customer success":"یک مشتری جدید اضافه شد ",
     "Update Customer success":"به روزرسانی مشتری با موفقیت بود",
     "Are you sure you want to delete the Customer ?":"آیا از حذف مشتری اطمینان دارید ؟",
@@ -19,5 +19,7 @@
     "New product added successfully":"یک محصول جدید با موفقیت اضافه شد",
     "Product updated successfully":"محصول مورد نظر با موفقیت به روزرسانی شد",
     "Are you sure you want to delete the product ?":"آیا از حذف محصول اطمینان دارید ؟",
-    "Delete product successfully":"محصول مورد نظر حذف شد "
+    "Delete product successfully":"محصول مورد نظر حذف شد ",
+    "This feature is not enabled":"این ویژگی فعال نیست",
+    "Logout Is success":"خروج با موفقیت انجام شد"
 }

@@ -6,7 +6,7 @@ function SecurityProfile() {
     const {t} = useTranslation();
     const handlerChangePassword = (e)=>{
         e.preventDefault()
-        showAlert("This feature is not enabled","warning","ok")
+        showAlert("This feature is not enabled","warning","Ok")
     }
   return (
     <section className="securityProfile box">

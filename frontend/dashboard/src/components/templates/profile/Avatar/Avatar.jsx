@@ -7,10 +7,7 @@ import showAlert from '../../../../utils/showAlert'
 function Avatar() {
     const {t} = useTranslation()
     const { getUserInfo , userInfo} = useAuthStore();
-    const [firstName , setFirstName] = useState();
-    const [lastName , setLastName] = useState();
-    const [email , setEmail] = useState();
-    const [phone , setPhone] = useState();
+   
 
      useEffect(()=>{
             getUserInfo()
@@ -18,7 +15,7 @@ function Avatar() {
 
         const handlerChangeAvatar = (e)=>{
             e.preventDefault()
-            showAlert("This feature is not enabled","warning","ok")
+            showAlert("This feature is not enabled","warning","Ok")
         }
 
   return (

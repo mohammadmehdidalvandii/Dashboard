@@ -1,9 +1,10 @@
 import swal from "sweetalert";
+import i18next from 'i18next'
 const showAlert = (title , icon , buttons)=>{
     swal({
-        title:title,
+        title:i18next.t(title),
         icon:icon,
-        buttons:buttons
+        buttons:i18next.t(buttons)
     })
 }
 

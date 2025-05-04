@@ -19,5 +19,7 @@
     "New product added successfully":"New product added successfully",
     "Product updated successfully":"Product updated successfully",
     "Are you sure you want to delete the product ?":"Are you sure you want to delete the product ?",
-    "Delete product successfully":"Delete product successfully"
+    "Delete product successfully":"Delete product successfully",
+    "This feature is not enabled":"This feature is not enabled",
+    "Logout Is success":"Logout Is success"
 }

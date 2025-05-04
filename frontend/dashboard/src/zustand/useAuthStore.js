@@ -51,9 +51,9 @@ const useAuthStore = create((set)=>({
                     const res = await apiRequest.post('/auth/logout')
                     if(res.status === 200){
                         swal({
-                            title:"Logout Is success",
+                            title:i18next.t('Logout Is success'),
                             icon:"success",
-                            buttons:"done"
+                            buttons:i18next.t('done')
                         }).then(()=>{
                             window.location.reload()
                         })
