@@ -24,7 +24,7 @@ function View() {
   return (
     <section className="view box">
         <div>
-            <NavLink to='/Orders' className="btn">{t("Back to Orders")}</NavLink>
+            <NavLink to='/Orders' className="btn link btn_back">{t("Back to Orders")}</NavLink>
             <h5 className="title_header">{t("Order Details")}</h5>
             <div className="items">
                 <div className="item">
