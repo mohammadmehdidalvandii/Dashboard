@@ -22,6 +22,8 @@ function Signup() {
                 <div className="signup_header">
                     <h6 className="title_header">Welcome Back</h6>
                     <p>Please login to your account</p>
+                    <br />
+                    <p>email: admin@gmail.com <br /> <br /> password: Admin1234</p>
                 </div>
                 <form onSubmit={loginHandler} className="signup_form">
                     <div className="form_group">
