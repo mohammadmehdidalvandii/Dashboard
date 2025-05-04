@@ -8,11 +8,14 @@ const loggerMiddleware = require('./middleware/loggerMiddleware');
 const notFoundMiddleware = require('./middleware/notFoundMiddleware');
 const path = require('path');
 const cookieParser = require('cookie-parser')
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./config/swagger');
 dotenv.config()
 
 // Serve static files from the 'public' directory
 app.use('/images', express.static(path.join(__dirname, '../public/images')));
 app.use('/uploads' , express.static(path.join(__dirname, '../public/uploads')))
+
 
 
 // Paras data json
@@ -29,6 +32,18 @@ app.use(helmet())
 
 // connect to database
 connectToDB();
+
+
+// Swagger Documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+  explorer: true,
+  customCss: '.swagger-ui .topbar { display: none }',
+  customSiteTitle: "Dashboard Admin API Documentation",
+  swaggerOptions: {
+    persistAuthorization: true,
+    displayRequestDuration: true,
+  }
+}));
 
 // Middleware Logger 
 

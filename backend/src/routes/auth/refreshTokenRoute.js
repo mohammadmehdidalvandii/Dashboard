@@ -4,6 +4,39 @@ const userController = require("../../controllers/UserController");
 const {generateAccessToken, generateRefreshToken, verifyRefreshToken} = require('../../utils/auth');
 const { statusCodes } = require("../../constants/constants")
 
+/**
+ * @swagger
+ * /auth/refresh-token:
+ *   post:
+ *     summary: Refresh access token
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - refreshToken
+ *             properties:
+ *               refreshToken:
+ *                 type: string
+ *                 description: The refresh token to generate new access token
+ *     responses:
+ *       200:
+ *         description: Token refreshed successfully
+ *         headers:
+ *           Set-Cookie:
+ *             schema:
+ *               type: string
+ *               description: New JWT access token in cookie
+ *       400:
+ *         description: Bad request - Refresh token is required
+ *       401:
+ *         description: Unauthorized - Invalid refresh token
+ *       500:
+ *         description: Server error
+ */
 router.post("/refresh-token", async (req , res)=>{
     try{
         const {refreshToken} = req.body;

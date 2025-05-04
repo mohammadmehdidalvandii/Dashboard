@@ -5,8 +5,42 @@ const {hashedPassword} = require('../../utils/auth')
 const { statusCodes } = require("../../constants/constants");
 const registerValidation = require("../../validations/RegisterValidation");
 
-
-
+/**
+ * @swagger
+ * /auth/register:
+ *   post:
+ *     summary: Register a new user
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - username
+ *               - email
+ *               - phone
+ *               - password
+ *             properties:
+ *               username:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *                 format: email
+ *               phone:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *                 format: password
+ *     responses:
+ *       201:
+ *         description: User successfully registered
+ *       400:
+ *         description: Bad request - User already exists or validation error
+ *       500:
+ *         description: Server error
+ */
 router.post ('/register' , async(req ,res)=>{
     try{
         // Validate the request body

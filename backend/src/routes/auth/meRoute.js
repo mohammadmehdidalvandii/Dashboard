@@ -4,6 +4,57 @@ const userController = require("../../controllers/UserController");
 const { statusCodes } = require("../../constants/constants");
 const { verifyAccessToken } = require('../../utils/auth');
 
+/**
+ * @swagger
+ * /auth/me:
+ *   get:
+ *     summary: Get current user information
+ *     tags: [Auth]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: User information retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     _id:
+ *                       type: string
+ *                     firstName:
+ *                       type: string
+ *                     lastName:
+ *                       type: string
+ *                     username:
+ *                       type: string
+ *                     image:
+ *                       type: string
+ *                     email:
+ *                       type: string
+ *                     phone:
+ *                       type: string
+ *                     role:
+ *                       type: string
+ *                     refreshToken:
+ *                       type: string
+ *                     createdAt:
+ *                       type: string
+ *                       format: date-time
+ *       400:
+ *         description: Bad request - Access token is required
+ *       401:
+ *         description: Unauthorized - Invalid or expired token
+ *       404:
+ *         description: User not found
+ *       500:
+ *         description: Server error
+ */
 router.get('/me', async (req, res) => {
     try {
         const token = req.cookies.token;

@@ -5,7 +5,75 @@ const {statusCodes} = require("../../constants/constants");
 const upload = require('../../config/multer');
 const addProductValidation = require('../../validations/addProductValidation');
 
-
+/**
+ * @swagger
+ * /product/add-product:
+ *   post:
+ *     summary: Add a new product
+ *     tags: [Products]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - description
+ *               - price
+ *               - category
+ *               - stock
+ *               - image
+ *             properties:
+ *               name:
+ *                 type: string
+ *               description:
+ *                 type: string
+ *               price:
+ *                 type: number
+ *               category:
+ *                 type: string
+ *               stock:
+ *                 type: number
+ *               image:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       201:
+ *         description: Product created successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     name:
+ *                       type: string
+ *                     description:
+ *                       type: string
+ *                     price:
+ *                       type: number
+ *                     category:
+ *                       type: string
+ *                     stock:
+ *                       type: number
+ *                     sku:
+ *                       type: string
+ *                     status:
+ *                       type: string
+ *                     image:
+ *                       type: string
+ *       400:
+ *         description: Bad request - Missing required fields or validation error
+ *       500:
+ *         description: Server error
+ */
 router.post('/add-product', upload.single('image')  , async(req , res)=>{
     try{
         const {error} = addProductValidation.validate(req.body);

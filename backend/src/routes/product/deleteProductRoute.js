@@ -3,7 +3,40 @@ const router = express.Router();
 const productController = require('../../controllers/ProductController');
 const {statusCodes} = require('../../constants/constants');
 
-
+/**
+ * @swagger
+ * /product/delete-Product/{id}:
+ *   delete:
+ *     summary: Delete a product
+ *     tags: [Products]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Product ID
+ *     responses:
+ *       200:
+ *         description: Product deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: object
+ *                 message:
+ *                   type: string
+ *       400:
+ *         description: Delete product failed
+ *       404:
+ *         description: Product ID is required
+ *       500:
+ *         description: Server error
+ */
 router.delete('/delete-Product/:id' , async (req , res)=>{
     try{
         const productID = req.params.id;

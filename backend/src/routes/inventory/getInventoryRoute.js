@@ -3,7 +3,50 @@ const router = express.Router();
 const inventoryController = require('../../controllers/InventoryController')
 const {statusCodes} = require('../../constants/constants');
 
-
+/**
+ * @swagger
+ * /inventory:
+ *   get:
+ *     summary: Get all inventory items or search by name
+ *     tags: [Inventory]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: name
+ *         schema:
+ *           type: string
+ *         description: Inventory item name to search for
+ *     responses:
+ *       200:
+ *         description: Get inventory successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       _id:
+ *                         type: string
+ *                       productID:
+ *                         type: string
+ *                       quantity:
+ *                         type: number
+ *                       category:
+ *                         type: string
+ *                       status:
+ *                         type: string
+ *                       sku:
+ *                         type: string
+ *       500:
+ *         description: Server error
+ */
 router.get('/' , async (req , res)=>{
     try{
         const {name} = req.params;
@@ -26,6 +69,53 @@ router.get('/' , async (req , res)=>{
     }
 });
 
+/**
+ * @swagger
+ * /inventory/details-inventory/{id}:
+ *   get:
+ *     summary: Get inventory item by ID
+ *     tags: [Inventory]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Inventory item ID
+ *     responses:
+ *       200:
+ *         description: Get inventory successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     _id:
+ *                       type: string
+ *                     productID:
+ *                       type: string
+ *                     quantity:
+ *                       type: number
+ *                     category:
+ *                       type: string
+ *                     status:
+ *                       type: string
+ *                     sku:
+ *                       type: string
+ *                 message:
+ *                   type: string
+ *       400:
+ *         description: Bad request - ID is required
+ *       404:
+ *         description: Inventory item not found
+ *       500:
+ *         description: Server error
+ */
 router.get('/details-inventory/:id',async (req , res)=>{
     try{
         const id  = req.params.id;

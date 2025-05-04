@@ -5,6 +5,43 @@ const {verifyPassword , generateAccessToken , generateRefreshToken} = require('.
 const { statusCodes } = require("../../constants/constants");
 const loginValidation = require("../../validations/LoginValidation");
 
+/**
+ * @swagger
+ * /auth/login:
+ *   post:
+ *     summary: Login user
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 format: email
+ *               password:
+ *                 type: string
+ *                 format: password
+ *     responses:
+ *       200:
+ *         description: Login successful
+ *         headers:
+ *           Set-Cookie:
+ *             schema:
+ *               type: string
+ *               description: JWT access token in cookie
+ *       400:
+ *         description: Bad request - Invalid credentials or validation error
+ *       422:
+ *         description: Unprocessable entity - Invalid password or email
+ *       500:
+ *         description: Server error
+ */
 router.post("/login", async (req , res)=>{
     try{
         // validate the request body
@@ -54,3 +91,4 @@ router.post("/login", async (req , res)=>{
 })
 
 module.exports = router
+

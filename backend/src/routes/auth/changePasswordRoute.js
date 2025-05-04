@@ -4,7 +4,44 @@ const userController = require("../../controllers/UserController");
 const {statusCodes} = require('../../constants/constants');
 const {verifyPassword , hashedPassword , verifyAccessToken} = require('../../utils/auth');
 
-
+/**
+ * @swagger
+ * /auth/change-password:
+ *   post:
+ *     summary: Change user password
+ *     tags: [Auth]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - currentPassword
+ *               - password
+ *             properties:
+ *               currentPassword:
+ *                 type: string
+ *                 format: password
+ *                 description: Current password
+ *               password:
+ *                 type: string
+ *                 format: password
+ *                 description: New password
+ *     responses:
+ *       200:
+ *         description: Password updated successfully
+ *       400:
+ *         description: Bad request - Missing required fields or incorrect current password
+ *       401:
+ *         description: Unauthorized - Invalid or expired token
+ *       404:
+ *         description: User not found
+ *       500:
+ *         description: Server error
+ */
 router.post('/change-password' , async (req ,res)=>{
     try{
         const {currentPassword , password} = req.body;

@@ -3,6 +3,67 @@ const router = express.Router();
 const customerController = require('../../controllers/CustomerController');
 const {statusCodes} = require('../../constants/constants');
 
+/**
+ * @swagger
+ * /customers:
+ *   get:
+ *     summary: Get all customers or search by name
+ *     tags: [Customers]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: name
+ *         schema:
+ *           type: string
+ *         description: Customer name to search for
+ *     responses:
+ *       200:
+ *         description: Get customers successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       _id:
+ *                         type: string
+ *                       firstName:
+ *                         type: string
+ *                       lastName:
+ *                         type: string
+ *                       name:
+ *                         type: string
+ *                       email:
+ *                         type: string
+ *                       phone:
+ *                         type: string
+ *                       address:
+ *                         type: object
+ *                         properties:
+ *                           street:
+ *                             type: string
+ *                           city:
+ *                             type: string
+ *                           state:
+ *                             type: string
+ *                           zipCode:
+ *                             type: string
+ *                           country:
+ *                             type: string
+ *                       membership:
+ *                         type: string
+ *                       note:
+ *                         type: string
+ *       500:
+ *         description: Server error
+ */
 router.get('/' , async(req , res)=>{
     try{
         const {name} = req.query;
@@ -21,6 +82,70 @@ router.get('/' , async(req , res)=>{
     }
 });
 
+/**
+ * @swagger
+ * /customers/details-customer/{id}:
+ *   get:
+ *     summary: Get customer by ID
+ *     tags: [Customers]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Customer ID
+ *     responses:
+ *       200:
+ *         description: Get customer successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     _id:
+ *                       type: string
+ *                     firstName:
+ *                       type: string
+ *                     lastName:
+ *                       type: string
+ *                     name:
+ *                       type: string
+ *                     email:
+ *                       type: string
+ *                     phone:
+ *                       type: string
+ *                     address:
+ *                       type: object
+ *                       properties:
+ *                         street:
+ *                           type: string
+ *                         city:
+ *                           type: string
+ *                         state:
+ *                           type: string
+ *                         zipCode:
+ *                           type: string
+ *                         country:
+ *                           type: string
+ *                     membership:
+ *                       type: string
+ *                     note:
+ *                       type: string
+ *                 message:
+ *                   type: string
+ *       400:
+ *         description: Bad request - ID is required
+ *       404:
+ *         description: Customer not found
+ *       500:
+ *         description: Server error
+ */
 router.get('/details-customer/:id', async (req , res)=>{
     try{
         const id = req.params.id;

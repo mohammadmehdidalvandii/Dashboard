@@ -4,6 +4,75 @@ const inventoryController = require('../../controllers/InventoryController')
 const {statusCodes} = require('../../constants/constants');
 const productModel = require('../../models/Products');
 
+/**
+ * @swagger
+ * /inventory/update-inventory/{id}:
+ *   put:
+ *     summary: Update an inventory item
+ *     tags: [Inventory]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Inventory item ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - productID
+ *               - quantity
+ *               - category
+ *               - status
+ *             properties:
+ *               productID:
+ *                 type: string
+ *                 description: ID of the product
+ *               quantity:
+ *                 type: number
+ *                 description: Quantity of the product
+ *               category:
+ *                 type: string
+ *                 description: Category of the product
+ *               status:
+ *                 type: string
+ *                 description: Status of the inventory item
+ *     responses:
+ *       200:
+ *         description: Inventory updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     _id:
+ *                       type: string
+ *                     productID:
+ *                       type: string
+ *                     quantity:
+ *                       type: number
+ *                     category:
+ *                       type: string
+ *                     status:
+ *                       type: string
+ *       400:
+ *         description: Bad request - Missing required fields or invalid ID
+ *       404:
+ *         description: Product not found
+ *       500:
+ *         description: Server error
+ */
 router.put('/update-inventory/:id' , async (req, res)=>{
     try{
         const {productID, quantity, category, status} =req.body

@@ -4,7 +4,57 @@ const productController = require("../../controllers/ProductController")
 const {statusCodes} = require("../../constants/constants");
 const upload = require('../../config/multer');
 
-
+/**
+ * @swagger
+ * /product/update-product/{id}:
+ *   put:
+ *     summary: Update a product
+ *     tags: [Products]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Product ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - description
+ *               - price
+ *               - category
+ *               - stock
+ *             properties:
+ *               name:
+ *                 type: string
+ *               description:
+ *                 type: string
+ *               price:
+ *                 type: number
+ *               category:
+ *                 type: string
+ *               stock:
+ *                 type: number
+ *               status:
+ *                 type: string
+ *               image:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       200:
+ *         description: Product updated successfully
+ *       400:
+ *         description: Bad request - Missing required fields or ID
+ *       500:
+ *         description: Server error
+ */
 router.put('/update-product/:id', upload.single('image'), async (req, res) => {
     try {
         const {name, description, price, category, stock, status} = req.body;

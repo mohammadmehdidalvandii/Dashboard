@@ -3,6 +3,40 @@ const router = express.Router();
 const customerController = require('../../controllers/CustomerController');
 const {statusCodes} = require('../../constants/constants');
 
+/**
+ * @swagger
+ * /customers/delete-customer/{id}:
+ *   delete:
+ *     summary: Delete a customer
+ *     tags: [Customers]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Customer ID
+ *     responses:
+ *       200:
+ *         description: Customer deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: object
+ *                 message:
+ *                   type: string
+ *       400:
+ *         description: Delete customer failed
+ *       404:
+ *         description: Customer ID is required
+ *       500:
+ *         description: Server error
+ */
 router.delete('/delete-customer/:id', async (req , res)=>{
     try{
         // const customerID = req.params.id;
