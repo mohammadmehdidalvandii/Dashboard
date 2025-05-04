@@ -6,6 +6,7 @@ import { apiRequest } from '../../../../services/axios/config';
 function Orders() {
     const {t} = useTranslation();
     const [orders , setOrders] = useState();
+    console.log("orders" , orders)
     useEffect(()=>{
         const fetchData = async ()=>{
             const res = await apiRequest.get('/orders');
@@ -36,9 +37,9 @@ function Orders() {
                                                         orders.map((order)=>(
                                                             <tr key={order?._id}>
                                                             <td>#{order?._id}</td>
-                                                            <td>{order.customerID.firstName}-{order.customerID.lastName}</td>
+                                                            <td>{order?.customerID?.firstName}-{order?.customerID?.lastName}</td>
                                                             <td>
-                                                            {order.products[0].productID.name}
+                                                            {order?.products[0]?.productID?.name}
                                                             </td>
                                                             <td>$999</td>
                                                             <td><span className="status-badge status-pending">{order.status}</span></td>

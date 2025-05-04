@@ -11,7 +11,7 @@ import showAlert from '../../../../utils/showAlert';
 function OrderList() {
     const { t } = useTranslation();
     const [processModel , setProcessModel] = useState(false);
-    const [orders , setOrders] = useState();
+    const [orders , setOrders] = useState([]);
     useEffect(()=>{
         const fetchData = async ()=>{
             const res = await apiRequest.get('/orders');
@@ -60,14 +60,14 @@ function OrderList() {
                         </tr>
                     </thead>
                     <tbody>
-                        {orders?.length >0 ? (
+                        {orders?.length > 0 ? (
                             orders.map((order)=>(
-                                <tr key={order._id}>
-                                <td>#{order._id}</td>
-                                <td>{order.customerID.firstName}-{order.customerID.lastName}</td>
-                                <td>{order.products[0].productID.name}</td>
+                                <tr key={order?._id}>
+                                <td>#{order?._id}</td>
+                                <td>{order?.customerID?.firstName}-{order.customerID?.lastName}</td>
+                                <td>{order?.products[0]?.productID?.name}</td>
                                 <td>$999.99</td>
-                                <td><span className="status-badge status-pending ">{order.status}</span></td>
+                                <td><span className="status-badge status-pending ">{order?.status}</span></td>
                                 <td>
                                     <div className="btn_action">
                                     <NavLink to={`/OrdersView/${order._id}`} className='link btn_save'>

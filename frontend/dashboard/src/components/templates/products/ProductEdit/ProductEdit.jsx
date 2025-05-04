@@ -16,10 +16,8 @@ function ProductEdit() {
     const [stock, setStock] = useState(product?.stock);
     const [description, setDescription] = useState(product?.description);
     const [image, setImage] = useState(product?.image);
-    console.log("edit=>" , name , category , price ,stock ,description)
 
     const {id} = useParams();
-    console.log("id=>" ,id)
 
        useEffect(()=>{
             const fetchData = async ()=>{
