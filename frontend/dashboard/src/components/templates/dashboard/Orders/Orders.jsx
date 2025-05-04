@@ -1,8 +1,20 @@
+import { useEffect, useState } from 'react';
 import './Orders.css';
 import { useTranslation } from 'react-i18next';
+import { apiRequest } from '../../../../services/axios/config';
 
 function Orders() {
     const {t} = useTranslation();
+    const [orders , setOrders] = useState();
+    useEffect(()=>{
+        const fetchData = async ()=>{
+            const res = await apiRequest.get('/orders');
+            if(res.status === 200){
+                setOrders(res.data.data);
+            }
+        };
+        fetchData();
+    },[])
   return (
     <section className="orders box">
         <div className="orders_wrapper">
@@ -20,27 +32,22 @@ function Orders() {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>#12345</td>
-                                <td>John Doe</td>
-                                <td>iPhone 13 Pro</td>
-                                <td>$999</td>
-                                <td><span className="status-badge status-completed">{t("Completed")}</span></td>
-                            </tr>
-                            <tr>
-                                <td>#12346</td>
-                                <td>Jane Smith</td>
-                                <td>MacBook Air</td>
-                                <td>$1,299</td>
-                                <td><span className="status-badge status-pending">{t("Pending")}</span></td>
-                            </tr>
-                            <tr>
-                                <td>#12347</td>
-                                <td>Mike Johnson</td>
-                                <td>AirPods Pro</td>
-                                <td>$249</td>
-                                <td><span className="status-badge status-completed">{t("Completed")}</span></td>
-                            </tr>
+                               {orders?.length >0 ? (
+                                                        orders.map((order)=>(
+                                                            <tr key={order?._id}>
+                                                            <td>#{order?._id}</td>
+                                                            <td>{order.customerID.firstName}-{order.customerID.lastName}</td>
+                                                            <td>
+                                                            {order.products[0].productID.name}
+                                                            </td>
+                                                            <td>$999</td>
+                                                            <td><span className="status-badge status-pending">{order.status}</span></td>
+                                                        </tr>
+                                                        ))
+                            
+                                                    ) :(
+                                                                <span className='error_table'>The product is not available</span>
+                                                    )}
                         </tbody>
                     </table>
         </div>
