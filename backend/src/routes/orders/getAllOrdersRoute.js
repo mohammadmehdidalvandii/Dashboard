@@ -112,12 +112,12 @@ router.get("/:id", async (req, res)=>{
             res.status(statusCodes.BAD_REQUEST)
             .json({message:"ID is not found"})
         }
-        const orders = await ordersController.deleteOrderById(id);
-        console.log("orders" , orders)
+        const order = await ordersController.getOrderById(id);
+        console.log("order" , order)
         res.status(statusCodes.OK)
         .json({
-            message:"Get All order Successfully",
-            data:orders
+            message:"Get order successfully",
+            data:order
         })
     }
     catch(error){

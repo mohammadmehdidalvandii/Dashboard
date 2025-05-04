@@ -1,9 +1,26 @@
 import './View.css';
-import {NavLink} from 'react-router-dom'
+import {NavLink, useParams} from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
+import { apiRequest } from '../../../../services/axios/config';
 
 function View() {
   const {t} = useTranslation()
+  const [order , setOrder] = useState()
+  const {id} = useParams();
+
+  useEffect(()=>{
+    const fetchData = async ()=>{
+      const res = await apiRequest.get(`/orders/${id}`)
+      if(res.status === 200){
+        setOrder(res.data.data)
+      }
+    };
+    fetchData()
+  },[])
+
+  console.log("order id" , id)
+  
   return (
     <section className="view box">
         <div>
@@ -14,15 +31,15 @@ function View() {
                     <h4>{t("Order Information")}</h4>
                     <p>
                       <span>{t("Order ID")}:</span>
-                      <span>#12345</span>
+                      <span>#{order?._id}</span>
                     </p>
                     <p>
                       <span>{t("Date")} :</span>
-                      <span>March 20 , 2024</span>
+                      <span>{order?.createdAt}</span>
                     </p>
                     <p>
                       <span>{t("Status")} :</span>
-                      <span>Completed</span>
+                      <span>{order?.status}</span>
                     </p>
                     <p>
                       <span>{t("Total")} :</span>
@@ -33,20 +50,20 @@ function View() {
                     <h4>Customer Information</h4>
                     <p>
                       <span>Name :</span>
-                      <span>John Doe</span>
+                      <span>{order?.customerID?.firstName}-{order?.customerID?.lastName}</span>
                     </p>
                     <p>
                       <span>Email :</span>
-                      <span>John@example.com</span>
+                      <span>{order?.customerID?.email}</span>
                     </p>
                     <p>
                       <span>Phone :</span>
-                      <span>+1 234 576 890</span>
+                      <span>{order?.customerID?.phone}</span>
                     </p>
                 </div>
             <div className="address">
                 <h6>{t("Shipping Address")}</h6>
-                <p>123 Main St, Apt 4B, New York, NY 10001, USA</p>
+                <p>{order?.shippingAddress[0]?.country}, {order?.shippingAddress[0]?.city}, {order?.shippingAddress[0]?.street}, {order?.shippingAddress[0]?.zipCode}</p>
             </div>
             </div>
         </div>
@@ -63,7 +80,7 @@ function View() {
           </thead>
           <tbody>
               <tr>
-                <td>Product 1</td>
+                <td>{order?.products[0]?.productID?.name}</td>
                 <td>1</td>
                 <td>$9</td>
                 <td>$9</td>

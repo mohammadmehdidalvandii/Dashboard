@@ -22,7 +22,7 @@ const routes = [
     {path:"/AddProduct" , element:<AddProduct/>},
     {path:"/EditProduct/:id" , element:<EditProduct/>},
     {path:"/Orders" , element:<Orders/>},
-    {path:"/OrdersView" , element:<OrderView/>},
+    {path:"/OrdersView/:id" , element:<OrderView/>},
     {path:"/Customers" , element:<Customers/>},
     {path:"/AddCustomer" , element:<AddCustomer/>},
     {path:"/CustomerDetails/:id" , element:<CustomerDetails/>},

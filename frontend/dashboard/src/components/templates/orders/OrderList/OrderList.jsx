@@ -3,13 +3,24 @@ import {IoSettings} from 'react-icons/io5'
 import './OrderList.css';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { apiRequest } from '../../../../services/axios/config';
 
 
 function OrderList() {
     const { t } = useTranslation();
-
     const [processModel , setProcessModel] = useState(false);
+    const [orders , setOrders] = useState();
+    useEffect(()=>{
+        const fetchData = async ()=>{
+            const res = await apiRequest.get('/orders');
+            if(res.status === 200){
+                setOrders(res.data.data);
+            }
+        };
+        fetchData();
+    },[])
+
 
     const showModelProcess = ()=>{
         setProcessModel(true);
@@ -23,10 +34,10 @@ function OrderList() {
     <section className="orderList box">
             <div className="orderList_management">
                 <h2 className="title_header">{t("Recent Orders")}</h2>
-                <div className="orderList_search">
+                {/* <div className="orderList_search">
                     <input type="text" className="form_input"  placeholder={t("Search Orders...")}/>
                     <button className='btn'><FaSearch/></button>
-                </div>
+                </div> */}
             </div>
             <div>
             <table>
@@ -41,28 +52,36 @@ function OrderList() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>#12345</td>
-                            <td>John Doe</td>
-                            <td>Product A, Product B</td>
-                            <td>$999.99</td>
-                            <td><span className="status-badge status-pending ">Processing</span></td>
-                            <td>
-                                <div className="btn_action">
-                                <NavLink to='/OrdersView' className='link btn_save'>
-                                    <FaEye/>
-                                </NavLink>
-                                <button className='btn_setting'
-                                onClick={showModelProcess}
-                                >
-                                    <IoSettings/>
-                                </button>
-                                <button className='btn_delete'>
-                                    <FaTimes/>
-                                </button>
-                                </div>
-                            </td>
-                        </tr>
+                        {orders?.length >0 ? (
+                            orders.map((order)=>(
+                                <tr key={order._id}>
+                                <td>#{order._id}</td>
+                                <td>{order.customerID.firstName}-{order.customerID.lastName}</td>
+                                <td>{order.products[0].productID.name}</td>
+                                <td>$999.99</td>
+                                <td><span className="status-badge status-pending ">{order.status}</span></td>
+                                <td>
+                                    <div className="btn_action">
+                                    <NavLink to={`/OrdersView/${order._id}`} className='link btn_save'>
+                                        <FaEye/>
+                                    </NavLink>
+                                    <button className='btn_setting'
+                                    onClick={showModelProcess}
+                                    >
+                                        <IoSettings/>
+                                    </button>
+                                    <button className='btn_delete'>
+                                        <FaTimes/>
+                                    </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            ))
+
+                        ) :(
+                                    <span className='error_table'>The product is not available</span>
+                        )}
+                     
                     </tbody>
                 </table>
                 {processModel &&(
