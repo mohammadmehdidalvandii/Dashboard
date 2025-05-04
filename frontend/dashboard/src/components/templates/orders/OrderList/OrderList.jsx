@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { apiRequest } from '../../../../services/axios/config';
+import showAlert from '../../../../utils/showAlert';
 
 
 function OrderList() {
@@ -21,7 +22,14 @@ function OrderList() {
         fetchData();
     },[])
 
-
+    const handlerDeleteOrder = (e)=>{
+        e.preventDefault();
+        showAlert("This feature is not enabled","warning","ok")
+    }
+    const handlerUpdateOrder = (e)=>{
+        e.preventDefault();
+        showAlert("This feature is not enabled","warning","ok")
+    }
     const showModelProcess = ()=>{
         setProcessModel(true);
     }
@@ -70,7 +78,9 @@ function OrderList() {
                                     >
                                         <IoSettings/>
                                     </button>
-                                    <button className='btn_delete'>
+                                    <button className='btn_delete'
+                                    onClick={handlerDeleteOrder}
+                                    >
                                         <FaTimes/>
                                     </button>
                                     </div>
@@ -107,7 +117,9 @@ function OrderList() {
                                 <button className="btn_cancel"
                                 onClick={removeModelProcess}
                                 >{t("Cancel")}</button>
-                                <button className="btn_save">{t("Update Order")}</button>
+                                <button className="btn_save" 
+                                onClick={handlerUpdateOrder}
+                                >{t("Update Order")}</button>
                             </div>
                         </form>
                     </div>
