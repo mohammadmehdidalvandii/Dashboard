@@ -76,7 +76,7 @@ router.post("/login", async (req , res)=>{
         .cookie("token" ,accessToken ,{
             httpOnly:true,
             secure:true,
-            sameSite:'none',
+            sameSite:true,
             maxAge: 365 * 24 * 7 * 24 * 60 * 60 * 1000,
             path:"/"
         })
