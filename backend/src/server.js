@@ -24,7 +24,7 @@ app.use(cookieParser())
 
 // Middleware Security 
 app.use(cors({
-    origin:"https://admin-dashboard.chbk.app",
+    origin:"https://admin-dashboard.chbk.dev",
     credentials:true
 }))
 app.use(helmet())
